@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatTogether", "ChatTogether\ChatTogether.csproj", "{1DA7CAB0-A304-4938-A144-6DD31FF7870B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatTogether", "ChatTogether\ChatTogether.csproj", "{1DA7CAB0-A304-4938-A144-6DD31FF7870B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F09A5DF8-0991-4B13-B06A-0D4A6AC4B4B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatTogether.Tests", "ChatTogether.Tests\ChatTogether.Tests.csproj", "{E9E746DF-D2B6-426A-BB6A-6DDE0A6DEEDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{1DA7CAB0-A304-4938-A144-6DD31FF7870B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DA7CAB0-A304-4938-A144-6DD31FF7870B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DA7CAB0-A304-4938-A144-6DD31FF7870B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9E746DF-D2B6-426A-BB6A-6DDE0A6DEEDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E746DF-D2B6-426A-BB6A-6DDE0A6DEEDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E746DF-D2B6-426A-BB6A-6DDE0A6DEEDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E746DF-D2B6-426A-BB6A-6DDE0A6DEEDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E9E746DF-D2B6-426A-BB6A-6DDE0A6DEEDA} = {F09A5DF8-0991-4B13-B06A-0D4A6AC4B4B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {52576ADD-1A81-4B96-9B21-6955FF1B39E7}
