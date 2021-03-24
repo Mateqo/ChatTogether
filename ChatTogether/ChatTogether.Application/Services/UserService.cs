@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using ChatTogether.Application.Interfaces;
-
+using ChatTogether.Domain.Interface;
 
 namespace ChatTogether.Application.Services
 {

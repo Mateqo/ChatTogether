@@ -1,4 +1,5 @@
-﻿namespace ChatTogether.Domain.Interface
+﻿
+namespace ChatTogether.Domain.Interface
 {
     public interface IUserRepository
     {

@@ -1,0 +1,12 @@
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ChatTogether.Domain.deps.json
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ChatTogether.Domain.dll
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ref\ChatTogether.Domain.dll
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ChatTogether.Domain.pdb
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.csprojAssemblyReference.cache
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.AssemblyInfoInputs.cache
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.AssemblyInfo.cs
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.csproj.CoreCompileInputs.cache
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.dll
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ref\ChatTogether.Domain.dll
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.pdb

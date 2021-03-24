@@ -1,4 +1,5 @@
-﻿namespace ChatTogether.Application.Interfaces
+﻿
+namespace ChatTogether.Application.Interfaces
 {
     public interface IUserService
     {

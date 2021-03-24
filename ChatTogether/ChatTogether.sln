@@ -3,11 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatTogether", "ChatTogether\ChatTogether.csproj", "{1DA7CAB0-A304-4938-A144-6DD31FF7870B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatTogether.Web", "ChatTogether\ChatTogether.Web.csproj", "{1DA7CAB0-A304-4938-A144-6DD31FF7870B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{F09A5DF8-0991-4B13-B06A-0D4A6AC4B4B8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatTogether.Tests", "ChatTogether.Tests\ChatTogether.Tests.csproj", "{E9E746DF-D2B6-426A-BB6A-6DDE0A6DEEDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatTogether.Application", "ChatTogether.Application\ChatTogether.Application.csproj", "{C580C7C8-8382-4ED1-97EB-66BAAC9AF684}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{E568AA19-0AB6-4DFE-9FCD-E1C112E2181D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{BCC33600-EDAA-456F-87BE-B5014A1FE951}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatTogether.Domain", "ChatTogether.Domain\ChatTogether.Domain.csproj", "{E77BDB36-A9A6-4F84-BAF9-0F16874B4A1D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{EEF2AE70-0807-441C-B09F-C819B3DEA446}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{EC2B834C-1F4F-4411-B865-F3A10ADEAC12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructur", "Infrastructur", "{E2045A62-96E2-4012-9F0D-25EA994336F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +37,28 @@ Global
 		{E9E746DF-D2B6-426A-BB6A-6DDE0A6DEEDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9E746DF-D2B6-426A-BB6A-6DDE0A6DEEDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9E746DF-D2B6-426A-BB6A-6DDE0A6DEEDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C580C7C8-8382-4ED1-97EB-66BAAC9AF684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C580C7C8-8382-4ED1-97EB-66BAAC9AF684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C580C7C8-8382-4ED1-97EB-66BAAC9AF684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C580C7C8-8382-4ED1-97EB-66BAAC9AF684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E77BDB36-A9A6-4F84-BAF9-0F16874B4A1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E77BDB36-A9A6-4F84-BAF9-0F16874B4A1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E77BDB36-A9A6-4F84-BAF9-0F16874B4A1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E77BDB36-A9A6-4F84-BAF9-0F16874B4A1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC2B834C-1F4F-4411-B865-F3A10ADEAC12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC2B834C-1F4F-4411-B865-F3A10ADEAC12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC2B834C-1F4F-4411-B865-F3A10ADEAC12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC2B834C-1F4F-4411-B865-F3A10ADEAC12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{1DA7CAB0-A304-4938-A144-6DD31FF7870B} = {BCC33600-EDAA-456F-87BE-B5014A1FE951}
 		{E9E746DF-D2B6-426A-BB6A-6DDE0A6DEEDA} = {F09A5DF8-0991-4B13-B06A-0D4A6AC4B4B8}
+		{C580C7C8-8382-4ED1-97EB-66BAAC9AF684} = {E568AA19-0AB6-4DFE-9FCD-E1C112E2181D}
+		{E77BDB36-A9A6-4F84-BAF9-0F16874B4A1D} = {EEF2AE70-0807-441C-B09F-C819B3DEA446}
+		{EC2B834C-1F4F-4411-B865-F3A10ADEAC12} = {E2045A62-96E2-4012-9F0D-25EA994336F9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {52576ADD-1A81-4B96-9B21-6955FF1B39E7}
