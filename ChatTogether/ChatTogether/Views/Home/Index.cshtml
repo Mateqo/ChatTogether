@@ -2,9 +2,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-
-
-
     <div class="header">
         <div class="header__img">
             <div class="header__shadow"></div>
@@ -13,8 +10,8 @@
             <div class="header__box-card">
                 <img src="./img/logo.png" alt="logo chatTogether" class="header__box-logo">
                 <div class="header__box-btns">
-                    <a href="login.html" class="header__box-btn header__box-login">Logowanie</a>
-                    <a href="registration.html" class="header__box-btn header__box-register">Rejestracja</a>
+                    <a href="@Url.Action("Login", "Home")" class="header__box-btn header__box-login">Logowanie</a>
+                    <a href="@Url.Action("Registration", "Home")" class="header__box-btn header__box-register">Rejestracja</a>
                 </div>
             </div>
         </div>
