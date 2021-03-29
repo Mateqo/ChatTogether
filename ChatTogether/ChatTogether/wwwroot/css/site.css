@@ -1,5 +1,4 @@
-﻿
-.wrapper {
+﻿.wrapper {
     margin: 0 auto;
     width: 100%;
     max-width: 1100px;
@@ -80,6 +79,56 @@
         transform-origin: left;
     }
 
+.form-input {
+    padding: .5em .5em;
+    margin-bottom: 2em;
+    width: 100%;
+    background: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+    .form-input:focus {
+        outline: none;
+        border: 1px solid #42b7c0;
+    }
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1.8rem;
+}
+
+.form-button {
+    padding: .7em 1em;
+    background-color: #42b7c0;
+    border: 1px solid #9f069c;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    font-weight: 550;
+    -webkit-transition: background-color .3s, color .3s, border .3s;
+    transition: background-color .3s, color .3s, border .3s;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+}
+
+    .form-button:focus {
+        outline: none;
+    }
+
+    .form-button:hover {
+        background-color: #9f069c;
+        color: #fff;
+        border: 1px solid #42b7c0;
+    }
+
+.form-link {
+    margin-top: .5em;
+    font-size: 1.4rem;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+}
+
 *, *::before, *::after {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -108,7 +157,6 @@ body {
     -ms-grid-rows: (1fr)[2];
     grid-template-rows: repeat(2, 1fr);
     height: 100vh;
-    position: relative;
     overflow: hidden;
 }
 
@@ -119,8 +167,9 @@ body {
     -ms-grid-column: 1;
     -ms-grid-column-span: 3;
     grid-column: 1/4;
-    display: -ms-grid;
-    display: grid;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -131,9 +180,6 @@ body {
 }
 
 .header__box-logo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     max-width: 95vw;
 }
 
@@ -180,14 +226,12 @@ body {
     }
 
 .header__img {
-    position: relative;
     -ms-grid-row: 1;
     -ms-grid-row-span: 1;
     grid-row: 1/2;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
     grid-column: 1/3;
-    position: relative;
     width: 100%;
     height: 100%;
     background-image: url("/img/main-sm.jpg");
@@ -197,14 +241,7 @@ body {
     filter: contrast(150%);
 }
 
-.header__shadow {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
 .login {
-    width: 100vw;
     height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -218,8 +255,9 @@ body {
 }
 
 .login__card {
-    display: -ms-grid;
-    display: grid;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -230,10 +268,11 @@ body {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    padding: 2em 0;
 }
 
 .login__card--logo {
-    max-width: 85vw;
+    max-width: 90vw;
 }
 
 .login__card--header {
@@ -249,26 +288,8 @@ body {
     display: grid;
     -ms-grid-columns: (1fr)[6];
     grid-template-columns: repeat(6, 1fr);
-}
-
-.login__form-box label {
-    display: block;
-    margin-bottom: 0.5em;
-    font-size: 2rem;
-}
-
-.login__form-box input {
-    padding: .5em 1em;
-    margin-bottom: 2em;
     width: 100%;
-    background: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-    .login__form-box input:focus {
-        outline: none;
-        border: 1px solid #42b7c0;
-    }
 
 .login__form-box:nth-child(1) {
     -ms-grid-column: 1;
@@ -307,29 +328,6 @@ body {
     flex-direction: column;
 }
 
-.login__form-btn {
-    padding: .7em 1em;
-    background-color: #42b7c0;
-    border: 1px solid #9f069c;
-    border-radius: 8px;
-    font-size: 1.6rem;
-    font-weight: 550;
-    -webkit-transition: background-color .3s, color .3s, border .3s;
-    transition: background-color .3s, color .3s, border .3s;
-    text-decoration: none;
-    color: #000;
-}
-
-    .login__form-btn:focus {
-        outline: none;
-    }
-
-    .login__form-btn:hover {
-        background-color: #9f069c;
-        color: #fff;
-        border: 1px solid #42b7c0;
-    }
-
 .login__form-link {
     margin-top: .5em;
     font-size: 1.4rem;
@@ -352,8 +350,9 @@ body {
 }
 
 .registration__card {
-    display: -ms-grid;
-    display: grid;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -372,31 +371,13 @@ body {
 }
 
 .registration__form {
+    width: 100%;
     padding: 2em 0;
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (1fr)[6];
     grid-template-columns: repeat(6, 1fr);
 }
-
-.registration__form-box label {
-    display: block;
-    margin-bottom: 0.5em;
-    font-size: 2rem;
-}
-
-.registration__form-box input {
-    padding: .5em 0;
-    margin-bottom: 2em;
-    width: 100%;
-    background: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-    .registration__form-box input:focus {
-        outline: none;
-        border: 1px solid #42b7c0;
-    }
 
 .registration__form-box:nth-child(1) {
     -ms-grid-column: 1;
@@ -479,36 +460,6 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
     margin-top: 2em;
-}
-
-.registration__form-btn {
-    padding: .7em 1em;
-    background-color: #42b7c0;
-    border: 1px solid #9f069c;
-    border-radius: 8px;
-    font-size: 1.6rem;
-    font-weight: 550;
-    -webkit-transition: background-color .3s, color .3s, border .3s;
-    transition: background-color .3s, color .3s, border .3s;
-    text-decoration: none;
-    color: #000;
-}
-
-    .registration__form-btn:focus {
-        outline: none;
-    }
-
-    .registration__form-btn:hover {
-        background-color: #9f069c;
-        color: #fff;
-        border: 1px solid #42b7c0;
-    }
-
-.registration__form-link {
-    margin-top: .5em;
-    font-size: 1.4rem;
-    -ms-flex-item-align: end;
-    align-self: flex-end;
 }
 
 @media (min-width: 772px) {
