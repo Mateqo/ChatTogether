@@ -1,15 +1,18 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ChatTogether.Domain.Model;
 
 namespace ChatTogether.Infrastructure
 {
     public class Context : IdentityDbContext
     {
-        //Tutaj definiujemy tabele
-
-        //Przykład
-        //public DbSet<User> Users { get; set; }
-
+  
+        public DbSet<User> AppUsers { get; set; }
+        public DbSet<UserRole> AppUserRoles { get; set; }
+        public DbSet<Role> AppRoles { get; set; }
+        public DbSet<Acquaintance> Acquaintances { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Confirmation> Confirmations { get; set; }
 
         public Context(DbContextOptions options) : base(options)
         {

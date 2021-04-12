@@ -1357,3 +1357,7 @@ D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\De
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\ref\ChatTogether.Web.dll
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\ChatTogether.Web.pdb
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\ChatTogether.Web.genruntimeconfig.cache
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Forgotpassword.cshtml.g.cs
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Registration.cshtml.g.cs
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Remindpassword.cshtml.g.cs
