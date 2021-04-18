@@ -13,7 +13,7 @@ namespace ChatTogether.Domain.Model
         public int ReceiverId { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime ReceivementDate { get; set; }
-        public String Content { get; set; }
+        public string Content { get; set; }
 
         public virtual User User { get; set; }
     }
