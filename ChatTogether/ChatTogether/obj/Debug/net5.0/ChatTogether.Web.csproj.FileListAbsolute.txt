@@ -1361,3 +1361,10 @@ C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net
 C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Login.cshtml.g.cs
 C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Registration.cshtml.g.cs
 C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Remindpassword.cshtml.g.cs
+D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Remindpassword.cshtml.g.cs
+D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\bin\Debug\net5.0\FluentAssertions.dll
+D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Login.cshtml.g.cs
+D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\Register.cshtml.g.cs
+D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Areas\Identity\Pages\Account\_ViewImports.cshtml.g.cs
+D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
+D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs

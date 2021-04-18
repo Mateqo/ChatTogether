@@ -1,4 +1,6 @@
 ﻿using ChatTogether.Domain.Interface;
+using ChatTogether.Domain.Model;
+using System.Linq;
 
 namespace ChatTogether.Infrastructure.Repositories
 {
@@ -15,5 +17,19 @@ namespace ChatTogether.Infrastructure.Repositories
 
         //Przykład
         //IQueryable<User> GetAllUsers();
+
+        public int AddUser(User newUser)
+        {
+            _context.AppUsers.Add(newUser);
+            _context.SaveChanges();
+
+            return newUser.Id;
+        }
+
+        public User GetUser(string nickName)
+        {           
+            return _context.AppUsers.FirstOrDefault(x => x.Nickname == nickName);
+        }
+
     }
 }

@@ -26,7 +26,6 @@ D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ChatTogether.Domain.dll
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ref\ChatTogether.Domain.dll
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ChatTogether.Domain.pdb
-D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.csprojAssemblyReference.cache
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.GeneratedMSBuildEditorConfig.editorconfig
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.AssemblyInfoInputs.cache
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.AssemblyInfo.cs
@@ -34,3 +33,4 @@ D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.dll
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ref\ChatTogether.Domain.dll
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.pdb
+D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.csprojAssemblyReference.cache

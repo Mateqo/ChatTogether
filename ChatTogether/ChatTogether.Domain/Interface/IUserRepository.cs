@@ -1,4 +1,6 @@
 ﻿
+using ChatTogether.Domain.Model;
+
 namespace ChatTogether.Domain.Interface
 {
     public interface IUserRepository
@@ -7,5 +9,7 @@ namespace ChatTogether.Domain.Interface
 
         //Przykład
         //IQueryable<User> GetAllUsers();
+        int AddUser(User newUser);
+        User GetUser(string nickName);
     }
 }

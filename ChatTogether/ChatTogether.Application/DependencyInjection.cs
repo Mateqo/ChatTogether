@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using ChatTogether.Application.Interfaces;
+using ChatTogether.Application.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace ChatTogether.Application
@@ -11,7 +13,7 @@ namespace ChatTogether.Application
 
             //Przykład:
             //services.AddTransient<IUserService, UserService>();
-
+            services.AddTransient<IUserService, UserService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             return services;

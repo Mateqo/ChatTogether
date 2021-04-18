@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using ChatTogether.Application.Interfaces;
+using ChatTogether.Application.ViewModels.User;
 using ChatTogether.Domain.Interface;
+using ChatTogether.Domain.Model;
+using System;
 
 namespace ChatTogether.Application.Services
 {
@@ -25,5 +28,27 @@ namespace ChatTogether.Application.Services
 
         //    return id;
         //}
+
+        public int AddUser(UserRegister newUser)
+        {
+            var user = _mapper.Map<User>(newUser);
+            user.CreationDate = DateTime.Now;
+            user.Active = true;
+            var id = _userRepo.AddUser(user);
+
+            return id;
+        }
+
+        public bool IsSucceslogin(string nickName, string password)
+        {
+            var user = _userRepo.GetUser(nickName);
+            //sprawdzenie hasła
+            return true;
+        }
+
+        public int GetUserId(string nickName)
+        {
+            return _userRepo.GetUser(nickName).Id; 
+        }
     }
 }

@@ -1,48 +1,58 @@
-﻿<div class="registration">
+﻿@model ChatTogether.Application.ViewModels.User.UserRegister;
+
+<div class="registration">
     <div class="registration__card">
         <img src="/img/logo.png" alt="logo" class="registration__card--logo">
         <h1 class="section-heading registration__card-header">Zarejestruj się</h1>
-        <form class="registration__form">
+        <form asp-action="Registration" method="post" class="registration__form">
 
             <div class="registration__form-box">
                 <label for="name" class="form-label">Nazwa użytkownika:  </label>
-                <input type="text" id="name" class="form-input">
+                <input asp-for="Nickname" type="text" id="name" class="form-input"> @*podpiecie*@
+                <span asp-validation-for="Nickname" class="text-danger"></span> @*walidacja*@
             </div>
-
+            @*<p>@Model.Nick</p>*@
+            @*@{
+                foreach (var item in Model.Messages)
+                {
+                    if()
+                    <div class="messageL">item</div>
+                    <div class="messageR">item</div>
+                }
+            }*@
             <div class="registration__form-box">
                 <label for="password" class="form-label">Hasło:  </label>
-                <input type="password" id="password" class="form-input">
+                <input asp-for="Password" type="password" id="password" class="form-input">
             </div>
-
             <div class="registration__form-box">
                 <label for="password" class="form-label">Powtórz hasło:  </label>
-                <input type="password" id="password" class="form-input">
+                <input asp-for="ConfirmPassword" type="password" id="password" class="form-input">
             </div>
 
             <div class="registration__form-box">
                 <label for="email" class="form-label">Email:   </label>
-                <input type="email" id="email" class="form-input">
+                <input asp-for="EmailAddress" type="email" id="email" class="form-input">
             </div>
 
             <div class="registration__form-box">
                 <label for="email" class="form-label">Powtórz email:   </label>
-                <input type="email" id="email" class="form-input">
+                <input asp-for="ConfirmEmailAddress" type="email" id="email" class="form-input">
             </div>
 
             <div class="registration__form-box">
                 <label for="date" class="form-label">Data urodzenia:   </label>
-                <input type="date" id="date" class="form-input">
+                <input asp-for="DateOfBirth" type="date" id="date" class="form-input">
             </div>
 
 
             <div class="registration__form-checkboxes">
                 <p>Wyrażam zgodę na:</p>
                 <div>
-                    <input type="checkbox" id="regulamin" name="regulamin">
+                    <input asp-for="Policy" type="checkbox" id="regulamin">
                     <label for="regulamin">Regulamin</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="horns" name="RODO">
+                    <input asp-for="Rodo" type="checkbox" id="horns">
                     <label for="horns">RODO</label>
                 </div>
             </div>

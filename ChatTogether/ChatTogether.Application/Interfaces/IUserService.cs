@@ -1,4 +1,6 @@
 ﻿
+using ChatTogether.Application.ViewModels.User;
+
 namespace ChatTogether.Application.Interfaces
 {
     public interface IUserService
@@ -7,6 +9,9 @@ namespace ChatTogether.Application.Interfaces
 
         //Przykład
         //int AddUser(NewOrEditUserVm userVM);
+        int AddUser(UserRegister newUser);
+        bool IsSucceslogin(string nickName, string password);
+        int GetUserId(string nickName);
 
     }
 }
