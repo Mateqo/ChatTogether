@@ -9,7 +9,7 @@ namespace ChatTogether.Domain.Model
     public class Role
     {
         public int Id { get; set; }
-        public String Name { get; set; }
+        public string Name { get; set; }
 
         public ICollection<UserRole> AppUserRoles { get; set; }
     }

@@ -9,10 +9,11 @@ namespace ChatTogether.Domain.Model
     public class User
     {
         public int Id { get; set; }
-        public String Nickname { get; set; }
-        public String Name { get; set; }
-        public String Surname { get; set; }
-        public String EmailAddress { get; set; }
+        public string Nickname { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string EmailAddress { get; set; }
+        public string EncryptedPassword { get; set; }
         public DateTime CreationDate { get; set; }
         public bool Active { get; set; }
 
