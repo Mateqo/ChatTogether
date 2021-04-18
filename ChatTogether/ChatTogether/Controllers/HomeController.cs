@@ -34,7 +34,7 @@ namespace ChatTogether.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Login(UserLogin user)
         {
-            var isSucces = _userService.IsSucceslogin(user.NickName, user.Password);
+            var isSucces = _userService.IsSucceslogin(user.NickName, user.EncryptedPassword);
 
             if(isSucces)
             {

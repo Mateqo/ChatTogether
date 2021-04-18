@@ -42,13 +42,15 @@ namespace ChatTogether.Application.Services
         public bool IsSucceslogin(string nickName, string password)
         {
             var user = _userRepo.GetUser(nickName);
-            //sprawdzenie hasła
-            return true;
+            if (password == user.EncryptedPassword)
+                return true;
+            else
+                return false;
         }
 
         public int GetUserId(string nickName)
         {
-            return _userRepo.GetUser(nickName).Id; 
+            return _userRepo.GetUser(nickName).Id;
         }
     }
 }

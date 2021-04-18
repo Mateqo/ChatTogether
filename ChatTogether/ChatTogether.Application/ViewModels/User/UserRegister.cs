@@ -10,7 +10,7 @@ namespace ChatTogether.Application.ViewModels.User
         public string Nickname { get; set; }
         public string EmailAddress { get; set; }
         public string ConfirmEmailAddress { get; set; }
-        public string Password { get; set; }
+        public string EncryptedPassword { get; set; }
         public string ConfirmPassword { get; set; }
         public DateTime DateOfBirth { get; set; }
         public bool Policy { get; set; }
