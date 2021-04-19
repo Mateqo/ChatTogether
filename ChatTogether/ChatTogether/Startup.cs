@@ -1,7 +1,10 @@
 using ChatTogether.Application;
+using ChatTogether.Application.ViewModels.User;
 using ChatTogether.Data;
 using ChatTogether.Infrastructure;
 using FluentAssertions.Common;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -39,7 +42,7 @@ namespace ChatTogether
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<Context>();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddFluentValidation(fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false); 
             services.AddRazorPages();
 
             services.AddSession(options =>
@@ -52,6 +55,10 @@ namespace ChatTogether
             //DependencyInjection services
             services.AddAplication();
             services.AddInfrastructure();
+
+            //Fluent Validation
+            services.AddTransient<IValidator<UserLogin>, UserLoginValidator>();
+            services.AddTransient<IValidator<UserRegister>, UserRegisterValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
