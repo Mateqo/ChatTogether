@@ -32,7 +32,7 @@ namespace ChatTogether
         {
             services.AddDbContext<Context>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DefaultConnection"), b=>b.MigrationsAssembly("ChatTogether.Web")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDistributedMemoryCache();

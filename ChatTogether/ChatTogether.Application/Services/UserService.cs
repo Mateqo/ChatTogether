@@ -31,9 +31,17 @@ namespace ChatTogether.Application.Services
 
         public int AddUser(UserRegister newUser)
         {
-            var user = _mapper.Map<User>(newUser);
-            user.CreationDate = DateTime.Now;
-            user.Active = true;
+            User user = new User
+            {
+                Nickname = newUser.Nickname,
+                Name = newUser.Name,
+                Surname = newUser.Surname,
+                EmailAddress = newUser.EmailAddress,
+                EncryptedPassword = newUser.EncryptedPassword,
+                CreationDate = DateTime.Now,
+                Active = true,
+            };
+            //var user = _mapper.Map<User>(newUser); do ogarnięcia mapper później
             var id = _userRepo.AddUser(user);
 
             return id;
@@ -42,7 +50,7 @@ namespace ChatTogether.Application.Services
         public bool IsSucceslogin(string nickName, string password)
         {
             var user = _userRepo.GetUser(nickName);
-            if (password == user.EncryptedPassword)
+            if (user != null && password == user.EncryptedPassword)
                 return true;
             else
                 return false;

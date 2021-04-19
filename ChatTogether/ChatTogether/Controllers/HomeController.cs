@@ -1,13 +1,16 @@
 ﻿using ChatTogether.Application.Interfaces;
 using ChatTogether.Application.ViewModels.User;
+using ChatTogether.Application.ViewModels.Base;
+using ChatTogether.Web.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 using Newtonsoft.Json;
 
 namespace ChatTogether.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IUserService _userService;
@@ -23,7 +26,7 @@ namespace ChatTogether.Controllers
             return View();
         }
 
-        [HttpGet("user/login")]
+        [HttpGet]
         public IActionResult Login()
         {
             UserLogin user = new UserLogin();
@@ -38,14 +41,21 @@ namespace ChatTogether.Controllers
 
             if(isSucces)
             {
+                SetMessage("Zalogowano", Application.ViewModels.Base.MessageType.Success);
                 HttpContext.Session.SetString("UserId", _userService.GetUserId(user.NickName).ToString());              
-                HttpContext.Session.SetString("NickName", user.NickName);              
+                HttpContext.Session.SetString("NickName", user.NickName);
+                return View("Index");
+            }
+            else
+            {
+                SetMessage("Błędne dane", Application.ViewModels.Base.MessageType.Error);
+                return View(user);
             }
             
-            return View("Index");
+            
         }
 
-        [HttpGet("user/register")]
+        [HttpGet]
         public IActionResult Registration()
         {
             UserRegister newUser = new UserRegister();
@@ -59,10 +69,12 @@ namespace ChatTogether.Controllers
             if(ModelState.IsValid)
             {
                 _userService.AddUser(newUser);
+                SetMessage("Dodano użytkownika", Application.ViewModels.Base.MessageType.Success);
                 return RedirectToAction("Index");
             }
             else
             {
+                SetMessage("Uzupełnij wymagane pola", Application.ViewModels.Base.MessageType.Error);
                 return View(newUser);
             }          
         }

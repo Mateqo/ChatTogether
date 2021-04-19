@@ -1,15 +1,17 @@
-﻿<div class="login">
+﻿@model ChatTogether.Application.ViewModels.User.UserLogin;
+<partial name="_AlertPanel" />
+<div class="login">
     <div class="login__card">
         <img src="/img/logo.png" alt="logo" class="login__card--logo">
         <h1 class="login__card--header section-heading">Zaloguj się</h1>
-        <form class="login__form">
+        <form asp-action="Login" asp-controller="Home" method="post" class="login__form">
             <div class="login__form-box">
                 <label for="name" class="form-label">Nazwa użytkownika:  </label>
-                <input type="text" id="name" class="form-input">
+                <input asp-for="NickName" type="text" id="name" class="form-input">
             </div>
             <div class="login__form-box">
                 <label for="password" class="form-label">Hasło:  </label>
-                <input type="password" id="password" class="form-input">
+                <input asp-for="EncryptedPassword" type="password" id="password" class="form-input">
             </div>
             <div class="login__form-buttons">
                 <button type="submit" class="form-button">Zaloguj</button>

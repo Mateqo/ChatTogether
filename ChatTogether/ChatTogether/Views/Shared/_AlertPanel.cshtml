@@ -1,0 +1,25 @@
+﻿@{
+    string GetCss(ChatTogether.Application.ViewModels.Base.MessageType type)
+    {
+        switch (type)
+        {
+            case ChatTogether.Application.ViewModels.Base.MessageType.Success:
+                return "alert-success";
+            case ChatTogether.Application.ViewModels.Base.MessageType.Info:
+                return "alert-info";
+            case ChatTogether.Application.ViewModels.Base.MessageType.Warning:
+                return "alert-warning";
+            case ChatTogether.Application.ViewModels.Base.MessageType.Error:
+                return "alert-danger";
+            default:
+                return String.Empty;
+        };
+    }
+}
+
+@if (TempData["SM"] != null)
+{
+    <div class="alert @GetCss((ChatTogether.Application.ViewModels.Base.MessageType)TempData["SMT"])">
+        @TempData["SM"]
+    </div>
+}
