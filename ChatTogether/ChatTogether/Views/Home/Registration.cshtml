@@ -1,5 +1,5 @@
 ﻿@model ChatTogether.Application.ViewModels.User.UserRegister;
-    <partial name="_AlertPanel" />
+<partial name="_AlertPanel" />
 <div class="registration">
     <div class="registration__card">
         <img src="/img/logo.png" alt="logo" class="registration__card--logo">
@@ -13,23 +13,25 @@
             </div>
             <!--<div class="registration__form-box">
                 <label for="name" class="form-label">Imię:  </label>
-                <input asp-for="Name" type="text" id="name" class="form-input">--> @*podpiecie*@
-                <!--<span asp-validation-for="Name" class="text-danger"></span>--> @*walidacja*@
+                <input asp-for="Name" type="text" id="name" class="form-input">-->
+            @*podpiecie*@
+            <!--<span asp-validation-for="Name" class="text-danger"></span>--> @*walidacja*@
             <!--</div>
             <div class="registration__form-box">
                 <label for="name" class="form-label">Imię:  </label>
-                <input asp-for="Surname" type="text" id="name" class="form-input">--> @*podpiecie*@
-                <!--<span asp-validation-for="Name" class="text-danger"></span>--> @*walidacja*@
+                <input asp-for="Surname" type="text" id="name" class="form-input">-->
+            @*podpiecie*@
+            <!--<span asp-validation-for="Name" class="text-danger"></span>--> @*walidacja*@
             <!--</div>-->
             @*<p>@Model.Nick</p>*@
             @*@{
-            foreach (var item in Model.Messages)
-            {
-                if()
-                <div class="messageL">item</div>
-                <div class="messageR">item</div>
-            }
-        }*@
+                    foreach (var item in Model.Messages)
+                    {
+                        if()
+                        <div class="messageL">item</div>
+                        <div class="messageR">item</div>
+                    }
+                }*@
             <div class="registration__form-box">
                 <label for="password" class="form-label">Hasło:  </label>
                 <input asp-for="EncryptedPassword" type="password" id="password" class="form-input">

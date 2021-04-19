@@ -1369,3 +1369,4 @@ D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\De
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Shared\_AlertPanel.cshtml.g.cs
+D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Main.cshtml.g.cs
