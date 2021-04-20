@@ -8,10 +8,12 @@
             <div class="login__form-box">
                 <label for="name" class="form-label">Nazwa użytkownika:  </label>
                 <input asp-for="NickName" type="text" id="name" class="form-input">
+                <span asp-validation-for="NickName" class="text-danger"></span> @*walidacja*@
             </div>
             <div class="login__form-box">
                 <label for="password" class="form-label">Hasło:  </label>
                 <input asp-for="EncryptedPassword" type="password" id="password" class="form-input">
+                <span asp-validation-for="EncryptedPassword" class="text-danger"></span> @*walidacja*@
             </div>
             <div class="login__form-buttons">
                 <button type="submit" class="form-button">Zaloguj</button>
