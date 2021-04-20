@@ -33,3 +33,15 @@ D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.dll
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ref\ChatTogether.Domain.dll
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.pdb
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ChatTogether.Domain.deps.json
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ChatTogether.Domain.dll
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ref\ChatTogether.Domain.dll
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ChatTogether.Domain.pdb
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.csprojAssemblyReference.cache
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.AssemblyInfoInputs.cache
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.AssemblyInfo.cs
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.csproj.CoreCompileInputs.cache
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.dll
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ref\ChatTogether.Domain.dll
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.pdb
