@@ -11,49 +11,40 @@
                 <input asp-for="Nickname" type="text" id="nickname" class="form-input"> @*podpiecie*@
                 <span asp-validation-for="Nickname" class="text-danger"></span> @*walidacja*@
             </div>
-            <!--<div class="registration__form-box">
-                <label for="name" class="form-label">Imię:  </label>
-                <input asp-for="Name" type="text" id="name" class="form-input">-->
-            @*podpiecie*@
-            <!--<span asp-validation-for="Name" class="text-danger"></span>--> @*walidacja*@
-            <!--</div>
             <div class="registration__form-box">
                 <label for="name" class="form-label">Imię:  </label>
-                <input asp-for="Surname" type="text" id="name" class="form-input">-->
-            @*podpiecie*@
-            <!--<span asp-validation-for="Name" class="text-danger"></span>--> @*walidacja*@
-            <!--</div>-->
-            @*<p>@Model.Nick</p>*@
-            @*@{
-                    foreach (var item in Model.Messages)
-                    {
-                        if()
-                        <div class="messageL">item</div>
-                        <div class="messageR">item</div>
-                    }
-                }*@
+                <input asp-for="Name" type="text" id="name" class="form-input">@*podpiecie*@
+                <span asp-validation-for="Name" class="text-danger"></span> @*walidacja*@
+            </div>
+            <div class="registration__form-box">
+                <label for="surname" class="form-label">Nazwisko:  </label>
+                <input asp-for="Surname" type="text" id="surname" class="form-input">  @*podpiecie*@
+                <span asp-validation-for="Surname" class="text-danger"></span> @*walidacja*@
+            </div>
             <div class="registration__form-box">
                 <label for="password" class="form-label">Hasło:  </label>
                 <input asp-for="EncryptedPassword" type="password" id="password" class="form-input">
+                <span asp-validation-for="EncryptedPassword" class="text-danger"></span> @*walidacja*@
             </div>
             <div class="registration__form-box">
                 <label for="password" class="form-label">Powtórz hasło:  </label>
                 <input asp-for="ConfirmPassword" type="password" id="password" class="form-input">
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span> @*walidacja*@
             </div>
-
             <div class="registration__form-box">
                 <label for="email" class="form-label">Email:   </label>
                 <input asp-for="EmailAddress" type="email" id="email" class="form-input">
+                <span asp-validation-for="EmailAddress" class="text-danger"></span> @*walidacja*@
             </div>
-
             <div class="registration__form-box">
                 <label for="email" class="form-label">Powtórz email:   </label>
                 <input asp-for="ConfirmEmailAddress" type="email" id="email" class="form-input">
+                <span asp-validation-for="ConfirmEmailAddress" class="text-danger"></span> @*walidacja*@
             </div>
-
             <div class="registration__form-box">
                 <label for="date" class="form-label">Data urodzenia:   </label>
                 <input asp-for="DateOfBirth" type="date" id="date" class="form-input">
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span> @*walidacja*@
             </div>
 
 
@@ -62,10 +53,12 @@
                 <div>
                     <input asp-for="Policy" type="checkbox" id="regulamin">
                     <label for="regulamin">Regulamin</label>
+                    <span asp-validation-for="Policy" class="text-danger"></span> @*walidacja*@
                 </div>
                 <div>
                     <input asp-for="Rodo" type="checkbox" id="horns">
                     <label for="horns">RODO</label>
+                    <span asp-validation-for="Rodo" class="text-danger"></span> @*walidacja*@
                 </div>
             </div>
 
