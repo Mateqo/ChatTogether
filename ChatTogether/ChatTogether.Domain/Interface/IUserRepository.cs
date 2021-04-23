@@ -1,5 +1,6 @@
 ﻿
 using ChatTogether.Domain.Model;
+using System.Collections.Generic;
 
 namespace ChatTogether.Domain.Interface
 {
@@ -11,5 +12,6 @@ namespace ChatTogether.Domain.Interface
         //IQueryable<User> GetAllUsers();
         int AddUser(User newUser);
         User GetUser(string nickName);
+        IEnumerable<User> GetUsers(string input);
     }
 }

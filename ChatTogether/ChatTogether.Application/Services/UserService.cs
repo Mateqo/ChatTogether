@@ -4,6 +4,7 @@ using ChatTogether.Application.ViewModels.User;
 using ChatTogether.Domain.Interface;
 using ChatTogether.Domain.Model;
 using System;
+using System.Collections.Generic;
 
 namespace ChatTogether.Application.Services
 {
@@ -60,5 +61,29 @@ namespace ChatTogether.Application.Services
         {
             return _userRepo.GetUser(nickName).Id;
         }
+
+        public User GetUserByNickName(string nickName)
+        {
+            return _userRepo.GetUser(nickName);
+        }
+
+        public List<UserGetItem> GetUsers(string input)
+        {
+            List<UserGetItem> userListVM = new List<UserGetItem>();
+            var userList = _userRepo.GetUsers(input);
+
+            foreach (var item in userList)
+            {
+                userListVM.Add(new UserGetItem { 
+                    Id = item.Id,
+                    Name = item.Name,
+                    Surname = item.Surname,
+                    NickName = item.Nickname
+                });
+            }
+
+            return userListVM;
+        }
+
     }
 }

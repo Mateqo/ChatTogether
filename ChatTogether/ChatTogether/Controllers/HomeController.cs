@@ -1,12 +1,9 @@
 ﻿using ChatTogether.Application.Interfaces;
 using ChatTogether.Application.ViewModels.User;
-using ChatTogether.Application.ViewModels.Base;
 using ChatTogether.Web.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
-using Newtonsoft.Json;
 
 namespace ChatTogether.Controllers
 {
@@ -41,10 +38,13 @@ namespace ChatTogether.Controllers
 
             if(isSucces)
             {
-                SetMessage("Zalogowano", Application.ViewModels.Base.MessageType.Success);
-                HttpContext.Session.SetString("UserId", _userService.GetUserId(user.NickName).ToString());              
+                var userInfo = _userService.GetUserByNickName(user.NickName);
+                var fullName = userInfo.Name + " " +  userInfo.Surname;
+
+                HttpContext.Session.SetString("UserId", userInfo.Id.ToString()); 
+                HttpContext.Session.SetString("FullName", fullName);
                 HttpContext.Session.SetString("NickName", user.NickName);
-                return View("Index");
+                return View("Main");
             }
             else
             {
@@ -77,6 +77,20 @@ namespace ChatTogether.Controllers
                 SetMessage("Uzupełnij wymagane pola", Application.ViewModels.Base.MessageType.Error);
                 return View(newUser);
             }          
+        }
+
+        [HttpGet]
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Clear();
+            SetMessage("Wylogowano", Application.ViewModels.Base.MessageType.Success);
+            return View("Index");
+        }
+
+        [HttpGet]
+        public IActionResult FindUsers(string input)
+        {
+           return Json(_userService.GetUsers(input));
         }
 
 

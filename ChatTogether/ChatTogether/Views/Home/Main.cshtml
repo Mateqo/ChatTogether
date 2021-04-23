@@ -1,15 +1,18 @@
-﻿<!-- NAVIGATION  -->
+﻿@using Microsoft.AspNetCore.Http;
 
+<!-- NAVIGATION  -->
 <button class="burger">
     <i class="fas fa-bars"></i>
     <i class="fas fa-times  hide"></i>
 </button>
+
 <div class="nav-shadow"></div>
 <nav class="nav">
     <div class="nav__profile">
         <img src="/img/deafultphoto.jpg" alt="profile photo" class="nav__profile-img">
         <div class="nav__profile-imgcover"></div>
-        <p class="nav__profile-nickname">Bartosz Adamczyk</p>
+        <p class="nav__profile-nickname mb-0">@Context.Session.GetString("FullName")</p>
+        <p class="nav__profile-nickname">(@Context.Session.GetString("NickName"))</p>
         <button href="#" class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
     </div>
 
@@ -23,10 +26,10 @@
         </button>
     </div>
     <div class="nav__logout">
-        <button href="#" class="nav__logout-item btn-style">
+        <button class="nav__logout-item btn-style" id="logOut">
             <i class="fas fa-sign-out-alt nav__menu-item-icon"></i> Wyloguj
         </button>
-        <button href="#" class="nav__logout-item btn-style">
+        <button class="nav__logout-item btn-style">
             <i class="fas fa-cog nav__menu-item-icon"></i> Ustawienia
         </button>
     </div>
@@ -42,3 +45,13 @@
 
     </div>
 </main>
+
+<a id="logOutClick" hidden="hidden" href="@Url.Action("LogOut","Home")"></a>
+
+<script type="text/javascript">
+    var logOut = document.getElementById('logOut');
+    logOut.addEventListener('click', function () {
+        var logOut = document.getElementById('logOutClick');
+        logOut.click();
+    }, false);
+</script>
