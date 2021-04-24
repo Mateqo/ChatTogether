@@ -30,7 +30,7 @@ namespace ChatTogether.Web.Migrations
                     Name = table.Column<string>(type: "nvarchar(30)", nullable: false),
                     Surname = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     EmailAddress = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                    EncryptedPassword = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    EncryptedPassword = table.Column<string>(type: "nvarchar(64)", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Active = table.Column<bool>(type: "bit", nullable: false)
                 },
