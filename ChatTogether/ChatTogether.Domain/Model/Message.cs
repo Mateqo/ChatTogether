@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ChatTogether.Domain.Model
 {
@@ -15,6 +16,10 @@ namespace ChatTogether.Domain.Model
         public DateTime ReceivementDate { get; set; }
         public string Content { get; set; }
 
-        public virtual User User { get; set; }
+        [ForeignKey("SenderId")]
+        [InverseProperty("Messages")]
+        public virtual User Sender { get; set; }
+        [ForeignKey("ReceiverId")]
+        public virtual User Receiver { get; set; }
     }
 }

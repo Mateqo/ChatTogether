@@ -17,9 +17,9 @@ namespace ChatTogether.Domain.Model
         public DateTime CreationDate { get; set; }
         public bool Active { get; set; }
 
+        public Confirmation Confirmation { get; set; }
         public virtual ICollection<Acquaintance> Acquaintances { get; set; }
         public virtual ICollection<Message> Messages { get; set; }
-        public virtual ICollection<Confirmation> Confirmations { get; set; }
         public virtual ICollection<UserRole> AppUserRoles { get; set; }
     }
 }

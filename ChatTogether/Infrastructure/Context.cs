@@ -21,13 +21,13 @@ namespace ChatTogether.Infrastructure
 
         // Fluent API gdy będzie potrzeba definiowania relacji jeden do jednego lub wiele do wielu
         //Przykład jeden do jednego
-        //protected override void OnModelCreating(ModelBuilder builder)
-        //{
-        //    base.OnModelCreating(builder);
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
 
-        //    builder.Entity<User>()
-        //        .HasOne(a => a.UserContact).WithOne(b => b.User)
-        //        .HasForeignKey<UserContact>(e => e.UserRef);
-        //}
+            builder.Entity<User>()
+                .HasOne(a => a.Confirmation).WithOne(b => b.User)
+                .HasForeignKey<Confirmation>(e => e.UserId);
+        }
     }
 }

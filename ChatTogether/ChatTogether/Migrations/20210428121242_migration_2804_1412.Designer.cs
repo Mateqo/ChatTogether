@@ -4,14 +4,16 @@ using ChatTogether.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ChatTogether.Web.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20210428121242_migration_2804_1412")]
+    partial class migration_2804_1412
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,8 +70,7 @@ namespace ChatTogether.Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Confirmations");
                 });
@@ -397,8 +398,8 @@ namespace ChatTogether.Web.Migrations
             modelBuilder.Entity("ChatTogether.Domain.Model.Confirmation", b =>
                 {
                     b.HasOne("ChatTogether.Domain.Model.User", "User")
-                        .WithOne("Confirmation")
-                        .HasForeignKey("ChatTogether.Domain.Model.Confirmation", "UserId")
+                        .WithMany("Confirmations")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -505,7 +506,7 @@ namespace ChatTogether.Web.Migrations
 
                     b.Navigation("AppUserRoles");
 
-                    b.Navigation("Confirmation");
+                    b.Navigation("Confirmations");
 
                     b.Navigation("Messages");
                 });
