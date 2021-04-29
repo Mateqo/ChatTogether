@@ -12,6 +12,7 @@ namespace ChatTogether.Domain.Interface
         //IQueryable<User> GetAllUsers();
         int AddUser(User newUser);
         User GetUser(string nickName);
+        string GetSalt(string nickName);
         IEnumerable<User> GetUsers(string input);
     }
 }

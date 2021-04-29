@@ -14,6 +14,7 @@ namespace ChatTogether.Domain.Model
         public string Surname { get; set; }
         public string EmailAddress { get; set; }
         public string EncryptedPassword { get; set; }
+        public string Salt { get; set; }
         public DateTime CreationDate { get; set; }
         public bool Active { get; set; }
 

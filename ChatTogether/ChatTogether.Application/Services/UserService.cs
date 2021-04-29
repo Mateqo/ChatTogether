@@ -5,6 +5,8 @@ using ChatTogether.Domain.Interface;
 using ChatTogether.Domain.Model;
 using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace ChatTogether.Application.Services
 {
@@ -32,13 +34,27 @@ namespace ChatTogether.Application.Services
 
         public int AddUser(UserRegister newUser)
         {
+            SHA256 encryption = SHA256.Create();
+            StringBuilder EncPass = new StringBuilder();
+
+            var saltGuid = Guid.NewGuid().ToString();
+            var encPassBytes = encryption.ComputeHash(
+                Encoding.ASCII.GetBytes(
+                    newUser.EncryptedPassword + saltGuid));
+
+            for (int i = 0; i < encPassBytes.Length; i++)
+            {
+                EncPass.Append(encPassBytes[i].ToString("x2"));
+            }
+
             User user = new User
             {
                 Nickname = newUser.Nickname,
                 Name = newUser.Name,
                 Surname = newUser.Surname,
                 EmailAddress = newUser.EmailAddress,
-                EncryptedPassword = newUser.EncryptedPassword,
+                EncryptedPassword = EncPass.ToString(),
+                Salt = saltGuid,
                 CreationDate = DateTime.Now,
                 Active = true,
             };
@@ -50,7 +66,20 @@ namespace ChatTogether.Application.Services
 
         public bool IsSucceslogin(string nickName, string password)
         {
+            SHA256 encryption = SHA256.Create();
+            StringBuilder EncPass = new StringBuilder();
+
             var user = _userRepo.GetUser(nickName);
+            var encPassBytes = encryption.ComputeHash(
+                    Encoding.ASCII.GetBytes(
+                        password + _userRepo.GetSalt(nickName)));
+
+            for (int i = 0; i < encPassBytes.Length; i++)
+            {
+                EncPass.Append(encPassBytes[i].ToString("x2"));
+            }
+            password = EncPass.ToString();
+
             if (user != null && password == user.EncryptedPassword)
                 return true;
             else

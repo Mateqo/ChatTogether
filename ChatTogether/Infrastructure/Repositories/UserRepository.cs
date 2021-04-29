@@ -32,6 +32,11 @@ namespace ChatTogether.Infrastructure.Repositories
             return _context.AppUsers.FirstOrDefault(x => x.Nickname == nickName);
         }
 
+        public string GetSalt(string nickName)
+        {
+            return _context.AppUsers.FirstOrDefault(x => x.Nickname == nickName).Salt;
+        }
+
         public IEnumerable<User> GetUsers(string input)
         {
             return _context.AppUsers.Where(x=>x.Nickname.Contains(input));
