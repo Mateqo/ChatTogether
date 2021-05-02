@@ -1,0 +1,129 @@
+﻿<!-- NAVIGATION  -->
+
+<button class="burger">
+    <i class="fas fa-bars"></i>
+    <i class="fas fa-times  hide"></i>
+</button>
+<div class="nav-shadow"></div>
+<nav class="nav">
+    <div class="nav__profile">
+        <img src="img/deafultphoto.jpg" alt="profile photo" class="nav__profile-img">
+        <div class="nav__profile-imgcover"></div>
+        <p class="nav__profile-nickname">Bartosz Adamczyk</p>
+        <button href="#" class="nav__profile-edit btn-style">
+            <i class="fas fa-user-edit nav__menu-item-icon"></i>
+            Edytuj Profil
+        </button>
+    </div>
+
+    <div class="nav__menu">
+        <button href="#" class="nav__menu-item btn-style">
+            <i class="fas fa-comment-dots nav__menu-item-icon"></i> Rozmowy
+        </button>
+
+        <button href="#" class="nav__menu-item btn-style">
+            <i class="fas fa-users nav__menu-item-icon"></i> Znajomi
+        </button>
+    </div>
+    <div class="nav__logout">
+        <button href="#" class="nav__logout-item btn-style">
+            <i class="fas fa-sign-out-alt nav__menu-item-icon"></i> Wyloguj
+        </button>
+        <button href="#" class="nav__logout-item btn-style">
+            <i class="fas fa-cog nav__menu-item-icon"></i> Ustawienia
+        </button>
+    </div>
+</nav>
+
+<!-- <div class="newfriends">
+    <ul class="newfriends__ul">
+        <h2 class="newfriends__ul-text">Lista znajomych: </h2>
+
+        <li class="newfriends__ul-li"> -->
+<!-- <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
+                <div class="profile-functions">
+                    <p class="friends-name">Bartosz Adamczyk</p>
+                    <div class="friends-buttons">
+                        <button class="btn-style friends-button"><i class="fas fa-user-plus"></i></button>
+                        <button class="btn-style friends-button"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+        </li>
+    </ul>
+</div> -->
+<div class="friends__header">
+    <h1 class="section-heading">znajomi</h1>
+    <div class="friends__header-tools">
+        <button class="friends__header-tools-addfriend btn-style" data-bs-toggle="modal" data-bs-target="#exampleModal">Dodaj znajomego</button>
+        <input type="text" placeholder="Szukaj znajomego..." class="friends__header-tools-findfriend">
+    </div>
+</div>
+
+<div class="newfriends">
+    <ul class="newfriends__ul">
+        <h2 class="newfriendsUlText"> nowi znajomi: </h2>
+
+        <!-- <li class="newfriends__ul-li">
+                <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
+                <div class="profile-functions">
+                    <p class="friends-name">Bartosz Adamczyk</p>
+                    <div class="friends-buttons">
+                        <button class="btn-style friends-button"><i class="fas fa-user-plus"></i></button>
+                        <button class="btn-style friends-button"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+        </li> -->
+    </ul>
+</div>
+
+<main class="friends">
+    <ul class="friends__ul">
+        <h2 class="friends__ul-text">Lista znajomych: </h2>
+        <p class="nofriends">Twoja lista znajomych jest pusta. </p>
+        <!-- <li class="friends__ul-li">
+                <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
+                <div class="profile-functions">
+                    <p class="friends-name">Bartosz Adamczyk</p>
+                    <div class="friends-buttons">
+                        <button class="btn-style friends-button"><i class="fas fa-comment"></i></button>
+                        <button class="btn-style friends-button"><i class="fas fa-users-slash"></i></button>
+                    </div>
+                </div>
+        </li> -->
+    </ul>
+</main>
+
+
+
+<!-- ADD FRIEND MODAL -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">dodaj znajomego</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-input">
+                <input type="text" placeholder="Szukaj znajomego..." class="friends__header-tools-findfriend">
+            </div>
+            <div class="modal-body">
+                <ul class="addfriends__ul">
+                    <h2 class="addfriends__ul-text">Lista: </h2>
+                    <!-- <p class="addfriends__ul-alertinfo">Nie ma takiego użytkownika. </p> -->
+                    <li class="friends__ul-li">
+                        <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
+                        <div class="profile-functions">
+                            <p class="addfriends-name">Bartosz Adamczyk</p>
+                            <div class="friends-buttons">
+                                <button class="btn-style addfriends-button"><i class="fas fa-user-plus"></i></button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-style addfriends-button" data-bs-dismiss="modal">zamknij</button>
+            </div>
+        </div>
+    </div>
+</div>
