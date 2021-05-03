@@ -70,18 +70,24 @@ namespace ChatTogether.Application.Services
             StringBuilder EncPass = new StringBuilder();
 
             var user = _userRepo.GetUser(nickName);
-            var encPassBytes = encryption.ComputeHash(
+
+            if (user != null)
+            {
+                var encPassBytes = encryption.ComputeHash(
                     Encoding.ASCII.GetBytes(
                         password + _userRepo.GetSalt(nickName)));
 
-            for (int i = 0; i < encPassBytes.Length; i++)
-            {
-                EncPass.Append(encPassBytes[i].ToString("x2"));
-            }
-            password = EncPass.ToString();
+                for (int i = 0; i < encPassBytes.Length; i++)
+                {
+                    EncPass.Append(encPassBytes[i].ToString("x2"));
+                }
+                password = EncPass.ToString();
 
-            if (user != null && password == user.EncryptedPassword)
-                return true;
+                if (password == user.EncryptedPassword)
+                    return true;
+                else
+                    return false;
+            }
             else
                 return false;
         }

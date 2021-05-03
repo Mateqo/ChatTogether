@@ -1842,3 +1842,4 @@ C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net
 C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Main.cshtml.g.cs
 C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Shared\_AlertPanel.cshtml.g.cs
 C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Friends.cshtml.g.cs
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Friends.cshtml.g.cs
