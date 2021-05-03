@@ -6457,12 +6457,18 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\User\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+=======
+    "C:\\Users\\flx70\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+>>>>>>> b3293b6b65a4f3a66901e9ed69ee03db773c44e4
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "D:\\Users\\User\\Desktop\\repozytorium\\ChatTogether\\ChatTogether\\ChatTogether.Application\\ChatTogether.Application.csproj",
       "projectName": "ChatTogether.Application",
       "projectPath": "D:\\Users\\User\\Desktop\\repozytorium\\ChatTogether\\ChatTogether\\ChatTogether.Application\\ChatTogether.Application.csproj",
@@ -6474,6 +6480,20 @@
       ],
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+      "projectUniqueName": "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Application\\ChatTogether.Application.csproj",
+      "projectName": "ChatTogether.Application",
+      "projectPath": "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Application\\ChatTogether.Application.csproj",
+      "packagesPath": "C:\\Users\\flx70\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Application\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\flx70\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+>>>>>>> b3293b6b65a4f3a66901e9ed69ee03db773c44e4
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6488,8 +6508,13 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+<<<<<<< HEAD
             "D:\\Users\\User\\Desktop\\repozytorium\\ChatTogether\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj": {
               "projectPath": "D:\\Users\\User\\Desktop\\repozytorium\\ChatTogether\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj"
+=======
+            "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj": {
+              "projectPath": "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj"
+>>>>>>> b3293b6b65a4f3a66901e9ed69ee03db773c44e4
             }
           }
         }
@@ -6547,7 +6572,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+>>>>>>> b3293b6b65a4f3a66901e9ed69ee03db773c44e4
       }
     }
   }
