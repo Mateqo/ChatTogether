@@ -110,7 +110,7 @@ namespace ChatTogether.Application.Services
 
         public void RejectFriend(string userId, int friendId)
         {
-            _userRepo.AcceptFriend(Convert.ToInt32(userId), friendId);
+            _userRepo.RejectFriend(Convert.ToInt32(userId), friendId);
         }
 
         public List<UserGetItem> GetUsers(string input, string userId)
