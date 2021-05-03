@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
+using System.Linq;
 
 namespace ChatTogether.Application.Services
 {
@@ -96,19 +97,50 @@ namespace ChatTogether.Application.Services
             return _userRepo.GetUser(nickName);
         }
 
-        public List<UserGetItem> GetUsers(string input)
+        public void AcceptFriend(string userId, int friendId)
+        {
+             _userRepo.AcceptFriend(Convert.ToInt32(userId),friendId);
+        }
+
+        public void RejectFriend(string userId, int friendId)
+        {
+            _userRepo.AcceptFriend(Convert.ToInt32(userId), friendId);
+        }
+
+        public List<UserGetItem> GetUsers(string input, string userId)
         {
             List<UserGetItem> userListVM = new List<UserGetItem>();
-            var userList = _userRepo.GetUsers(input);
 
-            foreach (var item in userList)
+            if (!string.IsNullOrEmpty(input))
             {
-                userListVM.Add(new UserGetItem { 
-                    Id = item.Id,
-                    Name = item.Name,
-                    Surname = item.Surname,
-                    NickName = item.Nickname
-                });
+                var fullName = input.Split(' ');
+                var inputFirst = fullName[0].ToLower();
+                var inputSecond = fullName.Count() > 1 ? fullName[1].ToLower() : "";
+
+                var userList = _userRepo.GetUsers().Where
+                    (
+                        x => x.Id != Convert.ToInt32(userId) &&
+                        !x.Acquaintances.Any(a => a.UserId == Convert.ToInt32(userId) && a.AcquaintanceId == x.Id) &&
+                        (
+                            x.Name.ToLower().Contains(inputFirst) ||
+                            x.Name.ToLower().Contains(inputSecond)
+                        ) &&
+                        (
+                            x.Surname.ToLower().Contains(inputFirst) ||
+                            x.Surname.ToLower().Contains(inputSecond)
+                        )
+                    ).Take(5);
+
+                foreach (var item in userList)
+                {
+                    userListVM.Add(new UserGetItem
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        Surname = item.Surname,
+                        NickName = item.Nickname
+                    });
+                }
             }
 
             return userListVM;

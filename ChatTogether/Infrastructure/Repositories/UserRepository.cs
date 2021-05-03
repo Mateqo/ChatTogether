@@ -1,5 +1,7 @@
 ﻿using ChatTogether.Domain.Interface;
 using ChatTogether.Domain.Model;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -37,9 +39,45 @@ namespace ChatTogether.Infrastructure.Repositories
             return _context.AppUsers.FirstOrDefault(x => x.Nickname == nickName).Salt;
         }
 
-        public IEnumerable<User> GetUsers(string input)
+        public IEnumerable<User> GetUsers()
         {
-            return _context.AppUsers.Where(x=>x.Nickname.Contains(input));
+            return _context.AppUsers.Include(x=>x.Acquaintances);
+        }
+
+        public IEnumerable<Acquaintance> GetAcquaintances()
+        {
+            return _context.Acquaintances;
+        }
+
+        public void AcceptFriend(int userId, int friendId)
+        {
+            var acquaintances = _context.Acquaintances.FirstOrDefault(x => x.UserId == friendId && x.AcquaintanceId == userId);
+
+            if(acquaintances !=null)
+            {
+                acquaintances.ConfirmationDate = DateTime.Now;
+                Acquaintance newAcquaintances = new Acquaintance()
+                {
+                    UserId = userId,
+                    AcquaintanceId = friendId,
+                    CreationDate = acquaintances.CreationDate,
+                    ConfirmationDate = acquaintances.ConfirmationDate
+                };
+
+                _context.SaveChanges();
+            }          
+        }
+
+        public void RejectFriend(int userId, int friendId)
+        {
+            var acquaintances = _context.Acquaintances.FirstOrDefault(x => x.UserId == friendId && x.AcquaintanceId == userId);
+
+            if (acquaintances != null)
+            {
+                _context.Acquaintances.Remove(acquaintances);
+
+                _context.SaveChanges();
+            }
         }
 
     }

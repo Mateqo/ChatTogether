@@ -15,7 +15,9 @@ namespace ChatTogether.Application.Interfaces
         bool IsSucceslogin(string nickName, string password);
         int GetUserId(string nickName);
         User GetUserByNickName(string nickName);
-        List<UserGetItem> GetUsers(string input);
+        List<UserGetItem> GetUsers(string input,string userId);
+        void AcceptFriend(string userId, int friendId);
+        void RejectFriend(string userId, int friendId);
 
     }
 }

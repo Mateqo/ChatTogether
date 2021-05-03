@@ -90,7 +90,21 @@ namespace ChatTogether.Controllers
         [HttpGet]
         public IActionResult FindUsers(string input)
         {
-           return Json(_userService.GetUsers(input));
+           return Json(_userService.GetUsers(input, HttpContext.Session.GetString("UserId")));
+        }
+
+        [HttpGet]
+        public IActionResult AcceptFriend(int friendId)
+        {
+            _userService.AcceptFriend(HttpContext.Session.GetString("UserId"), friendId);
+            return Ok();
+        }
+
+        [HttpGet]
+        public IActionResult RejectFriend(int friendId)
+        {
+            _userService.AcceptFriend(HttpContext.Session.GetString("UserId"), friendId);
+            return Ok();
         }
 
 

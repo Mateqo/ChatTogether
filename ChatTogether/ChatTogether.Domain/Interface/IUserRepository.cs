@@ -13,6 +13,9 @@ namespace ChatTogether.Domain.Interface
         int AddUser(User newUser);
         User GetUser(string nickName);
         string GetSalt(string nickName);
-        IEnumerable<User> GetUsers(string input);
+        IEnumerable<User> GetUsers();
+        IEnumerable<Acquaintance> GetAcquaintances();
+        void AcceptFriend(int userId, int friendId);
+        void RejectFriend(int userId, int friendId);
     }
 }
