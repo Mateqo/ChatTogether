@@ -7,13 +7,11 @@
 <div class="nav-shadow"></div>
 <nav class="nav">
     <div class="nav__profile">
-        <img src="img/deafultphoto.jpg" alt="profile photo" class="nav__profile-img">
+        <img src="/img/deafultphoto.jpg" alt="profile photo" class="nav__profile-img">
         <div class="nav__profile-imgcover"></div>
-        <p class="nav__profile-nickname">Bartosz Adamczyk</p>
-        <button href="#" class="nav__profile-edit btn-style">
-            <i class="fas fa-user-edit nav__menu-item-icon"></i>
-            Edytuj Profil
-        </button>
+        <p class="nav__profile-nickname mb-0">@*@Context.Session.GetString("FullName")*@</p>
+        <p class="nav__profile-nickname">@*(@Context.Session.GetString("NickName"))*@</p>
+        <button href="#" class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
     </div>
 
     <div class="nav__menu">
@@ -21,19 +19,20 @@
             <i class="fas fa-comment-dots nav__menu-item-icon"></i> Rozmowy
         </button>
 
-        <button href="#" class="nav__menu-item btn-style">
+        <button id="friends" class="nav__menu-item btn-style">
             <i class="fas fa-users nav__menu-item-icon"></i> Znajomi
         </button>
     </div>
     <div class="nav__logout">
-        <button href="#" class="nav__logout-item btn-style">
+        <button class="nav__logout-item btn-style" id="logOut">
             <i class="fas fa-sign-out-alt nav__menu-item-icon"></i> Wyloguj
         </button>
-        <button href="#" class="nav__logout-item btn-style">
+        <button class="nav__logout-item btn-style">
             <i class="fas fa-cog nav__menu-item-icon"></i> Ustawienia
         </button>
     </div>
 </nav>
+
 
 <!-- <div class="newfriends">
     <ul class="newfriends__ul">
@@ -51,17 +50,18 @@
         </li>
     </ul>
 </div> -->
+
 <div class="friends__header">
     <h1 class="section-heading">znajomi</h1>
     <div class="friends__header-tools">
-        <button class="friends__header-tools-addfriend btn-style" data-bs-toggle="modal" data-bs-target="#exampleModal">Dodaj znajomego</button>
+        <button class="friends__header-tools-addfriend btn-style" data-toggle="modal" data-target="#exampleModal">Dodaj znajomego</button>
         <input type="text" placeholder="Szukaj znajomego..." class="friends__header-tools-findfriend">
     </div>
 </div>
 
 <div class="newfriends">
+    <h2 class="newfriendsUlText"> nowi znajomi: </h2>
     <ul class="newfriends__ul">
-        <h2 class="newfriendsUlText"> nowi znajomi: </h2>
 
         <!-- <li class="newfriends__ul-li">
                 <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
@@ -77,9 +77,9 @@
 </div>
 
 <main class="friends">
+    <h2 class="friends__ul-text">Lista znajomych: </h2>
+    <p class="nofriends">Twoja lista znajomych jest pusta. </p>
     <ul class="friends__ul">
-        <h2 class="friends__ul-text">Lista znajomych: </h2>
-        <p class="nofriends">Twoja lista znajomych jest pusta. </p>
         <!-- <li class="friends__ul-li">
                 <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
                 <div class="profile-functions">
@@ -101,14 +101,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">dodaj znajomego</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"> @*<i class="fas fa-times"></i>*@</button>
             </div>
             <div class="modal-input">
                 <input type="text" placeholder="Szukaj znajomego..." class="friends__header-tools-findfriend">
             </div>
             <div class="modal-body">
+                <h2 class="addfriends__ul-text">Lista: </h2>
                 <ul class="addfriends__ul">
-                    <h2 class="addfriends__ul-text">Lista: </h2>
                     <!-- <p class="addfriends__ul-alertinfo">Nie ma takiego użytkownika. </p> -->
                     <li class="friends__ul-li">
                         <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
@@ -122,8 +122,14 @@
                 </ul>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn-style addfriends-button" data-bs-dismiss="modal">zamknij</button>
+                <button type="button" class="btn-style addfriends-button" data-dismiss="modal">zamknij</button>
             </div>
         </div>
     </div>
 </div>
+
+
+<a id="logOutClick" hidden="hidden" href="@Url.Action("LogOut","Home")"></a>
+<a id="friendClick" hidden="hidden" href="@Url.Action("Friends","Home")"></a>
+
+<script src="~/js/site.js"></script>

@@ -983,6 +983,23 @@ body {
     margin-bottom: 0.3em;
     font-weight: bold;
 }
+.alert {
+    position: fixed;
+    width: 100%;
+    animation-name: hideLoginInfo; 
+    animation-duration: 5s;
+}
+
+@-webkit-keyframes hideLoginInfo {
+    to {
+        display: none;
+    }
+}
+@keyframes hideLoginInfo {
+    to {
+        display: none;
+    }
+}
 
 @media (min-width: 576px) {
     .nav {

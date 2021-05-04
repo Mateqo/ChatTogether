@@ -3,12 +3,12 @@
 
 // Write your JavaScript code.
 
-let $menu; // navigation
-let $navBtn;   // navigation button
-let $hamburger; //hamburger icon in navigation
-let $iks;   //close button in navigation
-let $body;  //body
-let $navShadow; //body shadow when nav is open
+//let $menu; // navigation
+//let $navBtn;   // navigation button
+//let $hamburger; //hamburger icon in navigation
+//let $iks;   //close button in navigation
+//let $body;  //body
+//let $navShadow; //body shadow when nav is open
 let $alertInfoFriend //info displays when there is no friend matching t oletters written
 let $ulNewFriends; //ul list with people who added us to friend list and we have to accept them
 let $newFriends; //div contains all new friends
@@ -42,12 +42,12 @@ const main = () => {
 };
 
 const prepareDOMElements = () => {
-    $menu = document.querySelector('.nav');
-    $navBtn = document.querySelector('.burger');
-    $hamburger = document.querySelector('.fa-bars');
-    $iks = document.querySelector('.fa-times');
-    $body = document.querySelector('body');
-    $navShadow = document.querySelector('.nav-shadow');
+    //$menu = document.querySelector('.nav');
+    //$navBtn = document.querySelector('.burger');
+    //$hamburger = document.querySelector('.fa-bars');
+    //$iks = document.querySelector('.fa-times');
+    //$body = document.querySelector('body');
+    //$navShadow = document.querySelector('.nav-shadow');
     $alertInfoFriend = document.querySelector('.addfriends__ul-info');
     $addFriendButton = document.querySelector('.addfriends-button');
     $ulNewFriends = document.querySelector('.newfriends__ul');
@@ -63,8 +63,8 @@ const prepareDOMElements = () => {
 
 //downloading events
 const prepareDOMEvents = () => {
-    $navShadow.addEventListener('click', showing);
-    $navBtn.addEventListener('click', showing);
+    //$navShadow.addEventListener('click', showing);
+    //$navBtn.addEventListener('click', showing);
     $addFriendButton.addEventListener('click', newFriendToAccept);
     // $addFriendButton.addEventListener('click', controllingNewFriends);
     // $ulNewFriends.addEventListener('click', moveChild);
@@ -76,20 +76,20 @@ const prepareDOMEvents = () => {
 };
 //////////////////////////////////////////////////
 // function allows showing nav by clicking button
-const showing = () => {
-    $menu.classList.toggle('active');
-    $navBtn.classList.toggle('active');
-    $navShadow.classList.toggle('activeMax');
-    if ($menu.classList.contains('active')) {
-        $hamburger.classList.add('hide');
-        $iks.classList.remove('hide');
-    }
-    else {
-        $iks.classList.add('hide');
-        $hamburger.classList.remove('hide');
-    };
-    $body.classList.toggle('lock-scroll');
-};
+//const showing = () => {
+//    $menu.classList.toggle('active');
+//    $navBtn.classList.toggle('active');
+//    $navShadow.classList.toggle('activeMax');
+//    if ($menu.classList.contains('active')) {
+//        $hamburger.classList.add('hide');
+//        $iks.classList.remove('hide');
+//    }
+//    else {
+//        $iks.classList.add('hide');
+//        $hamburger.classList.remove('hide');
+//    };
+//    $body.classList.toggle('lock-scroll');
+//};
 // FRIENDS
 // adding li of friends to accept
 //////////////////////////////////////////////////////

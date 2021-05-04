@@ -123,6 +123,11 @@ namespace ChatTogether.Controllers
             return View();
         }
 
-
+        [HttpGet]
+        public IActionResult Friends()
+        { 
+            return View("Friends");
+        }
     }
 }
+

@@ -21,7 +21,7 @@
             <i class="fas fa-comment-dots nav__menu-item-icon"></i> Rozmowy
         </button>
 
-        <button href="@Url.Action("Friends","Home")" class="nav__menu-item btn-style"> @*TU ZROB PRZEJSCIE NA Friends.cshtml*@
+        <button id="friends" class="nav__menu-item btn-style">
             <i class="fas fa-users nav__menu-item-icon"></i> Znajomi
         </button>
     </div>
@@ -47,11 +47,9 @@
 </main>
 
 <a id="logOutClick" hidden="hidden" href="@Url.Action("LogOut","Home")"></a>
+<a id="friendClick" hidden="hidden" href="@Url.Action("Friends","Home")"></a>
+
 
 <script type="text/javascript">
-    var logOut = document.getElementById('logOut');
-    logOut.addEventListener('click', function () {
-        var logOut = document.getElementById('logOutClick');
-        logOut.click();
-    }, false);
+
 </script>
