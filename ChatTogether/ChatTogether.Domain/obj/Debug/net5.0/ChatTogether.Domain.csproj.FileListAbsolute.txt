@@ -46,3 +46,15 @@ C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domai
 C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ref\ChatTogether.Domain.dll
 C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.pdb
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.csprojAssemblyReference.cache
+C:\Users\soksa\Source\Repos\ChatTogether3\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ChatTogether.Domain.deps.json
+C:\Users\soksa\Source\Repos\ChatTogether3\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ChatTogether.Domain.dll
+C:\Users\soksa\Source\Repos\ChatTogether3\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ref\ChatTogether.Domain.dll
+C:\Users\soksa\Source\Repos\ChatTogether3\ChatTogether\ChatTogether.Domain\bin\Debug\net5.0\ChatTogether.Domain.pdb
+C:\Users\soksa\Source\Repos\ChatTogether3\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.csprojAssemblyReference.cache
+C:\Users\soksa\Source\Repos\ChatTogether3\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\soksa\Source\Repos\ChatTogether3\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.AssemblyInfoInputs.cache
+C:\Users\soksa\Source\Repos\ChatTogether3\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.AssemblyInfo.cs
+C:\Users\soksa\Source\Repos\ChatTogether3\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.csproj.CoreCompileInputs.cache
+C:\Users\soksa\Source\Repos\ChatTogether3\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.dll
+C:\Users\soksa\Source\Repos\ChatTogether3\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ref\ChatTogether.Domain.dll
+C:\Users\soksa\Source\Repos\ChatTogether3\ChatTogether\ChatTogether.Domain\obj\Debug\net5.0\ChatTogether.Domain.pdb

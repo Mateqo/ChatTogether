@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\User\\Desktop\\repozytorium\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj": {}
+    "C:\\Users\\soksa\\Source\\Repos\\ChatTogether3\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj": {}
   },
   "projects": {
-    "D:\\Users\\User\\Desktop\\repozytorium\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj": {
+    "C:\\Users\\soksa\\Source\\Repos\\ChatTogether3\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\User\\Desktop\\repozytorium\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\soksa\\Source\\Repos\\ChatTogether3\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
         "projectName": "ChatTogether.Tests",
-        "projectPath": "D:\\Users\\User\\Desktop\\repozytorium\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\User\\Desktop\\repozytorium\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\obj\\",
+        "projectPath": "C:\\Users\\soksa\\Source\\Repos\\ChatTogether3\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
+        "packagesPath": "C:\\Users\\soksa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\soksa\\Source\\Repos\\ChatTogether3\\ChatTogether\\ChatTogether.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\soksa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://srv-svn1.veloce.local:8090/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -80,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

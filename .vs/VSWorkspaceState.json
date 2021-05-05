@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ChatTogether",
+    "\\ChatTogether\\ChatTogether",
+    "\\ChatTogether\\ChatTogether.Application",
+    "\\ChatTogether\\ChatTogether\\Controllers",
+    "\\ChatTogether\\ChatTogether\\Models",
+    "\\ChatTogether\\ChatTogether\\Properties",
+    "\\ChatTogether\\ChatTogether\\wwwroot\\lib",
+    "\\ChatTogether\\ChatTogether\\wwwroot\\lib\\jquery-validation",
+    "\\ChatTogether\\ChatTogether\\wwwroot\\lib\\jquery-validation\\dist"
+  ],
+  "SelectedNode": "\\ChatTogether\\ChatTogether.sln",
+  "PreviewInSolutionExplorer": false
+}
