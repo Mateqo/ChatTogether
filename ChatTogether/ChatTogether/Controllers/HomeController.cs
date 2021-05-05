@@ -41,9 +41,12 @@ namespace ChatTogether.Controllers
                 var userInfo = _userService.GetUserByNickName(user.NickName);
                 var fullName = userInfo.Name + " " +  userInfo.Surname;
 
-                HttpContext.Session.SetString("UserId", userInfo.Id.ToString()); 
-                HttpContext.Session.SetString("FullName", fullName);
-                HttpContext.Session.SetString("NickName", user.NickName);
+                HttpContext.Response.Cookies.Append("UserId", userInfo.Id.ToString());
+                HttpContext.Response.Cookies.Append("FullName", fullName);
+                HttpContext.Response.Cookies.Append("NickName", userInfo.Nickname);
+                ViewBag.fullname = fullName;
+                ViewBag.nickname = userInfo.Nickname;
+
                 return View("Main");
             }
             else
@@ -82,7 +85,9 @@ namespace ChatTogether.Controllers
         [HttpGet]
         public IActionResult LogOut()
         {
-            HttpContext.Session.Clear();
+            HttpContext.Response.Cookies.Delete("UserId");
+            HttpContext.Response.Cookies.Delete("FullName");
+            HttpContext.Response.Cookies.Delete("NickName");
             SetMessage("Wylogowano", Application.ViewModels.Base.MessageType.Success);
             return View("Index");
         }

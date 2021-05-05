@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Http;
-
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 <!-- NAVIGATION  -->
 <button class="burger">
     <i class="fas fa-bars"></i>
@@ -11,8 +11,8 @@
     <div class="nav__profile">
         <img src="/img/deafultphoto.jpg" alt="profile photo" class="nav__profile-img">
         <div class="nav__profile-imgcover"></div>
-        <p class="nav__profile-nickname mb-0">@Context.Session.GetString("FullName")</p>
-        <p class="nav__profile-nickname">(@Context.Session.GetString("NickName"))</p>
+        <p class="nav__profile-nickname mb-0">@{if (Context.Request.Cookies["FullName"] == null) {@ViewBag.FullName} else {@Context.Request.Cookies["FullName"] } }</p>
+        <p class="nav__profile-nickname">@{if (Context.Request.Cookies["NickName"] == null){@ViewBag.NickName}else{@Context.Request.Cookies["NickName"] }}</p>
         <button href="#" class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
     </div>
 

@@ -9,8 +9,9 @@
     <div class="nav__profile">
         <img src="/img/deafultphoto.jpg" alt="profile photo" class="nav__profile-img">
         <div class="nav__profile-imgcover"></div>
-        <p class="nav__profile-nickname mb-0">@*@Context.Session.GetString("FullName")*@</p>
-        <p class="nav__profile-nickname">@*(@Context.Session.GetString("NickName"))*@</p>
+        <p class="nav__profile-nickname mb-0">@Context.Request.Cookies["FullName"]</p>
+        <p class="nav__profile-nickname">@Context.Request.Cookies["NickName"]</p>
+
         <button href="#" class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
     </div>
 
