@@ -20,12 +20,18 @@ namespace ChatTogether.Controllers
 
         public IActionResult Index()
         {
+            if (_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+        
             return View();
         }
 
         [HttpGet]
         public IActionResult Login()
         {
+            if (_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
             UserLogin user = new UserLogin();
             return View(user);
         }
@@ -37,10 +43,11 @@ namespace ChatTogether.Controllers
             var isSucces = _userService.IsSucceslogin(user.NickName, user.EncryptedPassword);
 
             if(isSucces)
-            {
+            {             
                 var userInfo = _userService.GetUserByNickName(user.NickName);
                 var fullName = userInfo.Name + " " +  userInfo.Surname;
-
+                _userService.SetToken(userInfo.Nickname);
+                HttpContext.Response.Cookies.Append("Token", userInfo.Token);
                 HttpContext.Response.Cookies.Append("UserId", userInfo.Id.ToString());
                 HttpContext.Response.Cookies.Append("FullName", fullName);
                 HttpContext.Response.Cookies.Append("NickName", userInfo.Nickname);
@@ -61,6 +68,9 @@ namespace ChatTogether.Controllers
         [HttpGet]
         public IActionResult Registration()
         {
+            if (_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
             UserRegister newUser = new UserRegister();
             return View(newUser);
         }
@@ -85,6 +95,10 @@ namespace ChatTogether.Controllers
         [HttpGet]
         public IActionResult LogOut()
         {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
+            HttpContext.Response.Cookies.Delete("Token");
             HttpContext.Response.Cookies.Delete("UserId");
             HttpContext.Response.Cookies.Delete("FullName");
             HttpContext.Response.Cookies.Delete("NickName");
@@ -95,12 +109,18 @@ namespace ChatTogether.Controllers
         [HttpGet]
         public IActionResult FindUsers(string input)
         {
-           return Json(_userService.GetUsers(input, HttpContext.Session.GetString("UserId")));
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
+            return Json(_userService.GetUsers(input, HttpContext.Session.GetString("UserId")));
         }
 
         [HttpGet]
         public IActionResult AcceptFriend(int friendId)
         {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
             _userService.AcceptFriend(HttpContext.Session.GetString("UserId"), friendId);
             return Ok();
         }
@@ -108,6 +128,9 @@ namespace ChatTogether.Controllers
         [HttpGet]
         public IActionResult RejectFriend(int friendId)
         {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
             _userService.AcceptFriend(HttpContext.Session.GetString("UserId"), friendId);
             return Ok();
         }
@@ -115,6 +138,9 @@ namespace ChatTogether.Controllers
 
         public IActionResult ForgotPassword()
         {
+            if (_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
             return View();
         }
 
@@ -125,13 +151,20 @@ namespace ChatTogether.Controllers
 
         public IActionResult Main()
         {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
             return View();
         }
 
         [HttpGet]
         public IActionResult Friends()
-        { 
-            return View("Friends");
+        {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
+            var firendsVieModel = _userService.GetFriendList(HttpContext.Request.Cookies["UserId"]);
+            return View("Friends", firendsVieModel);
         }
     }
 }

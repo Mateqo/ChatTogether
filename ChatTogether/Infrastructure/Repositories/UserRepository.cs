@@ -30,8 +30,13 @@ namespace ChatTogether.Infrastructure.Repositories
         }
 
         public User GetUser(string nickName)
-        {           
+        {
             return _context.AppUsers.FirstOrDefault(x => x.Nickname == nickName);
+        }
+
+        public User GetUserById(int id)
+        {
+            return _context.AppUsers.FirstOrDefault(x => x.Id == id);
         }
 
         public string GetSalt(string nickName)
@@ -41,19 +46,19 @@ namespace ChatTogether.Infrastructure.Repositories
 
         public IEnumerable<User> GetUsers()
         {
-            return _context.AppUsers.Include(x=>x.Acquaintances);
+            return _context.AppUsers.Include(x => x.Acquaintances);
         }
 
         public IEnumerable<Acquaintance> GetAcquaintances()
         {
-            return _context.Acquaintances;
+            return _context.Acquaintances.Include(x=>x.AcqUser).Include(x=>x.User);
         }
 
         public void AcceptFriend(int userId, int friendId)
         {
             var acquaintances = _context.Acquaintances.FirstOrDefault(x => x.UserId == friendId && x.AcquaintanceId == userId);
 
-            if(acquaintances !=null)
+            if (acquaintances != null)
             {
                 acquaintances.ConfirmationDate = DateTime.Now;
                 Acquaintance newAcquaintances = new Acquaintance()
@@ -63,9 +68,9 @@ namespace ChatTogether.Infrastructure.Repositories
                     CreationDate = acquaintances.CreationDate,
                     ConfirmationDate = acquaintances.ConfirmationDate
                 };
-
+                _context.Acquaintances.Add(newAcquaintances);
                 _context.SaveChanges();
-            }          
+            }
         }
 
         public void RejectFriend(int userId, int friendId)
@@ -78,6 +83,27 @@ namespace ChatTogether.Infrastructure.Repositories
 
                 _context.SaveChanges();
             }
+        }
+
+        public void SetToken(string nickName, string token)
+        {
+            var user = _context.AppUsers.FirstOrDefault(x => x.Nickname == nickName);
+
+            if (user != null)
+            {
+                user.Token = token;
+                _context.SaveChanges();
+            }
+        }
+
+        public IEnumerable<Acquaintance> GetUserFriends(int id)
+        {
+            return _context.Acquaintances.Where(x => x.UserId == id && !string.IsNullOrEmpty(x.ConfirmationDate.ToString()));
+        }
+
+        public IEnumerable<Acquaintance> GetPendingFriends(int id)
+        {
+            return _context.Acquaintances.Where(x => x.AcquaintanceId == id && string.IsNullOrEmpty(x.ConfirmationDate.ToString()));
         }
 
     }

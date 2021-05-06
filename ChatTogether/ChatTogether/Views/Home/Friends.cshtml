@@ -1,4 +1,5 @@
-﻿<!-- NAVIGATION  -->
+﻿@model ChatTogether.Application.ViewModels.Friend.FriendsList;
+<!-- NAVIGATION  -->
 
 <button class="burger">
     <i class="fas fa-bars"></i>
@@ -61,37 +62,73 @@
 </div>
 
 <div class="newfriends">
-    <h2 class="newfriendsUlText"> nowi znajomi: </h2>
-    <ul class="newfriends__ul">
-
-        <!-- <li class="newfriends__ul-li">
-                <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
-                <div class="profile-functions">
-                    <p class="friends-name">Bartosz Adamczyk</p>
-                    <div class="friends-buttons">
-                        <button class="btn-style friends-button"><i class="fas fa-user-plus"></i></button>
-                        <button class="btn-style friends-button"><i class="fas fa-times"></i></button>
+    @if (Model.Friends.Count() > 0)
+    {
+        <h2 class="newfriendsUlText"> nowi znajomi: </h2>
+        <ul class="newfriends__ul">
+            @foreach (var friend in Model.PendingFriends)
+            {
+                <li class="newfriends__ul-li">
+                    <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
+                    <div class="profile-functions">
+                        <p class="friends-name">@friend.Surname @friend.Name (@friend.NickName)</p>
+                        <div class="friends-buttons">
+                            <button class="btn-style friends-button"><i class="fas fa-user-plus"></i></button>
+                            <button class="btn-style friends-button"><i class="fas fa-times"></i></button>
+                        </div>
                     </div>
-                </div>
-        </li> -->
-    </ul>
+                </li>
+
+            }
+            <!-- <li class="newfriends__ul-li">
+                    <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
+                    <div class="profile-functions">
+                        <p class="friends-name">Bartosz Adamczyk</p>
+                        <div class="friends-buttons">
+                            <button class="btn-style friends-button"><i class="fas fa-user-plus"></i></button>
+                            <button class="btn-style friends-button"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+            </li> -->
+        </ul>
+    }
 </div>
 
 <main class="friends">
     <h2 class="friends__ul-text">Lista znajomych: </h2>
-    <p class="nofriends">Twoja lista znajomych jest pusta. </p>
-    <ul class="friends__ul">
-        <!-- <li class="friends__ul-li">
-                <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
-                <div class="profile-functions">
-                    <p class="friends-name">Bartosz Adamczyk</p>
-                    <div class="friends-buttons">
-                        <button class="btn-style friends-button"><i class="fas fa-comment"></i></button>
-                        <button class="btn-style friends-button"><i class="fas fa-users-slash"></i></button>
+    @if (Model.Friends.Count() == 0)
+    {
+        <p class="nofriends">Twoja lista znajomych jest pusta. </p>
+    }
+    else
+    {
+        <ul class="friends__ul">
+            @foreach (var friend in Model.Friends)
+            {
+                <li class="friends__ul-li">
+                    <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
+                    <div class="profile-functions">
+                        <p class="friends-name">@friend.Surname @friend.Name (@friend.NickName)</p>
+                        <div class="friends-buttons">
+                            <button class="btn-style friends-button"><i class="fas fa-comment"></i></button>
+                            <button class="btn-style friends-button"><i class="fas fa-users-slash"></i></button>
+                        </div>
                     </div>
-                </div>
-        </li> -->
-    </ul>
+                </li>
+
+            }
+            @*<li class="friends__ul-li">
+                    <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
+                    <div class="profile-functions">
+                        <p class="friends-name">Bartosz Adamczyk</p>
+                        <div class="friends-buttons">
+                            <button class="btn-style friends-button"><i class="fas fa-comment"></i></button>
+                            <button class="btn-style friends-button"><i class="fas fa-users-slash"></i></button>
+                        </div>
+                    </div>
+                </li>*@
+        </ul>
+    }
 </main>
 
 

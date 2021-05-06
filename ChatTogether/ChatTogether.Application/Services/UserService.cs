@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
 using System.Linq;
+using ChatTogether.Application.ViewModels.Friend;
 
 namespace ChatTogether.Application.Services
 {
@@ -105,7 +106,7 @@ namespace ChatTogether.Application.Services
 
         public void AcceptFriend(string userId, int friendId)
         {
-             _userRepo.AcceptFriend(Convert.ToInt32(userId),friendId);
+            _userRepo.AcceptFriend(Convert.ToInt32(userId), friendId);
         }
 
         public void RejectFriend(string userId, int friendId)
@@ -150,6 +151,63 @@ namespace ChatTogether.Application.Services
             }
 
             return userListVM;
+        }
+
+        public bool ValidateUser(string nickName, string id, string token)
+        {
+            var user = _userRepo.GetUser(nickName);
+
+            if (nickName != null && id == user.Id.ToString() && token == user.Token)
+                return true;
+
+            return false;
+        }
+
+        public void SetToken(string nickName)
+        {
+            _userRepo.SetToken(nickName, Guid.NewGuid().ToString());
+        }
+
+        public FriendsList GetFriendList(string id)
+        {
+            var userId = Convert.ToInt32(id);
+            var allUsers = _userRepo.GetAcquaintances();
+            var friendList = allUsers.Where(x => x.UserId == userId && !string.IsNullOrEmpty(x.ConfirmationDate.ToString()));
+            var pendingFriendList = allUsers.Where(x => x.AcquaintanceId == userId && string.IsNullOrEmpty(x.ConfirmationDate.ToString()));
+            List<FriendItem> friendsViewModel = new List<FriendItem>();
+            List<FriendItem> pendingFriendsViewModel = new List<FriendItem>();
+            int test = friendList.Count();
+            string test2 = friendList.FirstOrDefault().User.Nickname;
+            foreach (var item in friendList)
+            {
+                friendsViewModel.Add(new FriendItem
+                {
+                    Id = item.AcqUser.Id,
+                    NickName = item.AcqUser.Nickname,
+                    Name = item.AcqUser.Name,
+                    Surname = item.AcqUser.Surname
+                }
+                );
+            }
+
+            foreach (var item in pendingFriendList)
+            {
+                pendingFriendsViewModel.Add(new FriendItem
+                {
+                    Id = item.User.Id,
+                    NickName = item.User.Nickname,
+                    Name = item.User.Name,
+                    Surname = item.User.Surname
+                }
+                );
+            }
+
+            return new FriendsList()
+            {
+                Friends = friendsViewModel,
+                PendingFriends = pendingFriendsViewModel
+            };
+
         }
 
     }
