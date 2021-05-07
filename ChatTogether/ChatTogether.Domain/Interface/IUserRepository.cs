@@ -17,6 +17,8 @@ namespace ChatTogether.Domain.Interface
         IEnumerable<Acquaintance> GetAcquaintances();
         void AcceptFriend(int userId, int friendId);
         void RejectFriend(int userId, int friendId);
+        void AddFriend(int userId, int friendId);
+        void RemoveFriend(int userId, int friendId);
         void SetToken(string nickName, string token);
         IEnumerable<Acquaintance> GetUserFriends(int id);
         IEnumerable<Acquaintance> GetPendingFriends(int id);

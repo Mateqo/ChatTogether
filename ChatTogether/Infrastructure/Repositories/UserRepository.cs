@@ -85,6 +85,38 @@ namespace ChatTogether.Infrastructure.Repositories
             }
         }
 
+        public void AddFriend(int userId, int friendId)
+        {
+            var acquaintances = _context.Acquaintances.FirstOrDefault(x => x.UserId == userId && x.AcquaintanceId == friendId);
+            var isAcq = _context.Acquaintances.FirstOrDefault(x => x.UserId == friendId && x.AcquaintanceId == userId);
+
+            if (acquaintances == null && isAcq == null)
+            {
+                Acquaintance newAcquaintances = new Acquaintance()
+                {
+                    UserId = userId,
+                    AcquaintanceId = friendId,
+                    CreationDate = DateTime.Now,
+                    ConfirmationDate = null
+                };
+                _context.Acquaintances.Add(newAcquaintances);
+                _context.SaveChanges();
+            }
+        }
+
+        public void RemoveFriend(int userId, int friendId)
+        {
+            var acquaintances = _context.Acquaintances.FirstOrDefault(x => x.UserId == userId && x.AcquaintanceId == friendId);
+            var isAcq = _context.Acquaintances.FirstOrDefault(x => x.UserId == friendId && x.AcquaintanceId == userId);
+
+            if (acquaintances != null && isAcq != null)
+            {
+                _context.Acquaintances.Remove(acquaintances);
+                _context.Acquaintances.Remove(isAcq);
+                _context.SaveChanges();
+            }
+        }
+
         public void SetToken(string nickName, string token)
         {
             var user = _context.AppUsers.FirstOrDefault(x => x.Nickname == nickName);

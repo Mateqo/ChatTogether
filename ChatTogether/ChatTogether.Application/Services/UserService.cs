@@ -114,6 +114,16 @@ namespace ChatTogether.Application.Services
             _userRepo.RejectFriend(Convert.ToInt32(userId), friendId);
         }
 
+        public void AddFriend(string userId, int friendId)
+        {
+            _userRepo.AddFriend(Convert.ToInt32(userId), friendId);
+        }
+
+        public void RemoveFriend(string userId, int friendId)
+        {
+            _userRepo.RemoveFriend(Convert.ToInt32(userId), friendId);
+        }
+
         public List<UserGetItem> GetUsers(string input, string userId)
         {
             List<UserGetItem> userListVM = new List<UserGetItem>();

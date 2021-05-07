@@ -19,6 +19,8 @@ namespace ChatTogether.Application.Interfaces
         List<UserGetItem> GetUsers(string input,string userId);
         void AcceptFriend(string userId, int friendId);
         void RejectFriend(string userId, int friendId);
+        void AddFriend(string userId, int friendId);
+        void RemoveFriend(string userId, int friendId);
         bool ValidateUser(string nickName, string id, string token);
         void SetToken(string nickName);
         FriendsList GetFriendList(string id);

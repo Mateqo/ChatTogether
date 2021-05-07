@@ -135,6 +135,25 @@ namespace ChatTogether.Controllers
             return Ok();
         }
 
+        [HttpGet]
+        public IActionResult AddFriend(int friendId)
+        {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
+            _userService.AddFriend(HttpContext.Session.GetString("UserId"), friendId);
+            return Ok();
+        }
+
+        [HttpGet]
+        public IActionResult RemoveFriend(int friendId)
+        {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
+            _userService.RemoveFriend(HttpContext.Session.GetString("UserId"), friendId);
+            return Ok();
+        }
 
         public IActionResult ForgotPassword()
         {
