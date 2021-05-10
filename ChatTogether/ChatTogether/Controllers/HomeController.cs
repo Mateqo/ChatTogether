@@ -1,9 +1,11 @@
 ﻿using ChatTogether.Application.Interfaces;
 using ChatTogether.Application.ViewModels.User;
 using ChatTogether.Web.Controllers;
+using ChatTogether.Web.Email;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace ChatTogether.Controllers
 {
@@ -78,10 +80,13 @@ namespace ChatTogether.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Registration(UserRegister newUser)
-        {   
-            if(ModelState.IsValid)
+        {
+            if (ModelState.IsValid)
             {
                 _userService.AddUser(newUser);
+                Guid ID = Guid.NewGuid();
+                string confirmationLink = Url.Action("Login", "Home", new { id = ID.ToString() }, Request.Scheme);
+                Email.SendEmail(newUser.EmailAddress, newUser.Nickname, confirmationLink);
                 SetMessage("Dodano użytkownika", Application.ViewModels.Base.MessageType.Success);
                 return RedirectToAction("Index");
             }
@@ -89,8 +94,9 @@ namespace ChatTogether.Controllers
             {
                 SetMessage("Uzupełnij wymagane pola", Application.ViewModels.Base.MessageType.Error);
                 return View(newUser);
-            }          
+            }
         }
+
 
         [HttpGet]
         public IActionResult LogOut()
