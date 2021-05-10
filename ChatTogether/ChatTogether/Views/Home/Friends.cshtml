@@ -142,7 +142,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> @*<i class="fas fa-times"></i>*@</button>
             </div>
             <div class="modal-input">
-                <input type="text" placeholder="Szukaj znajomego..." class="friends__header-tools-findfriend">
+                <input type="text" placeholder="Szukaj znajomego..." class="friends__header-tools-findfriend" id="inputSearch">
+                <button id="searchUser" onclick="searchUserFunction()">szukaj</button>
             </div>
             <div class="modal-body">
                 <h2 class="addfriends__ul-text">Lista: </h2>
@@ -165,9 +166,35 @@
         </div>
     </div>
 </div>
-
+<p id="test"></p>
 
 <a id="logOutClick" hidden="hidden" href="@Url.Action("LogOut","Home")"></a>
 <a id="friendClick" hidden="hidden" href="@Url.Action("Friends","Home")"></a>
 
 <script src="~/js/site.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+
+    function searchUserFunction() {
+        //var input = document.getElementById('inputSearch').value ;
+        //console.log(document.getElementById('inputSearch').value);
+        let cos = document.getElementById('inputSearch').value;
+        $.ajax({
+            url: '/Home/FindUsers',
+            data: { input: cos },
+            type: 'GET',
+            dataType: 'json',
+            success: function () {
+                console.log("Mamy to ");
+                //$("#test").html(msg)
+            },
+            error: function (xhr, status) {
+                alert('Przepraszamy, wystąpił problem!');
+            },
+            complete: function (xhr, status) {
+            }
+        });
+    }
+</script>
