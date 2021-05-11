@@ -12,8 +12,8 @@ namespace ChatTogether.Domain.Model
         public int Id { get; set; }
         public int UserId { get; set; }
         public DateTime LinkSendingDate { get; set; }
-        public DateTime ConfirmationDate { get; set; }
-        public string Link { get; set; }
+        public DateTime? ConfirmationDate { get; set; }
+        public string? Link { get; set; }
 
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
