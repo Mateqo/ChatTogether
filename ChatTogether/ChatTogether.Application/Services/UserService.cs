@@ -167,7 +167,7 @@ namespace ChatTogether.Application.Services
         {
             var user = _userRepo.GetUser(nickName);
 
-            if (nickName != null && id == user.Id.ToString() && token == user.Token)
+            if (user != null && nickName != null && id == user.Id.ToString() && token == user.Token)
                 return true;
 
             return false;
