@@ -22,6 +22,10 @@ namespace ChatTogether.Controllers
 
         public IActionResult Index()
         {
+            HttpContext.Response.Cookies.Delete("Token");
+            HttpContext.Response.Cookies.Delete("UserId");
+            HttpContext.Response.Cookies.Delete("FullName");
+            HttpContext.Response.Cookies.Delete("NickName");
             if (_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
         
