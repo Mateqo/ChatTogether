@@ -20,6 +20,8 @@ namespace ChatTogether.Domain.Interface
         void AddFriend(int userId, int friendId);
         void RemoveFriend(int userId, int friendId);
         void SetToken(string nickName, string token);
+        void AddConfirmation(Confirmation confirmation);
+        void AccountConfirmation(string link);
         IEnumerable<Acquaintance> GetUserFriends(int id);
         IEnumerable<Acquaintance> GetPendingFriends(int id);
         User GetUserById(int id);

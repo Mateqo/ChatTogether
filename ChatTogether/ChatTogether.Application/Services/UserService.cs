@@ -58,7 +58,7 @@ namespace ChatTogether.Application.Services
                 EncryptedPassword = EncPass.ToString(),
                 Salt = saltGuid,
                 CreationDate = DateTime.Now,
-                Active = true,
+                Active = false,
             };
             //var user = _mapper.Map<User>(newUser); do ogarnięcia mapper później
             var id = _userRepo.AddUser(user);
@@ -174,6 +174,23 @@ namespace ChatTogether.Application.Services
         public void SetToken(string nickName)
         {
             _userRepo.SetToken(nickName, Guid.NewGuid().ToString());
+        }
+
+        public void AddConfirmation(Guid link, UserRegister newUser)
+        {
+            Confirmation confirmation = new Confirmation
+            {
+                UserId = GetUserId(newUser.Nickname),
+                Link = link.ToString(),
+                LinkSendingDate = DateTime.Now,
+                ConfirmationDate = null
+            };
+            _userRepo.AddConfirmation(confirmation);
+        }
+
+        public void AccountConfirmation(string link)
+        {
+            _userRepo.AccountConfirmation(link);
         }
 
         public FriendsList GetFriendList(string id)
