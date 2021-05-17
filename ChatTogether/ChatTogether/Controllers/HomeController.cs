@@ -123,7 +123,7 @@ namespace ChatTogether.Controllers
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
 
-            return Json(_userService.GetUsers(input, HttpContext.Session.GetString("UserId")));
+            return Json(_userService.GetUsers(input, HttpContext.Request.Cookies["UserId"]));
         }
 
         [HttpGet]
@@ -132,7 +132,7 @@ namespace ChatTogether.Controllers
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
 
-            _userService.AcceptFriend(HttpContext.Session.GetString("UserId"), friendId);
+            _userService.AcceptFriend(HttpContext.Request.Cookies["UserId"], friendId);
             return Ok();
         }
 
@@ -142,7 +142,7 @@ namespace ChatTogether.Controllers
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
 
-            _userService.AcceptFriend(HttpContext.Session.GetString("UserId"), friendId);
+            _userService.AcceptFriend(HttpContext.Request.Cookies["UserId"], friendId);
             return Ok();
         }
 
@@ -152,7 +152,7 @@ namespace ChatTogether.Controllers
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
 
-            _userService.AddFriend(HttpContext.Session.GetString("UserId"), friendId);
+            _userService.AddFriend(HttpContext.Request.Cookies["UserId"], friendId);
             return Ok();
         }
 
@@ -162,7 +162,7 @@ namespace ChatTogether.Controllers
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
 
-            _userService.RemoveFriend(HttpContext.Session.GetString("UserId"), friendId);
+            _userService.RemoveFriend(HttpContext.Request.Cookies["UserId"], friendId);
             return Ok();
         }
 
@@ -195,6 +195,15 @@ namespace ChatTogether.Controllers
 
             var firendsVieModel = _userService.GetFriendList(HttpContext.Request.Cookies["UserId"]);
             return View("Friends", firendsVieModel);
+        }
+
+        [HttpGet]
+        public IActionResult Chat()
+        {
+            
+
+           
+            return View();
         }
     }
 }

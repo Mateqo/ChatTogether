@@ -44,6 +44,7 @@ namespace ChatTogether
                 .AddEntityFrameworkStores<Context>();
             services.AddControllersWithViews().AddFluentValidation(fv => fv.RunDefaultMvcValidationAfterFluentValidationExecutes = false); 
             services.AddRazorPages();
+            services.AddSignalR();
 
             services.AddSession(options =>
             {
@@ -91,6 +92,7 @@ namespace ChatTogether
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<Chat>("/chatHub");
             });
         }
     }

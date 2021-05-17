@@ -46,12 +46,12 @@ namespace ChatTogether.Infrastructure.Repositories
 
         public IEnumerable<User> GetUsers()
         {
-            return _context.AppUsers.Include(x => x.Acquaintances);
+            return _context.AppUsers.Include(x => x.Acquaintances);                              
         }
 
         public IEnumerable<Acquaintance> GetAcquaintances()
         {
-            return _context.Acquaintances.Include(x=>x.AcqUser).Include(x=>x.User);
+            return _context.Acquaintances.Include(x => x.AcqUser).Include(x => x.User);
         }
 
         public void AcceptFriend(int userId, int friendId)

@@ -147,17 +147,19 @@
             </div>
             <div class="modal-body">
                 <h2 class="addfriends__ul-text">Lista: </h2>
-                <ul class="addfriends__ul">
+                <img hidden="hidden" id="spinner" src="~/img/spinner.gif" style="margin-top:0px; margin-left:200px;height:80px;width:80px"/>
+                <ul class="addfriends__ul" id="addfriendsUl">
                     <!-- <p class="addfriends__ul-alertinfo">Nie ma takiego użytkownika. </p> -->
-                    <li class="friends__ul-li">
-                        <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
-                        <div class="profile-functions">
-                            <p class="addfriends-name">Bartosz Adamczyk</p>
-                            <div class="friends-buttons">
-                                <button class="btn-style addfriends-button"><i class="fas fa-user-plus"></i></button>
-                            </div>
-                        </div>
-                    </li>
+                    @*<li class="friends__ul-li">
+                <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
+                <div class="profile-functions">
+                    <p class="addfriends-name">Bartosz Adamczyk
+                    </p>
+                    <div class="friends-buttons">
+                        <button class="btn-style addfriends-button"><i class="fas fa-user-plus"></i></button>
+                    </div>
+                </div>
+            </li>*@
                 </ul>
             </div>
             <div class="modal-footer">
@@ -178,23 +180,34 @@
 <script type="text/javascript">
 
     function searchUserFunction() {
+        $('#addfriendsUl').empty();
+        $('#spinner').removeAttr('hidden');
         //var input = document.getElementById('inputSearch').value ;
         //console.log(document.getElementById('inputSearch').value);
         let cos = document.getElementById('inputSearch').value;
-        $.ajax({
-            url: '/Home/FindUsers',
-            data: { input: cos },
-            type: 'GET',
-            dataType: 'json',
-            success: function () {
-                console.log("Mamy to ");
-                //$("#test").html(msg)
-            },
-            error: function (xhr, status) {
-                alert('Przepraszamy, wystąpił problem!');
-            },
-            complete: function (xhr, status) {
-            }
-        });
+        setTimeout(() => {
+            $.ajax({
+                url: '/Home/FindUsers',
+                data: { input: cos },
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    //console.log(response); //cała lista
+                    //console.log(response[1].id); //id z pierwszego elementu 
+                    //console.log(response.length); //długość listy
+                    for (var i = 0; i < response.length; i++) {
+
+                        $("#addfriendsUl").append('<li class="friends__ul-li"><img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo"><div class="profile-functions"><p class="addfriends-name">' + response[i].name + ' ' + response[i].surname + ' ' + '(' + response[i].nickName + ')' + '</p><div class="friends-buttons"><button class="btn-style addfriends-button"><i class="fas fa-user-plus"></i></button></div></div></li>');
+                    }
+                },
+                error: function (xhr, status) {
+                    alert('Przepraszamy, wystąpił problem!');
+                },
+                complete: function (xhr, status) {
+                    $('#spinner').attr('hidden', 'hidden');
+                }
+            });
+        }, 400);
+        
     }
 </script>

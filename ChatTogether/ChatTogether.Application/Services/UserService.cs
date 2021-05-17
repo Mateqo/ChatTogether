@@ -133,18 +133,16 @@ namespace ChatTogether.Application.Services
                 var fullName = input.Split(' ');
                 var inputFirst = fullName[0].ToLower();
                 var inputSecond = fullName.Count() > 1 ? fullName[1].ToLower() : "";
-
                 var userList = _userRepo.GetUsers().Where
                     (
                         x => x.Id != Convert.ToInt32(userId) &&
-                        !x.Acquaintances.Any(a => a.UserId == Convert.ToInt32(userId) && a.AcquaintanceId == x.Id) &&
+                        !x.Acquaintances.Any
                         (
-                            x.Name.ToLower().Contains(inputFirst) ||
-                            x.Name.ToLower().Contains(inputSecond)
+                            a => a.UserId == x.Id && a.AcquaintanceId == Convert.ToInt32(userId)
                         ) &&
                         (
-                            x.Surname.ToLower().Contains(inputFirst) ||
-                            x.Surname.ToLower().Contains(inputSecond)
+                            (x.Name + x.Surname).ToLower().Contains(inputFirst) ||
+                            (x.Name + x.Surname).ToLower().Contains(inputSecond != "" ? inputSecond : inputFirst)
                         )
                     ).Take(5);
 
@@ -186,8 +184,8 @@ namespace ChatTogether.Application.Services
             var pendingFriendList = allUsers.Where(x => x.AcquaintanceId == userId && string.IsNullOrEmpty(x.ConfirmationDate.ToString()));
             List<FriendItem> friendsViewModel = new List<FriendItem>();
             List<FriendItem> pendingFriendsViewModel = new List<FriendItem>();
-            int test = friendList.Count();
-            string test2 = friendList.FirstOrDefault().User.Nickname;
+            //int test = friendList.Count();
+            //string test2 = friendList.FirstOrDefault().User.Nickname;
             foreach (var item in friendList)
             {
                 friendsViewModel.Add(new FriendItem
