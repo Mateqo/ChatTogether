@@ -128,6 +128,28 @@ namespace ChatTogether.Infrastructure.Repositories
             }
         }
 
+        public void AddConfirmation(Confirmation confirmation)
+        {
+            _context.Confirmations.Add(confirmation);
+            _context.SaveChanges();
+        }
+
+        public void AccountConfirmation(string link)
+        {
+            var confirmation = _context.Confirmations.FirstOrDefault(x => x.Link == link);
+            
+            if (confirmation != null)
+            {
+                confirmation.ConfirmationDate = DateTime.Now;
+                var user = _context.AppUsers.FirstOrDefault(x => x.Id == confirmation.UserId);
+                if (user != null)
+                {
+                    user.Active = true;
+                }
+                _context.SaveChanges();
+            }
+        }
+
         public IEnumerable<Acquaintance> GetUserFriends(int id)
         {
             return _context.Acquaintances.Where(x => x.UserId == id && !string.IsNullOrEmpty(x.ConfirmationDate.ToString()));

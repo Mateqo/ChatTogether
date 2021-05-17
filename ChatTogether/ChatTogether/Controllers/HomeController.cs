@@ -90,8 +90,9 @@ namespace ChatTogether.Controllers
             {
                 _userService.AddUser(newUser);
                 Guid ID = Guid.NewGuid();
-                string confirmationLink = Url.Action("Login", "Home", new { id = ID.ToString() }, Request.Scheme);
+                string confirmationLink = Url.Action("AccountConfirmation", "Home", new { id = ID.ToString() }, Request.Scheme);
                 Email.SendEmail(newUser.EmailAddress, newUser.Nickname, confirmationLink);
+                _userService.AddConfirmation(ID, newUser);
                 SetMessage("Dodano użytkownika", Application.ViewModels.Base.MessageType.Success);
                 return RedirectToAction("Index");
             }
@@ -195,6 +196,13 @@ namespace ChatTogether.Controllers
 
             var firendsVieModel = _userService.GetFriendList(HttpContext.Request.Cookies["UserId"]);
             return View("Friends", firendsVieModel);
+        }
+
+        public IActionResult AccountConfirmation()
+        {
+            _userService.AccountConfirmation(Url.ActionContext.RouteData.Values["id"].ToString());
+            SetMessage("Twoje konto zostało aktywowane", Application.ViewModels.Base.MessageType.Success);
+            return RedirectToAction("Login");
         }
     }
 }
