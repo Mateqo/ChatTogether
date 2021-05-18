@@ -197,7 +197,8 @@
                     //console.log(response.length); //długość listy
                     for (var i = 0; i < response.length; i++) {
 
-                        $("#addfriendsUl").append('<li class="friends__ul-li"><img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo"><div class="profile-functions"><p class="addfriends-name">' + response[i].name + ' ' + response[i].surname + ' ' + '(' + response[i].nickName + ')' + '</p><div class="friends-buttons"><button class="btn-style addfriends-button"><i class="fas fa-user-plus"></i></button></div></div></li>');
+                        $("#addfriendsUl").append('<li class="friends__ul-li"><img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo"><div class="profile-functions"><p class="addfriends-name">' + response[i].name + ' ' + response[i].surname + ' ' + '(' + response[i].nickName + ')' + '</p><div class="friends-buttons"><button class="btn-style addfriends-button" data-id="' + response[i].id + '" onclick="addUserFunction(' + response[i].id + ')"><i class="fas fa-user-plus"></i></button></div></div></li>');
+
                     }
                 },
                 error: function (xhr, status) {
@@ -205,6 +206,35 @@
                 },
                 complete: function (xhr, status) {
                     $('#spinner').attr('hidden', 'hidden');
+                }
+            });
+        }, 400);
+
+    }
+
+    function addUserFunction(id) {
+        //var input = document.getElementById('inputSearch').value ;
+        //console.log(document.getElementById('inputSearch').value);
+        let cos = document.getElementById('addFriendBtn');
+        setTimeout(() => {
+            $.ajax({
+                url: '/Home/AddFriend',
+                data: { friendId: id },
+                type: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    //console.log(response); //cała lista
+                    //console.log(response[1].id); //id z pierwszego elementu 
+                    //console.log(response.length); //długość listy
+                    console.log('dziala');
+
+                    $("#newFriendsUl").append('<li class="friends__ul-li"><img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo"><div class="profile-functions"><p class="addfriends-name">' + response[i].name + ' ' + response[i].surname + ' ' + '(' + response[i].nickName + ')' + '</p><div class="friends-buttons"><button class="btn-style addfriends-button" id="addFriendBtn"><i class="fas fa-user-plus"></i></button></div></div></li>');
+                },
+                error: function (xhr, status) {
+                    alert('Przepraszamy, wystąpił problem!');
+                },
+                complete: function (xhr, status) {
+                    /*$('#spinner').attr('hidden', 'hidden');*/
                 }
             });
         }, 400);
