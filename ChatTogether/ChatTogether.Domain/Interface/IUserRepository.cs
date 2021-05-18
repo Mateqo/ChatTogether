@@ -25,5 +25,6 @@ namespace ChatTogether.Domain.Interface
         IEnumerable<Acquaintance> GetUserFriends(int id);
         IEnumerable<Acquaintance> GetPendingFriends(int id);
         User GetUserById(int id);
+        User GetUserByEmail(string email);
     }
 }

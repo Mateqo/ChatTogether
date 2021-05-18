@@ -66,6 +66,28 @@ namespace ChatTogether.Application.Services
             return id;
         }
 
+        public bool CheckNameUniqueness(string nickname)
+        {
+            var checkUser = _userRepo.GetUser(nickname);
+
+            if(checkUser == null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool CheckEmailUniqueness(string email)
+        {
+            var checkEmail = _userRepo.GetUserByEmail(email);
+
+            if(checkEmail == null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public bool IsSucceslogin(string nickName, string password)
         {
             SHA256 encryption = SHA256.Create();
