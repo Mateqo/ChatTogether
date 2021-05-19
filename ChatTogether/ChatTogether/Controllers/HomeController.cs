@@ -133,8 +133,9 @@ namespace ChatTogether.Controllers
         {
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
-
-            return Json(_userService.GetUsers(input, HttpContext.Request.Cookies["UserId"]));
+            var list = _userService.GetUsers(input, HttpContext.Request.Cookies["UserId"]);     
+            
+            return Json(_userService.CheckSend(list, HttpContext.Request.Cookies["UserId"]));
         }
 
         [HttpGet]

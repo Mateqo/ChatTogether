@@ -257,5 +257,19 @@ namespace ChatTogether.Application.Services
 
         }
 
+        public List<UserGetItem> CheckSend(List<UserGetItem> userList, string id)
+        {
+            var sendingInvite = _userRepo.GetAcquaintances().Where(x => x.UserId == Convert.ToInt32(id));
+
+
+            foreach (var item in userList)
+            {
+                if (sendingInvite.Any(x => x.AcquaintanceId == item.Id))
+                    item.isSend = true;
+            }
+
+            return userList;
+        }
+
     }
 }

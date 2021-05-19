@@ -29,5 +29,6 @@ namespace ChatTogether.Application.Interfaces
         FriendsList GetFriendList(string id);
         bool CheckNameUniqueness(string nickname);
         bool CheckEmailUniqueness(string email);
+        List<UserGetItem> CheckSend(List<UserGetItem> userList, string id);
     }
 }

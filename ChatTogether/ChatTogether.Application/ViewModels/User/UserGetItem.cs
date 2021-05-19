@@ -6,5 +6,6 @@
         public string Name { get; set; }
         public string Surname { get; set; }
         public string NickName { get; set; }
+        public bool isSend { get; set; }
     }
 }

@@ -56,7 +56,7 @@
 <div class="friends__header">
     <h1 class="section-heading">znajomi</h1>
     <div class="friends__header-tools">
-        <button class="friends__header-tools-addfriend btn-style" data-bs-toggle="modal" data-bs-target="#exampleModal">Dodaj znajomego</button>
+        <button onclick="openModal()" class="friends__header-tools-addfriend btn-style" data-bs-toggle="modal" data-bs-target="#exampleModal">Dodaj znajomego</button>
         <input type="text" placeholder="Szukaj znajomego..." class="friends__header-tools-findfriend">
     </div>
 </div>
@@ -73,8 +73,8 @@
                     <div class="profile-functions">
                         <p class="friends-name">@friend.Surname @friend.Name (@friend.NickName)</p>
                         <div class="friends-buttons">
-                            <button class="btn-style friends-button"><i class="fas fa-user-plus"></i></button>
-                            <button class="btn-style friends-button"><i class="fas fa-times"></i></button>
+                            <button class="btn-style friends-button" id="accept-@friend.Id" onclick="acceptUserFunction()"><i class="fas fa-user-plus"></i></button>
+                            <button class="btn-style friends-button" id="reject-@friend.Id" onclick="rejectUserFunction()"><i class="fas fa-times"></i></button>
                         </div>
                     </div>
                 </li>
@@ -147,19 +147,19 @@
             </div>
             <div class="modal-body">
                 <h2 class="addfriends__ul-text">Lista: </h2>
-                <img hidden="hidden" id="spinner" src="~/img/spinner.gif" style="margin-top:0px; margin-left:200px;height:80px;width:80px"/>
+                <img hidden="hidden" id="spinner" src="~/img/spinner.gif" style="margin-top:0px; margin-left:200px;height:80px;width:80px" />
                 <ul class="addfriends__ul" id="addfriendsUl">
                     <!-- <p class="addfriends__ul-alertinfo">Nie ma takiego użytkownika. </p> -->
                     @*<li class="friends__ul-li">
-                <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
-                <div class="profile-functions">
-                    <p class="addfriends-name">Bartosz Adamczyk
-                    </p>
-                    <div class="friends-buttons">
-                        <button class="btn-style addfriends-button"><i class="fas fa-user-plus"></i></button>
-                    </div>
-                </div>
-            </li>*@
+                            <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
+                            <div class="profile-functions">
+                                <p class="addfriends-name">Bartosz Adamczyk
+                                </p>
+                                <div class="friends-buttons">
+                                    <button class="btn-style addfriends-button"><i class="fas fa-user-plus"></i></button>
+                                </div>
+                            </div>
+                        </li>*@
                 </ul>
             </div>
             <div class="modal-footer">
@@ -178,12 +178,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
-
+    function openModal() {
+        $('#addfriendsUl').empty();
+        document.getElementById('inputSearch').value = "";
+    }
     function searchUserFunction() {
         $('#addfriendsUl').empty();
         $('#spinner').removeAttr('hidden');
-        //var input = document.getElementById('inputSearch').value ;
-        //console.log(document.getElementById('inputSearch').value);
         let cos = document.getElementById('inputSearch').value;
         setTimeout(() => {
             $.ajax({
@@ -192,13 +193,15 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function (response) {
-                    //console.log(response); //cała lista
-                    //console.log(response[1].id); //id z pierwszego elementu 
-                    //console.log(response.length); //długość listy
+                    console.log(response)
                     for (var i = 0; i < response.length; i++) {
-
-                        $("#addfriendsUl").append('<li class="friends__ul-li"><img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo"><div class="profile-functions"><p class="addfriends-name">' + response[i].name + ' ' + response[i].surname + ' ' + '(' + response[i].nickName + ')' + '</p><div class="friends-buttons"><button class="btn-style addfriends-button" data-id="' + response[i].id + '" onclick="addUserFunction(' + response[i].id + ')"><i class="fas fa-user-plus"></i></button></div></div></li>');
-
+                        console.log(response[i].isSend)
+                    }
+                    for (var i = 0; i < response.length; i++) {
+                        if (response[i].isSend == false )
+                            $("#addfriendsUl").append('<li id="' + "userList" + response[i].id + '" class="friends__ul-li"><img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo"><div class="profile-functions"><p class="addfriends-name">' + response[i].name + ' ' + response[i].surname + ' ' + '(' + response[i].nickName + ')' + '</p><div id="searchDiv' + response[i].id +'" class="friends-buttons"><button id="searchBtn'+response[i].id+'" class="btn-style addfriends-button" data-id="' + response[i].id + '" onclick="addUserFunction(' + response[i].id + ')"><i class="fas fa-user-plus"></i></button></div></div></li>');
+                        else
+                            $("#addfriendsUl").append('<li id="' + "userList" + response[i].id + '" class="friends__ul-li"><img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo"><div class="profile-functions"><p class="addfriends-name">' + response[i].name + ' ' + response[i].surname + ' ' + '(' + response[i].nickName + ')' + '</p><div class="friends-buttons"><i class="fas fa-sign-in-alt"></i></div></div></li>');
                     }
                 },
                 error: function (xhr, status) {
@@ -213,31 +216,60 @@
     }
 
     function addUserFunction(id) {
-        //var input = document.getElementById('inputSearch').value ;
-        //console.log(document.getElementById('inputSearch').value);
-        let cos = document.getElementById('addFriendBtn');
-        setTimeout(() => {
-            $.ajax({
-                url: '/Home/AddFriend',
-                data: { friendId: id },
-                type: 'GET',
-                dataType: 'json',
-                success: function (response) {
-                    //console.log(response); //cała lista
-                    //console.log(response[1].id); //id z pierwszego elementu 
-                    //console.log(response.length); //długość listy
-                    console.log('dziala');
-
-                    $("#newFriendsUl").append('<li class="friends__ul-li"><img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo"><div class="profile-functions"><p class="addfriends-name">' + response[i].name + ' ' + response[i].surname + ' ' + '(' + response[i].nickName + ')' + '</p><div class="friends-buttons"><button class="btn-style addfriends-button" id="addFriendBtn"><i class="fas fa-user-plus"></i></button></div></div></li>');
-                },
-                error: function (xhr, status) {
-                    alert('Przepraszamy, wystąpił problem!');
-                },
-                complete: function (xhr, status) {
-                    /*$('#spinner').attr('hidden', 'hidden');*/
-                }
-            });
-        }, 400);
-        
+        $.ajax({
+            url: '/Home/AddFriend',
+            data: { friendId: id },
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                //$("#newFriendsUl").append('<li class="friends__ul-li"><img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo"><div class="profile-functions"><p class="addfriends-name">' + response[i].name + ' ' + response[i].surname + ' ' + '(' + response[i].nickName + ')' + '</p><div class="friends-buttons"><button class="btn-style addfriends-button" id="addFriendBtn"><i class="fas fa-user-plus"></i></button></div></div></li>');
+            },
+            error: function (xhr, status) {
+                
+                
+            },
+            complete: function (xhr, status) {                
+                $('#searchBtn' + id).remove();
+                $('#searchDiv' + id).append('<i class="fas fa-sign-in-alt"></i>')
+            }
+        });
     }
+
+    //function acceptUserFunction(id) {
+    //    $.ajax({
+    //        url: '/Home/AcceptFriend',
+    //        data: { friendId: id },
+    //        type: 'GET',
+    //        dataType: 'json',
+    //        success: function (response) {
+    //            console.log('dziala');
+    //            $("#friendsUl").append('<li class="friends__ul-li"><img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo"><div class="profile-functions"><p class="addfriends-name">' + response[i].name + ' ' + response[i].surname + ' ' + '(' + response[i].nickName + ')' + '</p><div class="friends-buttons"><button class="btn-style addfriends-button" data-id="' + response[i].id + '" onclick="acceptUserFunction(' + response[i].id + ')"><i class="fas fa-user-plus"></i></button><button class="btn-style addfriends-button" data-id="' + response[i].id + '" onclick="rejectUserFunction(' + response[i].id + ')"><i class="fas fa-times"></i></button></div></div></li>');
+    //        },
+    //        error: function (xhr, status) {
+    //            alert('Przepraszamy, wystąpił problem!');
+    //        },
+    //        complete: function (xhr, status) {
+    //        }
+    //    });
+    //}
+
+
+
+    //function rejectUserFunction(id) {
+    //    $.ajax({
+    //        url: '/Home/RejectFriend',
+    //        data: { friendId: id },
+    //        type: 'GET',
+    //        dataType: 'json',
+    //        success: function (response) {
+    //            console.log('dziala');
+    //            $("#newFriendsUl").remove('<li class="friends__ul-li"><img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo"><div class="profile-functions"><p class="addfriends-name">' + response[i].name + ' ' + response[i].surname + ' ' + '(' + response[i].nickName + ')' + '</p><div class="friends-buttons"><button class="btn-style addfriends-button" data-id="' + response[i].id + '" onclick="acceptUserFunction(' + response[i].id + ')"><i class="fas fa-user-plus"></i></button><button class="btn-style addfriends-button" data-id="' + response[i].id + '" onclick="rejectUserFunction(' + response[i].id + ')"><i class="fas fa-times"></i></button></div></div></li>');
+    //        },
+    //        error: function (xhr, status) {
+    //            alert('Przepraszamy, wystąpił problem!');
+    //        },
+    //        complete: function (xhr, status) {
+    //        }
+    //    });
+    //}
 </script>

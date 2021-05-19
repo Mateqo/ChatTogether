@@ -39,6 +39,11 @@ namespace ChatTogether.Infrastructure.Repositories
             return _context.AppUsers.FirstOrDefault(x => x.Id == id);
         }
 
+        public User GetUserByEmail(string email)
+        {
+            return _context.AppUsers.FirstOrDefault(x => x.EmailAddress == email);
+        }
+
         public string GetSalt(string nickName)
         {
             return _context.AppUsers.FirstOrDefault(x => x.Nickname == nickName).Salt;
