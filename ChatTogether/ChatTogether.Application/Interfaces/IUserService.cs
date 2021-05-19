@@ -27,6 +27,7 @@ namespace ChatTogether.Application.Interfaces
         void AddConfirmation(Guid link, UserRegister newUser);
         void AccountConfirmation(string link);
         FriendsList GetFriendList(string id);
-
+        bool CheckNameUniqueness(string nickname);
+        bool CheckEmailUniqueness(string email);
     }
 }

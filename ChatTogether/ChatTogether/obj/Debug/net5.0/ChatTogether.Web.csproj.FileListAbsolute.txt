@@ -2315,3 +2315,5 @@ C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net
 C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Friends.cshtml.g.cs
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\bin\Debug\net5.0\libman.json
 D:\Users\User\Desktop\repozytorium\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Chat.cshtml.g.cs
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\bin\Debug\net5.0\libman.json
+C:\Users\flx70\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Chat.cshtml.g.cs

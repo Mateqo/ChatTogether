@@ -29,7 +29,7 @@ namespace ChatTogether.Controllers
                 HttpContext.Response.Cookies.Delete("FullName");
                 HttpContext.Response.Cookies.Delete("NickName");
             }
-        
+
             return View();
         }
 
@@ -49,10 +49,10 @@ namespace ChatTogether.Controllers
         {
             var isSucces = _userService.IsSucceslogin(user.NickName, user.EncryptedPassword);
 
-            if(isSucces)
-            {             
+            if (isSucces)
+            {
                 var userInfo = _userService.GetUserByNickName(user.NickName);
-                var fullName = userInfo.Name + " " +  userInfo.Surname;
+                var fullName = userInfo.Name + " " + userInfo.Surname;
                 _userService.SetToken(userInfo.Nickname);
                 HttpContext.Response.Cookies.Append("Token", userInfo.Token);
                 HttpContext.Response.Cookies.Append("UserId", userInfo.Id.ToString());
@@ -68,8 +68,8 @@ namespace ChatTogether.Controllers
                 SetMessage("Błędne dane", Application.ViewModels.Base.MessageType.Error);
                 return View(user);
             }
-            
-            
+
+
         }
 
         [HttpGet]
@@ -86,6 +86,15 @@ namespace ChatTogether.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Registration(UserRegister newUser)
         {
+            if (!_userService.CheckNameUniqueness(newUser.Nickname))
+            {
+                ModelState.AddModelError("Nickname", "Użytkownik o podanej nazwie już istnieje.");
+            }
+            if (!_userService.CheckEmailUniqueness(newUser.EmailAddress))
+            {
+                ModelState.AddModelError("EmailAddress", "Użytkownik z takim mailem już istnieje.");
+            }
+
             if (ModelState.IsValid)
             {
                 _userService.AddUser(newUser);
@@ -95,6 +104,7 @@ namespace ChatTogether.Controllers
                 _userService.AddConfirmation(ID, newUser);
                 SetMessage("Dodano użytkownika", Application.ViewModels.Base.MessageType.Success);
                 return RedirectToAction("Index");
+
             }
             else
             {
@@ -208,9 +218,6 @@ namespace ChatTogether.Controllers
         [HttpGet]
         public IActionResult Chat()
         {
-            
-
-           
             return View();
         }
     }
