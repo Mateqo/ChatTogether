@@ -51,7 +51,7 @@ namespace ChatTogether.Infrastructure.Repositories
 
         public IEnumerable<User> GetUsers()
         {
-            return _context.AppUsers.Include(x => x.Acquaintances);                              
+            return _context.AppUsers.Include(x => x.Acquaintances);
         }
 
         public IEnumerable<Acquaintance> GetAcquaintances()
@@ -62,8 +62,9 @@ namespace ChatTogether.Infrastructure.Repositories
         public void AcceptFriend(int userId, int friendId)
         {
             var acquaintances = _context.Acquaintances.FirstOrDefault(x => x.UserId == friendId && x.AcquaintanceId == userId);
+            var acquaintances2 = _context.Acquaintances.FirstOrDefault(x => x.UserId == userId && x.AcquaintanceId == friendId);
 
-            if (acquaintances != null)
+            if (acquaintances != null && acquaintances2 == null)
             {
                 acquaintances.ConfirmationDate = DateTime.Now;
                 Acquaintance newAcquaintances = new Acquaintance()
@@ -81,8 +82,9 @@ namespace ChatTogether.Infrastructure.Repositories
         public void RejectFriend(int userId, int friendId)
         {
             var acquaintances = _context.Acquaintances.FirstOrDefault(x => x.UserId == friendId && x.AcquaintanceId == userId);
+            var acquaintances2 = _context.Acquaintances.FirstOrDefault(x => x.UserId == userId && x.AcquaintanceId == friendId);
 
-            if (acquaintances != null)
+            if (acquaintances != null && acquaintances2 == null)
             {
                 _context.Acquaintances.Remove(acquaintances);
 
@@ -142,7 +144,7 @@ namespace ChatTogether.Infrastructure.Repositories
         public void AccountConfirmation(string link)
         {
             var confirmation = _context.Confirmations.FirstOrDefault(x => x.Link == link);
-            
+
             if (confirmation != null)
             {
                 confirmation.ConfirmationDate = DateTime.Now;

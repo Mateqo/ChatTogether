@@ -69,7 +69,7 @@ const prepareDOMEvents = () => {
     // $addFriendButton.addEventListener('click', controllingNewFriends);
     // $ulNewFriends.addEventListener('click', moveChild);
     $ulNewFriends.addEventListener('click', pendingFriendsCheckClick);
-    $ulOurFriends.addEventListener('click', ourFriendsCheckClick);
+    //$ulOurFriends.addEventListener('click', ourFriendsCheckClick);
     // $ulNewFriends.addEventListener('click', addNewFriendsHeader);
     // $deleteFriendBtn.addEventListener('click', controllingNewFriends);
     // $newFriendToAcceptBtn.addEventListener('click', ourFriends)
@@ -229,19 +229,19 @@ const friendProfileTools = () => {
     $profileFunctions.appendChild($ourFriendAddTools);
 };
 
-const ourFriendsCheckClick = (e) => {
+//const ourFriendsCheckClick = (e) => {
 
-    //here I have to create adding pending friends to friendlist
-    if (e.target.closest('button').classList.contains('deletebtn')) {
-        deleteOurFriend(e);
-    }
-};
+//    //here I have to create adding pending friends to friendlist
+//    if (e.target.closest('button').classList.contains('deletebtn')) {
+//        deleteOurFriend(e);
+//    }
+//};
 
-const deleteOurFriend = (e) => {
-    const deleteUser = e.target.closest('li');
-    deleteUser.remove();
-    alertInfoFriendControl();
-};
+//const deleteOurFriend = (e) => {
+//    const deleteUser = e.target.closest('li');
+//    deleteUser.remove();
+//    alertInfoFriendControl();
+//};
 
 const alertInfoFriendControl = () => {
     if ($allOurFriends.length === 0) {

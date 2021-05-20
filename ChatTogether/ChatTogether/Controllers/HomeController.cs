@@ -154,7 +154,7 @@ namespace ChatTogether.Controllers
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
 
-            _userService.AcceptFriend(HttpContext.Request.Cookies["UserId"], friendId);
+            _userService.RejectFriend(HttpContext.Request.Cookies["UserId"], friendId);
             return Ok();
         }
 
