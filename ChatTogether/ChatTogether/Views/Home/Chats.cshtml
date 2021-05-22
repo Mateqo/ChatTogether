@@ -1,0 +1,61 @@
+﻿ <!-- NAVIGATION  -->
+
+<button class="burger">
+    <i class="fas fa-bars"></i>
+    <i class="fas fa-times  hide"></i>
+</button>
+<div class="nav-shadow"></div>
+<nav class="nav">
+    <div class="nav__profile">
+        <img src="img/deafultphoto.jpg" alt="profile photo" class="nav__profile-img">
+        <div class="nav__profile-imgcover"></div>
+        <p class="nav__profile-nickname">Bartosz Adamczyk</p>
+        <button href="#" class="nav__profile-edit btn-style">
+            <i class="fas fa-user-edit nav__menu-item-icon"></i>
+            Edytuj Profil
+        </button>
+    </div>
+
+    <div class="nav__menu">
+        <button href="#" class="nav__menu-item btn-style">
+            <i class="fas fa-comment-dots nav__menu-item-icon"></i> Rozmowy
+        </button>
+
+        <button href="#" class="nav__menu-item btn-style">
+            <i class="fas fa-users nav__menu-item-icon"></i> Znajomi
+        </button>
+    </div>
+    <div class="nav__logout">
+        <button href="#" class="nav__logout-item btn-style">
+            <i class="fas fa-sign-out-alt nav__menu-item-icon"></i> Wyloguj
+        </button>
+        <button href="#" class="nav__logout-item btn-style">
+            <i class="fas fa-cog nav__menu-item-icon"></i> Ustawienia
+        </button>
+    </div>
+</nav>
+
+<main class="chats">
+    <div class="chats__header">
+        <h1 class="section-heading">rozmowy</h1>
+        <input type="text" placeholder="Szukaj rozmowy..." class="chats__header-input">
+        <!-- Jeśli nie ma żadnych chatów -->
+        <!-- <div class="chats__header-tools">
+            <h3>Nie rozpocząłeś jeszcze żadnej rozmowy!</h3>
+            <button class="chats__header-tools-btn btn-style">Rozpocznij rozmowę</button>
+        </div> -->
+    </div>
+    <div class="ourchats">
+        <ul class="ourchats__ul">
+            <li class="ourchats__ul-li">
+                <a href="#" class="ourchats__ul-li-a">
+                    <img src="/img/deafultphoto.jpg" alt="user profile photo" class="profile-photo">
+                    <div class="ourchats-user-data">
+                        <p class="ourchats-user-data-name">Bartosz Adamczyk</p>
+                        <p class="ourchats-user-data-last-message">Bałczikibałbał</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</main>
