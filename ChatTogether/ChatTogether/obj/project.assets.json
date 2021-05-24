@@ -10357,11 +10357,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Web.csproj",
+      "projectUniqueName": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether\\ChatTogether.Web.csproj",
       "projectName": "ChatTogether.Web",
-      "projectPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Web.csproj",
+      "projectPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether\\ChatTogether.Web.csproj",
       "packagesPath": "C:\\Users\\adamchick3010\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\obj\\",
+      "outputPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\adamchick3010\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10378,11 +10378,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Application\\ChatTogether.Application.csproj": {
-              "projectPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Application\\ChatTogether.Application.csproj"
+            "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Application\\ChatTogether.Application.csproj": {
+              "projectPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Application\\ChatTogether.Application.csproj"
             },
-            "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }

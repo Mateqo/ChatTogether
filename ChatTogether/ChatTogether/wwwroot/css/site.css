@@ -925,6 +925,8 @@ body {
     -ms-flex-pack: center;
     justify-content: center;
     margin: 0 1em;
+    padding: 0.3em;
+    border-radius: 8px;
 }
 
     .modal-input:focus {
@@ -1304,6 +1306,186 @@ body {
     font-style: italic;
 }
 
+.editprofile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.editprofile__data {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 1em 0;
+    height: 40%;
+}
+
+.editprofile__data-img {
+    height: 6em;
+    width: 6em;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0.5em;
+}
+
+.editprofile__data-name {
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.editprofile__data-nickname {
+    font-weight: bold;
+    font-size: 1.9rem;
+}
+
+.editprofile__buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    height: 40%;
+    width: 70%;
+    max-width: 450px;
+}
+
+    .editprofile__buttons > :nth-child(n) {
+        padding: 0.3em;
+    }
+
+.editprofile__modal-photo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.editprofile__modal-photo-fileinput {
+    margin: auto;
+    text-align: center;
+    padding: 1.2em;
+}
+
+.editprofile__modal-nickname {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.editprofile__modal-nickname-input {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 20vh;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.editprofile__modal-nickname-inputbutton {
+    margin-top: 0.2em;
+}
+
+.editprofile__modal-password {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+    .editprofile__modal-password > :nth-child(n) {
+        width: 80%;
+    }
+
+.editprofile__modal-mail {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+    .editprofile__modal-mail > :nth-child(n) {
+        width: 80%;
+    }
+
+.editprofile__modal-paragraph {
+    font-size: 2rem;
+}
+
 @media (min-width: 576px) {
     .nav {
         width: 450px;
@@ -1429,8 +1611,8 @@ body {
     }
 
     .nav {
-        width: 550px;
-        left: -550px;
+        width: boldpx;
+        left: -boldpx;
     }
 
         .nav::before {
@@ -1438,8 +1620,8 @@ body {
         }
 
     .active {
-        -webkit-transform: translateX(550px);
-        transform: translateX(550px);
+        -webkit-transform: translateX(boldpx);
+        transform: translateX(boldpx);
     }
 
     .main__logo {

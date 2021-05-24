@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj": {}
+    "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj": {
+    "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj",
         "projectName": "ChatTogether.Domain",
-        "projectPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj",
+        "projectPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj",
         "packagesPath": "C:\\Users\\adamchick3010\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Domain\\obj\\",
+        "outputPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\adamchick3010\\AppData\\Roaming\\NuGet\\NuGet.Config",

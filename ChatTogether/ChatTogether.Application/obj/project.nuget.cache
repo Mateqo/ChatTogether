@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "v456LN1SA8e1vzJLOLwXGtAWljsVp5sqDEhoMzry7pbWG5bM/efir6auQYJTzImt9gApzs8RjwBelbLeQ5i0SQ==",
+  "dgSpecHash": "ZfBSTMh5Va4+9emJod+TH5EznrjAmjJJ1PXBJ+90OH7Mt09cw3+i5jNutJ9W1bYvcB34eDU5YjILnjOTnO6ugw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Application\\ChatTogether.Application.csproj",
+  "projectFilePath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Application\\ChatTogether.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adamchick3010\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\adamchick3010\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

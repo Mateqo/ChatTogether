@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o5/47hbi8L3X/FB6g9Qd8U7uh6ileDn2tl54sUAvj4XFFj2MEdYhvz9JuXnEPB8TbTPgzELBv+/4QsbbahhvSQ==",
+  "dgSpecHash": "SfwuBqu0nu//M4goappuISYV/uF8l7MuJuWLACIugPQOTkfPK7PBwLvddzgodHe1YXdo9gNIriTGhI2iMadBAg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj",
+  "projectFilePath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

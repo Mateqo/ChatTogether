@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j+cNm12aOlzxQJHPo4tdwZCcgw/UfoXHd61HHuCtWev8AG40TM5rHIBre3SQNFLn2VsBzreGajNOrL0Du49pdQ==",
+  "dgSpecHash": "fAYdNqzuDuzld/PmF/BUcZ4NdzvoZGYFClZN2PJGHsFi2uZHFcq1k0YMTclijHNOLOUF/qgNVhL0XvMX6To2nw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
+  "projectFilePath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adamchick3010\\.nuget\\packages\\coverlet.collector\\1.3.0\\coverlet.collector.1.3.0.nupkg.sha512",
     "C:\\Users\\adamchick3010\\.nuget\\packages\\microsoft.codecoverage\\16.7.1\\microsoft.codecoverage.16.7.1.nupkg.sha512",

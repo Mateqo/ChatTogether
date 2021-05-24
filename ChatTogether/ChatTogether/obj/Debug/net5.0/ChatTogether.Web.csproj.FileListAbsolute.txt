@@ -2787,3 +2787,10 @@ C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\obj\Debug\net5.0\C
 C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\obj\Debug\net5.0\ref\ChatTogether.Web.dll
 C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\obj\Debug\net5.0\ChatTogether.Web.pdb
 C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\obj\Debug\net5.0\ChatTogether.Web.genruntimeconfig.cache
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether\bin\Debug\net5.0\libman.json
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether\bin\Debug\net5.0\RestSharp.dll
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\BadRequest.cshtml.g.cs
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Chat.cshtml.g.cs
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Chats.cshtml.g.cs
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Editprofile.cshtml.g.cs
+C:\Users\adamchick3010\Source\Repos\ChatTogether\ChatTogether\ChatTogether\obj\Debug\net5.0\Razor\Views\Home\Mailsent.cshtml.g.cs

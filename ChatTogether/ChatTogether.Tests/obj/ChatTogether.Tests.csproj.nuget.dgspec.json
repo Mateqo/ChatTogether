@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj": {}
+    "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj": {
+    "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
         "projectName": "ChatTogether.Tests",
-        "projectPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
+        "projectPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
         "packagesPath": "C:\\Users\\adamchick3010\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether.Tests\\obj\\",
+        "outputPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\adamchick3010\\AppData\\Roaming\\NuGet\\NuGet.Config",
