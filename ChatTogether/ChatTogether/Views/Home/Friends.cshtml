@@ -62,7 +62,7 @@
 </div>
 
 <div class="newfriends">
-    @if (Model.Friends.Count() > 0)
+    @if (Model.PendingFriends.Count() > 0)
     {
         <h2 class="newfriendsUlText"> nowi znajomi: </h2>
         <ul class="newfriends__ul" id="pendingFriendsUl">
@@ -100,8 +100,7 @@
     {
         <p class="nofriends">Twoja lista znajomych jest pusta. </p>
     }
-    else
-    {
+
         <ul class="friends__ul" id="newFriendsUl">
             @foreach (var friend in Model.Friends)
             {
@@ -128,7 +127,7 @@
                     </div>
                 </li>*@
         </ul>
-    }
+    
 </main>
 
 
@@ -173,7 +172,7 @@
 <a id="logOutClick" hidden="hidden" href="@Url.Action("LogOut","Home")"></a>
 <a id="friendClick" hidden="hidden" href="@Url.Action("Friends","Home")"></a>
 
-<script src="~/js/site.js"></script>
+@*<script src="~/js/site.js"></script>*@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
