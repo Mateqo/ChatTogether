@@ -17,9 +17,8 @@ namespace ChatTogether.Domain.Model
         public string Salt { get; set; }
         public DateTime CreationDate { get; set; }
         public bool Active { get; set; }
-
-        public string? Token { get; set; }
-
+        public string Token { get; set; }
+        public string ProfilePictureGuid { get; set; }
         public Confirmation Confirmation { get; set; }
         public virtual ICollection<Acquaintance> Acquaintances { get; set; }
         public virtual ICollection<Message> Messages { get; set; }
