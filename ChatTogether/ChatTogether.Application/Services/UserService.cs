@@ -95,7 +95,7 @@ namespace ChatTogether.Application.Services
 
             var user = _userRepo.GetUser(nickName);
 
-            if (user != null)
+            if (user != null && user.Active)
             {
                 var encPassBytes = encryption.ComputeHash(
                     Encoding.ASCII.GetBytes(
