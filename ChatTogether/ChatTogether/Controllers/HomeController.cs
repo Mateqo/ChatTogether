@@ -66,7 +66,7 @@ namespace ChatTogether.Controllers
             }
             else
             {
-                SetMessage("Błędne dane", Application.ViewModels.Base.MessageType.Error);
+                SetMessage("Błędne dane lub niepotwierdzony e-mail.", Application.ViewModels.Base.MessageType.Error);
                 return View(user);
             }
 
