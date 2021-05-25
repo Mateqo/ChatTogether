@@ -79,9 +79,10 @@
         border: 1px solid #42b7c0;
     }
 
+
 .form-input {
     padding: .5em .5em;
-    margin-bottom: 2em;
+    /*margin-bottom: 2em;*/
     width: 100%;
     background: #fff;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -294,7 +295,7 @@ body {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin: 2em 0;
+    /*margin: 1em 0;*/
 }
 
 .login__card--logo {
@@ -311,7 +312,11 @@ body {
 
 .login__form {
     width: 100%;
+    padding: 0.5em 1em;
 }
+/*.login__form-box {
+
+}*/
 
 .login__form-buttons {
     display: -webkit-box;
@@ -324,6 +329,7 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    margin: 0.8em 0;
 }
 
 .login__form-link {
@@ -370,7 +376,7 @@ body {
 
 .registration__form {
     width: 100%;
-    padding: 2em 0;
+    padding: 2em 1em;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -378,6 +384,9 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+}
+.registration__form-box {
+    margin-bottom: 2em;
 }
 
 .registration__form-buttons {
@@ -850,17 +859,14 @@ body {
 
 .friends__ul-li {
     width: 95%;
-    height: 4.5em;
+    /*height: 4.5em;*/
     padding: 0.3em;
     margin: 0.3em;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
+    /*display: -webkit-box;*/
+    /*display: -ms-flexbox;*/
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 1;
     border: 1px solid #42b7c0;
     border-radius: 8px;
     background-color: #fff;
@@ -873,27 +879,24 @@ body {
     object-fit: cover;
     border-radius: 50%;
     z-index: 1;
+    justify-self: center;
+    align-self: center;
 }
 
 .profile-functions {
-    width: 70%;
-    padding: 0.5em;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    /*width: 70%;*/
+    /*padding: 0.5em;*/
+    display: grid;
+    /*grid-template-columns: 80%;*/
+    grid-template-rows: 2;
     align-items: center;
+    justify-content: center;
 }
 
 .friends-name {
     margin-bottom: 0.3em;
+    justify-self: center;
+    align-self: center;
 }
 
 .friends-buttons {
@@ -907,6 +910,7 @@ body {
     -ms-flex-align: center;
     align-items: center;
     margin-bottom: 0.2em;
+    justify-self: center;
 }
 
 .friends-button {
@@ -1510,16 +1514,12 @@ body {
     }
 
     .profile-functions {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        width: 80%;
+        grid-template-columns: 80% 20%;
     }
 
     .friends-buttons {
-        width: 25%;
-        max-width: 80px;
+        display: flex;
+        flex-direction: column;
     }
 
     .friends-button {
@@ -1527,7 +1527,7 @@ body {
     }
 
     .friends-name {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .modal-input {
@@ -1543,40 +1543,18 @@ body {
 .ourchats__ul-li {
     max-width: 400px;
 }
+#searchUser {
+    margin: 0.5em 0.2em;
+    padding: 0.3em 0.6em;
+}
+
+@media(min-width: 100px) {
+    .friends-name {
+        font-size: 1.4rem;
+    }
+}
 
 @media (min-width: 450px) {
-    .profile-functions {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        width: 80%;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-    }
-
-    .friends-name {
-        margin-left: 35%;
-        -webkit-transform: translateX(-35%);
-        transform: translateX(-35%);
-    }
-
-    .friends-buttons {
-        width: 20%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        margin-bottom: 0;
-    }
-
     .friends-button {
         margin: 0.1em;
         width: 4.5em;
@@ -1611,8 +1589,8 @@ body {
     }
 
     .nav {
-        width: boldpx;
-        left: -boldpx;
+        width: 550px;
+        left: -550px;
     }
 
         .nav::before {
@@ -1620,8 +1598,8 @@ body {
         }
 
     .active {
-        -webkit-transform: translateX(boldpx);
-        transform: translateX(boldpx);
+        -webkit-transform: translateX(550px);
+        transform: translateX(550px);
     }
 
     .main__logo {

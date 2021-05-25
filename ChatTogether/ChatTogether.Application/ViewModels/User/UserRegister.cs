@@ -36,7 +36,7 @@ namespace ChatTogether.Application.ViewModels.User
             RuleFor(x => x.ConfirmEmailAddress).Equal(x => x.EmailAddress).WithMessage("Niepoprawny e-mail");
             RuleFor(x => x.EncryptedPassword).NotEmpty().WithMessage("Wymagane hasło").Length(6, 10).WithMessage("Niepoprawna dlugosc");
             RuleFor(x => x.ConfirmPassword).Equal(x => x.EncryptedPassword).WithMessage("Złe hasło");
-            RuleFor(x => x.DateOfBirth).Must(BeAValidAge).WithMessage("Niepoprawny wiek");
+            RuleFor(x => x.DateOfBirth).Must(BeAValidAge).WithMessage("Niepoprawny wiek").NotEmpty().WithMessage("Wiek wymagany");
             RuleFor(x => x.Policy).Equal(true).WithMessage("Wymagana zgoda");
             RuleFor(x => x.Rodo).Equal(true).WithMessage("Wymagana zgoda");
         }
