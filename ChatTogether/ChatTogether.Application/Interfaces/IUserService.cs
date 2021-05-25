@@ -1,9 +1,11 @@
 ﻿
+using ChatTogether.Application.ViewModels.Chat;
 using ChatTogether.Application.ViewModels.Friend;
 using ChatTogether.Application.ViewModels.User;
 using ChatTogether.Domain.Model;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ChatTogether.Application.Interfaces
 {
@@ -30,5 +32,7 @@ namespace ChatTogether.Application.Interfaces
         bool CheckNameUniqueness(string nickname);
         bool CheckEmailUniqueness(string email);
         List<UserGetItem> CheckSend(List<UserGetItem> userList, string id);
+        Task SendMessage(int userId, int friendId, string message);
+        IEnumerable<MessagesListItem> GetMessage(int userId, int friendId);
     }
 }

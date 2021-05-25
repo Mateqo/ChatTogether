@@ -13,7 +13,7 @@
         <p class="nav__profile-nickname mb-0">@Context.Request.Cookies["FullName"]</p>
         <p class="nav__profile-nickname">@Context.Request.Cookies["NickName"]</p>
 
-        <button href="#" class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
+        <button id="edit"  class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
     </div>
 
     <div class="nav__menu">
@@ -109,7 +109,7 @@
                     <div class="profile-functions">
                         <p class="friends-name">@friend.Name @friend.Surname  (@friend.NickName)</p>
                         <div class="friends-buttons">
-                            <button class="btn-style friends-button" data-id="@friend.Id" onclick="messageUserFunction(@friend.Id)"><i class="fas fa-comment"></i></button>
+                            <button class="btn-style friends-button" data-id="@friend.Id" onclick="location.href='@Url.Action("Chat", "Home",  new { friendId = @friend.Id })'"><i class="fas fa-comment"></i></button>
                             <button class="btn-style friends-button" data-id="@friend.Id" onclick="removeUserFunction(@friend.Id)"><i class="fas fa-users-slash"></i></button>
                         </div>
                     </div>
@@ -171,6 +171,7 @@
 
 <a id="logOutClick" hidden="hidden" href="@Url.Action("LogOut","Home")"></a>
 <a id="friendClick" hidden="hidden" href="@Url.Action("Friends","Home")"></a>
+<a id="editClick" hidden="hidden" href="@Url.Action("Editprofile","Home")"></a>
 
 @*<script src="~/js/site.js"></script>*@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>

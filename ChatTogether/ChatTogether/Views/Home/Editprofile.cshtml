@@ -9,7 +9,8 @@
     <div class="nav__profile">
         <img src="img/deafultphoto.jpg" alt="profile photo" class="nav__profile-img">
         <div class="nav__profile-imgcover"></div>
-        <p class="nav__profile-nickname">Bartosz Adamczyk</p>
+        <p class="nav__profile-nickname">@Context.Request.Cookies["FullName"]</p>
+        <p class="nav__profile-nickname">@Context.Request.Cookies["NickName"]</p>
         <button href="#" class="nav__profile-edit btn-style">
             <i class="fas fa-user-edit nav__menu-item-icon"></i>
             Edytuj Profil
@@ -21,15 +22,15 @@
             <i class="fas fa-comment-dots nav__menu-item-icon"></i> Rozmowy
         </button>
 
-        <button href="#" class="nav__menu-item btn-style">
+        <button id="friends" class="nav__menu-item btn-style">
             <i class="fas fa-users nav__menu-item-icon"></i> Znajomi
         </button>
     </div>
     <div class="nav__logout">
-        <button href="#" class="nav__logout-item btn-style">
+        <button class="nav__logout-item btn-style" id="logOut">
             <i class="fas fa-sign-out-alt nav__menu-item-icon"></i> Wyloguj
         </button>
-        <button href="#" class="nav__logout-item btn-style">
+        <button class="nav__logout-item btn-style">
             <i class="fas fa-cog nav__menu-item-icon"></i> Ustawienia
         </button>
     </div>
@@ -39,8 +40,8 @@
     <h1 class="section-heading">profil</h1>
     <div class="editprofile__data">
         <img src="img/deafultphoto.jpg" alt="profile photo" class="editprofile__data-img">
-        <p class="editprofile__data-name">Bartosz Adamczyk</p>
-        <p class="editprofile__data-nickname">(adamchick)</p>
+        <p class="editprofile__data-name">@Context.Request.Cookies["FullName"]</p>
+        <p class="editprofile__data-nickname">(@Context.Request.Cookies["NickName"])</p>
     </div>
     <div class="editprofile__buttons">
         <button class="btn-style editprofile__buttons-img btn-special-animation" data-bs-toggle="modal" data-bs-target="#editphoto">Edytuj zdjęcie</button>
@@ -153,5 +154,7 @@
             </div>
         </div>
     </div>
-
+    <a id="logOutClick" hidden="hidden" href="@Url.Action("LogOut","Home")"></a>
+    <a id="friendClick" hidden="hidden" href="@Url.Action("Friends","Home")"></a>
 </main>
+

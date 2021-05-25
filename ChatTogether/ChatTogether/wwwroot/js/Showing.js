@@ -39,6 +39,13 @@ friends.addEventListener('click', function () {
     friends.click();
 }, false);
 
+var edit = document.getElementById('edit');
+    edit.addEventListener('click', function () {
+    var edit = document.getElementById('editClick');
+    edit.click();
+    }, false);
+
+
 
 $navShadow.addEventListener('click', showing);
 $navBtn.addEventListener('click', showing);

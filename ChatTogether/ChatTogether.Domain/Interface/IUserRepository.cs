@@ -1,6 +1,7 @@
 ﻿
 using ChatTogether.Domain.Model;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ChatTogether.Domain.Interface
 {
@@ -26,5 +27,7 @@ namespace ChatTogether.Domain.Interface
         IEnumerable<Acquaintance> GetPendingFriends(int id);
         User GetUserById(int id);
         User GetUserByEmail(string email);
+        Task SendMessage(int userId, int friendId, string message);
+        IEnumerable<Message> GetMessage(int userId, int friendId);
     }
 }

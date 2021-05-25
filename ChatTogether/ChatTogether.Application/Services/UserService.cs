@@ -9,6 +9,8 @@ using System.Text;
 using System.Security.Cryptography;
 using System.Linq;
 using ChatTogether.Application.ViewModels.Friend;
+using System.Threading.Tasks;
+using ChatTogether.Application.ViewModels.Chat;
 
 namespace ChatTogether.Application.Services
 {
@@ -70,7 +72,7 @@ namespace ChatTogether.Application.Services
         {
             var checkUser = _userRepo.GetUser(nickname);
 
-            if(checkUser == null)
+            if (checkUser == null)
             {
                 return true;
             }
@@ -81,7 +83,7 @@ namespace ChatTogether.Application.Services
         {
             var checkEmail = _userRepo.GetUserByEmail(email);
 
-            if(checkEmail == null)
+            if (checkEmail == null)
             {
                 return true;
             }
@@ -269,6 +271,33 @@ namespace ChatTogether.Application.Services
             }
 
             return userList;
+        }
+
+        public async Task SendMessage(int userId, int friendId, string message)
+        {
+            await _userRepo.SendMessage(userId, friendId, message);
+        }
+
+        public IEnumerable<MessagesListItem> GetMessage(int userId, int friendId)
+        {
+            var messageList = _userRepo.GetMessage(userId, friendId);
+            List<MessagesListItem> messageListViewModel = new List<MessagesListItem>();
+
+            foreach (var item in messageList)
+            {
+                var newMessage = new MessagesListItem()
+                {
+                    Id = item.Id,
+                    SenderId = item.SenderId,
+                    ReceiverId = item.ReceiverId,
+                    Content = item.Content,
+                    CreationDate = item.CreationDate,
+                    ReceivementDate = item.ReceivementDate
+                };
+                messageListViewModel.Add(newMessage);
+            }
+
+            return messageListViewModel;
         }
 
     }

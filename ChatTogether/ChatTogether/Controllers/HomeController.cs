@@ -1,4 +1,5 @@
 ﻿using ChatTogether.Application.Interfaces;
+using ChatTogether.Application.ViewModels.Chat;
 using ChatTogether.Application.ViewModels.User;
 using ChatTogether.Web.Controllers;
 using ChatTogether.Web.Email;
@@ -133,8 +134,8 @@ namespace ChatTogether.Controllers
         {
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
-            var list = _userService.GetUsers(input, HttpContext.Request.Cookies["UserId"]);     
-            
+            var list = _userService.GetUsers(input, HttpContext.Request.Cookies["UserId"]);
+
             return Json(_userService.CheckSend(list, HttpContext.Request.Cookies["UserId"]));
         }
 
@@ -217,8 +218,33 @@ namespace ChatTogether.Controllers
         }
 
         [HttpGet]
-        public IActionResult Chat()
+        public IActionResult Chat(int friendId)
         {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
+            ChatViewModel chat = new ChatViewModel();
+            chat.UserId = Convert.ToInt32(HttpContext.Request.Cookies["UserId"]);
+            chat.FriendId = friendId;
+            chat.MessageList = _userService.GetMessage(Convert.ToInt32(HttpContext.Request.Cookies["UserId"]), friendId);
+            return View("Chat",chat);
+        }
+
+        [HttpGet]
+        public IActionResult Editprofile()
+        {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Chats()
+        {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
             return View();
         }
     }

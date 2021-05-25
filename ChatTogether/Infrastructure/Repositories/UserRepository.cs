@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace ChatTogether.Infrastructure.Repositories
 {
@@ -165,6 +166,25 @@ namespace ChatTogether.Infrastructure.Repositories
         public IEnumerable<Acquaintance> GetPendingFriends(int id)
         {
             return _context.Acquaintances.Where(x => x.AcquaintanceId == id && string.IsNullOrEmpty(x.ConfirmationDate.ToString()));
+        }
+
+        public async Task SendMessage(int userId,int friendId, string message)
+        {
+            Message msg = new Message()
+            {
+                Content = message,
+                SenderId = userId,
+                ReceiverId = friendId,
+                CreationDate = DateTime.Now
+            };
+
+            _context.Messages.Add(msg);
+            await _context.SaveChangesAsync();
+        }
+
+        public IEnumerable<Message> GetMessage(int userId, int friendId)
+        {
+            return _context.Messages.Where(x =>( x.SenderId == userId && x.ReceiverId == friendId) || (x.ReceiverId == userId && x.SenderId == friendId));
         }
 
     }

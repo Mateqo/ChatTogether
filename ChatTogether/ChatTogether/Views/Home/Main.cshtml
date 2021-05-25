@@ -13,11 +13,11 @@
         <div class="nav__profile-imgcover"></div>
         <p class="nav__profile-nickname mb-0">@{if (Context.Request.Cookies["FullName"] == null) {@ViewBag.FullName} else {@Context.Request.Cookies["FullName"] } }</p>
         <p class="nav__profile-nickname">@{if (Context.Request.Cookies["NickName"] == null){@ViewBag.NickName}else{@Context.Request.Cookies["NickName"] }}</p>
-        <button href="#" class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
+        <button id="edit"  class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
     </div>
 
     <div class="nav__menu">
-        <button href="#" class="nav__menu-item btn-style">
+        <button class="nav__menu-item btn-style">
             <i class="fas fa-comment-dots nav__menu-item-icon"></i> Rozmowy
         </button>
 
@@ -49,4 +49,5 @@
 
 <a id="logOutClick" hidden="hidden" href="@Url.Action("LogOut","Home")"></a>
 <a id="friendClick" hidden="hidden" href="@Url.Action("Friends","Home")"></a>
+<a id="editClick" hidden="hidden" href="@Url.Action("Editprofile","Home")"></a>
 
