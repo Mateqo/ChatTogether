@@ -81,13 +81,13 @@
                     else
                     {
                         <div class="chat-textarea__msg chat-textarea__msg-r">@message.Content</div>
-                        }
                     }
-
                 }
+
             }
-        </div>
-            @*<div class="chat-textarea__msg chat-textarea__msg-l">asd</div>*@
+        }
+    </div>
+    @*<div class="chat-textarea__msg chat-textarea__msg-l">asd</div>*@
     <div class="chat-sendarea">
         <textarea name="message" id="messageInput" cols="30" rows="1" class="chat-sendarea__input"></textarea>
         @*<input type="text" class="chat-sendarea__input">*@
@@ -96,8 +96,8 @@
     </div>
 </main>
 @*<p id="userIdVal" val="@Model.UserId" value="@Model.UserId" hidden="hidden">@Model.UserId</p>*@
-<input type="text" id="userIdVal" value="@Model.UserId" hidden="hidden"/>
-<input type="text" id="friendIdVal" value="@Model.FriendId" hidden="hidden"/>
+<input type="text" id="userIdVal" value="@Model.UserId" hidden="hidden" />
+<input type="text" id="friendIdVal" value="@Model.FriendId" hidden="hidden" />
 
 <script>
     window.scrollTo(0, document.body.scrollHeight);
@@ -120,6 +120,43 @@
         });
     }
 </script>
+
+
+
+<!--<main class="chat">
+    <div class="chat-header">
+        <p class="chat-header__nickname">adamchick</p>
+    </div>
+    <div class="chat-textarea">
+
+        <div class="msg msg-l">
+            <div class="msg-content msg-content-l">
+                <img src="/img/deafultphoto.jpg" alt="profile photo" class="msg-photo">
+                <div class="msg-text msg-text-l">asdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+            </div>
+            <span class="msg-author">adamchick</span>
+        </div>
+        <div class="msg msg-r">
+            <div class="msg-content msg-content-r">
+                <img src="/img/deafultphoto.jpg" alt="profile photo" class="msg-photo">
+                <div class="msg-text msg-text-r">asdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+            </div>
+            <span class="msg-author">adamchick</span>
+        </div>
+
+
+    </div>
+    <div class="chat-sendarea">
+        <textarea name="message" id="message" cols="30" rows="1" class="chat-sendarea__input"></textarea>-->
+        <!-- <input type="text" class="chat-sendarea__input"> -->
+        <!--<button class="btn-style chat-sendarea__btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</main>-->
+
+
+
+
+
 
 <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/chat.js"></script>

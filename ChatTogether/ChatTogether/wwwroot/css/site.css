@@ -1077,6 +1077,7 @@ body {
 
 .chat-textarea {
     width: 100%;
+    height: 100vh;
     padding: 0.2em;
     background-color: #f8f8f8;
     display: -webkit-box;
@@ -1116,6 +1117,186 @@ body {
 }
 
 .chat-sendarea {
+    /*position: -webkit-sticky;*/
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #eee;
+    padding: 0.8em 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    border-top: 1px solid #000;
+}
+
+.chat-sendarea__input {
+    width: 80%;
+    margin: 0 0.5em;
+    padding: 0.3em 0.5em;
+    border-radius: 0.5em;
+    word-break: break-all;
+}
+
+.chat-sendarea__btn {
+    height: 2.2em;
+    width: 20%;
+    margin: 0 0.5em;
+    padding: 0.3em;
+}
+
+
+/*.chat {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.chat-header {
+    position: fixed;
+    top: 0;
+    height: 7%;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid #000;
+    z-index: 3;
+    opacity: 100;
+    background-color: #eee;
+}
+
+.chat-header__nickname {
+    margin: 0;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.chat-textarea {
+    width: 100%;
+    height: 100%;
+    padding: 0.2em;
+    background-color: #f8f8f8;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.msg {
+    position: relative;
+    max-width: 100%;
+    padding: 0.2em 0.4em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.msg-l {
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+}
+
+.msg-r {
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+}
+
+    .msg-r > span {
+        -ms-flex-item-align: end;
+        align-self: flex-end;
+    }
+
+.msg-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0.2em;
+    border-radius: 8px;
+}
+
+.msg-content-l {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.msg-content-r {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+.msg-photo {
+    height: 2.5em;
+    width: 2.5em;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #42b7c0;
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+}
+
+.msg-text {
+    margin: 0 0.3em;
+    padding: 0.2em 0.4em;
+    border-radius: 0.5em;
+    max-width: 75%;
+    color: #fff;
+    word-break: break-all;
+}
+
+.msg-text-l {
+    background-color: #9f069c;
+    border: 1px solid #42b7c0;
+}
+
+.msg-text-r {
+    background-color: #42b7c0;
+    border: 1px solid #9f069c;
+}
+
+.msg-l {
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+}
+
+.chat-sendarea {
     position: -webkit-sticky;
     position: sticky;
     bottom: 0;
@@ -1143,7 +1324,10 @@ body {
     width: 20%;
     margin: 0 0.5em;
     padding: 0.3em;
-}
+}*/
+
+
+
 
 .chats__header {
     display: -webkit-box;
