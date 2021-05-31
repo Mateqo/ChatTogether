@@ -1149,27 +1149,28 @@ body {
 
 /*.chat {
     position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    height: 100vh;
+    width: 100vw;
+    max-width: 1200px;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -ms-grid-rows: 0.1fr 2.7fr 0.2fr;
+    grid-template-rows: 0.1fr 2.7fr 0.2fr;
+    gap: 0px 0px;
+    grid-template-areas: "."
+        "."
+        ".";
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    height: 100vh;
+    margin: 0 auto;
 }
 
 .chat-header {
-    position: fixed;
-    top: 0;
-    height: 7%;
-    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1192,24 +1193,12 @@ body {
 }
 
 .chat-textarea {
-    width: 100%;
-    height: 100%;
     padding: 0.2em;
     background-color: #f8f8f8;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
+    overflow-y: auto;
 }
 
 .msg {
-    position: relative;
     max-width: 100%;
     padding: 0.2em 0.4em;
     display: -webkit-box;
@@ -1237,6 +1226,7 @@ body {
     }
 
 .msg-content {
+    min-height: 2.5em;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1273,6 +1263,7 @@ body {
 }
 
 .msg-text {
+    min-height: 1em;
     margin: 0 0.3em;
     padding: 0.2em 0.4em;
     border-radius: 0.5em;
@@ -1297,9 +1288,6 @@ body {
 }
 
 .chat-sendarea {
-    position: -webkit-sticky;
-    position: sticky;
-    bottom: 0;
     width: 100%;
     background-color: #eee;
     padding: 0.8em 0;
@@ -1324,8 +1312,8 @@ body {
     width: 20%;
     margin: 0 0.5em;
     padding: 0.3em;
-}*/
-
+}
+*/
 
 
 
