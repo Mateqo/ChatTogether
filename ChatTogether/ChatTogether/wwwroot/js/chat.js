@@ -16,7 +16,7 @@ connection.on("ReceiveMessage", function (userId, userNick, friendId, friendNick
     else {
         document.getElementById("messagesList").innerHTML += "<div class=\"msg msg-r\"><div class=\"msg-content msg-content-r\"><img src=\"/img/deafultphoto.jpg\" alt=\"profile photo\" class=\"msg-photo\" /><div class=\"msg-text msg-text-r\">" + msg + "</div></div><span class=\"msg-author\">" + userNick + "</span></div>"
     }
-    window.scrollTo(0, document.body.scrollHeight);
+    window.scrollTo(0, document.getElementsById("messagesList").scrollHeight);
 });
 
 connection.start().then(function () {
