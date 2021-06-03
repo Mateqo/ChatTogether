@@ -5,6 +5,8 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 //Disable send button until connection is established
 document.getElementById("sendButton").disabled = true;
 
+
+
 connection.on("ReceiveMessage", function (userId, userNick, friendId, friendNick, message) {
     var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     var encodedMsg = msg;
@@ -16,7 +18,8 @@ connection.on("ReceiveMessage", function (userId, userNick, friendId, friendNick
     else {
         document.getElementById("messagesList").innerHTML += "<div class=\"msg msg-r\"><div class=\"msg-content msg-content-r\"><img src=\"/img/deafultphoto.jpg\" alt=\"profile photo\" class=\"msg-photo\" /><div class=\"msg-text msg-text-r\">" + msg + "</div></div><span class=\"msg-author\">" + userNick + "</span></div>"
     }
-    window.scrollTo(0, document.getElementsById("messagesList").scrollHeight);
+    $(".chat-textarea").animate({ scrollTop: $("#messagesList").height() }, "fast");
+
 });
 
 connection.start().then(function () {
@@ -34,6 +37,9 @@ connection.start().then(function () {
         return console.error(err.toString());
     });
     event.preventDefault();
+    $(".chat-textarea").animate({ scrollTop: $("#messagesList").height() }, "fast");
+
+
 }).catch(function (err) {
     return console.error(err.toString());
 });

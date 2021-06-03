@@ -16,70 +16,73 @@
                 {@ViewBag.FullName}
             else
             {@Context.Request.Cookies["FullName"] } }
-    </p>
-    <p class="nav__profile-nickname">
-        @{if (Context.Request.Cookies["NickName"] == null)
-            {@ViewBag.NickName}
-        else
-        {@Context.Request.Cookies["NickName"] }}
-</p>
-<button id="edit" class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
-</div>
+        </p>
+        <p class="nav__profile-nickname">
+            @{if (Context.Request.Cookies["NickName"] == null)
+                {@ViewBag.NickName}
+            else
+            {@Context.Request.Cookies["NickName"] }}
+        </p>
+        <button id="edit" class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
+    </div>
 
-<div class="nav__menu">
-    <button class="nav__menu-item btn-style">
-        <i class="fas fa-comment-dots nav__menu-item-icon"></i> Rozmowy
-    </button>
+    <div class="nav__menu">
+        <button class="nav__menu-item btn-style">
+            <i class="fas fa-comment-dots nav__menu-item-icon"></i> Rozmowy
+        </button>
 
-    <button id="friends" class="nav__menu-item btn-style">
-        <i class="fas fa-users nav__menu-item-icon"></i> Znajomi
-    </button>
-</div>
-<div class="nav__logout">
-    <button class="nav__logout-item btn-style" id="logOut">
-        <i class="fas fa-sign-out-alt nav__menu-item-icon"></i> Wyloguj
-    </button>
-    <button class="nav__logout-item btn-style">
-        <i class="fas fa-cog nav__menu-item-icon"></i> Ustawienia
-    </button>
-</div>
+        <button id="friends" class="nav__menu-item btn-style">
+            <i class="fas fa-users nav__menu-item-icon"></i> Znajomi
+        </button>
+    </div>
+    <div class="nav__logout">
+        <button class="nav__logout-item btn-style" id="logOut">
+            <i class="fas fa-sign-out-alt nav__menu-item-icon"></i> Wyloguj
+        </button>
+        <button class="nav__logout-item btn-style">
+            <i class="fas fa-cog nav__menu-item-icon"></i> Ustawienia
+        </button>
+    </div>
 </nav>
 
 <main class="chat">
     <div class="chat-header">
         <p class="chat-header__nickname">@Model.FriendFullName</p>
     </div>
-    <div class="chat-textarea" id="messagesList">
-        @{ if (Model.MessageList.Count() > 0)
-            {
-                foreach (var message in Model.MessageList)
+    <div class="chat-textarea">
+        <div id="messagesList">
+            @{ if (Model.MessageList.Count() > 0)
                 {
-                    if (message.SenderId < message.ReceiverId)
+                    foreach (var message in Model.MessageList)
                     {
-                        <div class="msg msg-l">
-                            <div class="msg-content msg-content-l">
-                                <img src="/img/deafultphoto.jpg" alt="profile photo" class="msg-photo" />
-                                <div class="msg-text msg-text-l">@message.Content</div>
+                        if (message.SenderId < message.ReceiverId)
+                        {
+                            <div class="msg msg-l">
+                                <div class="msg-content msg-content-l">
+                                    <img src="/img/deafultphoto.jpg" alt="profile photo" class="msg-photo" />
+                                    <div class="msg-text msg-text-l">@message.Content</div>
+                                </div>
+                                <span class="msg-author">@message.SenderNick</span>
                             </div>
-                            <span class="msg-author">@message.SenderNick</span>
-                        </div>
-                        @*<div class="chat-textarea__msg chat-textarea__msg-l">@message.Content</div>*@
-                    }
-                    else
-                    {
-                        <div class="msg msg-r">
-                            <div class="msg-content msg-content-r">
-                                <img src="/img/deafultphoto.jpg" alt="profile photo" class="msg-photo" />
-                                <div class="msg-text msg-text-r">@message.Content</div>
+                            @*<div class="chat-textarea__msg chat-textarea__msg-l">@message.Content</div>*@
+                        }
+                        else
+                        {
+                            <div class="msg msg-r">
+                                <div class="msg-content msg-content-r">
+                                    <img src="/img/deafultphoto.jpg" alt="profile photo" class="msg-photo" />
+                                    <div class="msg-text msg-text-r">@message.Content</div>
+                                </div>
+                                <span class="msg-author">@message.SenderNick</span>
                             </div>
-                            <span class="msg-author">@message.SenderNick</span>
-                        </div>
-                        @*<div class="chat-textarea__msg chat-textarea__msg-r">@message.Content</div>*@
+                            @*<div class="chat-textarea__msg chat-textarea__msg-r">@message.Content</div>*@
+                        }
                     }
-                }
 
+                }
             }
-        }
+        </div>
+       
     </div>
     <div class="chat-sendarea">
         <textarea name="message" id="messageInput" cols="30" rows="1" class="chat-sendarea__input"></textarea>
@@ -142,6 +145,6 @@
 
 
 
-
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
 <script src="~/js/chat.js"></script>
