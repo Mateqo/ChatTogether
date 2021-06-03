@@ -226,6 +226,10 @@ namespace ChatTogether.Controllers
             ChatViewModel chat = new ChatViewModel();
             chat.UserId = Convert.ToInt32(HttpContext.Request.Cookies["UserId"]);
             chat.FriendId = friendId;
+            var friend = _userService.GetUserById(friendId);
+            chat.FriendFullName = friend.Name + " " + friend.Surname + " (" + friend.Nickname + ")";
+            chat.FriendNick = friend.Nickname;
+            chat.UserNick = _userService.GetUserById(Convert.ToInt32(HttpContext.Request.Cookies["UserId"])).Nickname;
             chat.MessageList = _userService.GetMessage(Convert.ToInt32(HttpContext.Request.Cookies["UserId"]), friendId);
             return View("Chat",chat);
         }

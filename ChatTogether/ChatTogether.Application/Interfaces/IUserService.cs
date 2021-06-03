@@ -34,5 +34,6 @@ namespace ChatTogether.Application.Interfaces
         List<UserGetItem> CheckSend(List<UserGetItem> userList, string id);
         Task SendMessage(int userId, int friendId, string message);
         IEnumerable<MessagesListItem> GetMessage(int userId, int friendId);
+        User GetUserById(int id);
     }
 }

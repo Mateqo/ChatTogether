@@ -11,11 +11,11 @@ public class Chat : Hub
         _userService = userService;
     }
 
-    public async Task SendMessage(string userId, string friendId, string message, string room)
+    public async Task SendMessage(string userId, string userNick, string friendId,string friendNick, string message, string room)
     {
         await _userService.SendMessage(Convert.ToInt32(userId), Convert.ToInt32(friendId), message);
-        await JoinRoom(room);
-        await Clients.Group(room).SendAsync("ReceiveMessage", Convert.ToInt32(userId), Convert.ToInt32(friendId), message);
+        //await JoinRoom(room);
+        await Clients.Group(room).SendAsync("ReceiveMessage", Convert.ToInt32(userId), userNick, Convert.ToInt32(friendId), friendId, message);
     }
 
     public Task JoinRoom(string roomName)

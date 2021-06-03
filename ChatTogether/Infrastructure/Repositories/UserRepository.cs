@@ -184,7 +184,7 @@ namespace ChatTogether.Infrastructure.Repositories
 
         public IEnumerable<Message> GetMessage(int userId, int friendId)
         {
-            return _context.Messages.Where(x =>( x.SenderId == userId && x.ReceiverId == friendId) || (x.ReceiverId == userId && x.SenderId == friendId));
+            return _context.Messages.Where(x =>( x.SenderId == userId && x.ReceiverId == friendId) || (x.ReceiverId == userId && x.SenderId == friendId)).Include(x=>x.Receiver);
         }
 
     }

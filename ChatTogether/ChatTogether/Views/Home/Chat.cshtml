@@ -1,73 +1,53 @@
 ﻿
 @model ChatTogether.Application.ViewModels.Chat.ChatViewModel;
-@*<div class="container">
-        <div class="row">&nbsp;</div>
-        <div class="row">
-            <div class="col-2">User</div>
-            <div class="col-4"><input type="text" id="userInput" /></div>
-        </div>
-        <div class="row">
-            <div class="col-2">Message</div>
-            <div class="col-4"><input type="text" id="messageInput" /></div>
-        </div>
-        <div class="row">&nbsp;</div>
-        <div class="row">
-            <div class="col-6">
-                <input type="button" id="sendButton" value="Send Message" />
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <hr />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <ul id="messagesList"></ul>
-        </div>
-    </div>*@
-
 <!-- NAVIGATION  -->
-
 <button class="burger">
     <i class="fas fa-bars"></i>
     <i class="fas fa-times  hide"></i>
 </button>
+
 <div class="nav-shadow"></div>
 <nav class="nav">
     <div class="nav__profile">
-        <img src="img/deafultphoto.jpg" alt="profile photo" class="nav__profile-img">
+        <img src="/img/deafultphoto.jpg" alt="profile photo" class="nav__profile-img">
         <div class="nav__profile-imgcover"></div>
-        <p class="nav__profile-nickname">Bartosz Adamczyk</p>
-        <button href="#" class="nav__profile-edit btn-style">
-            <i class="fas fa-user-edit nav__menu-item-icon"></i>
-            Edytuj Profil
-        </button>
-    </div>
+        <p class="nav__profile-nickname mb-0">
+            @{if (Context.Request.Cookies["FullName"] == null)
+                {@ViewBag.FullName}
+            else
+            {@Context.Request.Cookies["FullName"] } }
+    </p>
+    <p class="nav__profile-nickname">
+        @{if (Context.Request.Cookies["NickName"] == null)
+            {@ViewBag.NickName}
+        else
+        {@Context.Request.Cookies["NickName"] }}
+</p>
+<button id="edit" class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
+</div>
 
-    <div class="nav__menu">
-        <button href="#" class="nav__menu-item btn-style">
-            <i class="fas fa-comment-dots nav__menu-item-icon"></i> Rozmowy
-        </button>
+<div class="nav__menu">
+    <button class="nav__menu-item btn-style">
+        <i class="fas fa-comment-dots nav__menu-item-icon"></i> Rozmowy
+    </button>
 
-        <button href="#" class="nav__menu-item btn-style">
-            <i class="fas fa-users nav__menu-item-icon"></i> Znajomi
-        </button>
-    </div>
-    <div class="nav__logout">
-        <button href="#" class="nav__logout-item btn-style">
-            <i class="fas fa-sign-out-alt nav__menu-item-icon"></i> Wyloguj
-        </button>
-        <button href="#" class="nav__logout-item btn-style">
-            <i class="fas fa-cog nav__menu-item-icon"></i> Ustawienia
-        </button>
-    </div>
+    <button id="friends" class="nav__menu-item btn-style">
+        <i class="fas fa-users nav__menu-item-icon"></i> Znajomi
+    </button>
+</div>
+<div class="nav__logout">
+    <button class="nav__logout-item btn-style" id="logOut">
+        <i class="fas fa-sign-out-alt nav__menu-item-icon"></i> Wyloguj
+    </button>
+    <button class="nav__logout-item btn-style">
+        <i class="fas fa-cog nav__menu-item-icon"></i> Ustawienia
+    </button>
+</div>
 </nav>
 
 <main class="chat">
     <div class="chat-header">
-        <p class="chat-header__nickname">adamchick</p>
+        <p class="chat-header__nickname">@Model.FriendFullName</p>
     </div>
     <div class="chat-textarea" id="messagesList">
         @{ if (Model.MessageList.Count() > 0)
@@ -76,28 +56,43 @@
                 {
                     if (message.SenderId < message.ReceiverId)
                     {
-                        <div class="chat-textarea__msg chat-textarea__msg-l">@message.Content</div>
+                        <div class="msg msg-l">
+                            <div class="msg-content msg-content-l">
+                                <img src="/img/deafultphoto.jpg" alt="profile photo" class="msg-photo" />
+                                <div class="msg-text msg-text-l">@message.Content</div>
+                            </div>
+                            <span class="msg-author">@message.SenderNick</span>
+                        </div>
+                        @*<div class="chat-textarea__msg chat-textarea__msg-l">@message.Content</div>*@
                     }
                     else
                     {
-                        <div class="chat-textarea__msg chat-textarea__msg-r">@message.Content</div>
+                        <div class="msg msg-r">
+                            <div class="msg-content msg-content-r">
+                                <img src="/img/deafultphoto.jpg" alt="profile photo" class="msg-photo" />
+                                <div class="msg-text msg-text-r">@message.Content</div>
+                            </div>
+                            <span class="msg-author">@message.SenderNick</span>
+                        </div>
+                        @*<div class="chat-textarea__msg chat-textarea__msg-r">@message.Content</div>*@
                     }
                 }
 
             }
         }
     </div>
-    @*<div class="chat-textarea__msg chat-textarea__msg-l">asd</div>*@
     <div class="chat-sendarea">
         <textarea name="message" id="messageInput" cols="30" rows="1" class="chat-sendarea__input"></textarea>
-        @*<input type="text" class="chat-sendarea__input">*@
-        @*<input type="button" class="btn-style chat-sendarea__btn" id="sendButton" value="Send Message" />*@
         <button id="sendButton" class="btn-style chat-sendarea__btn" value="Send Message"><i class="fas fa-paper-plane"></i></button>
     </div>
 </main>
-@*<p id="userIdVal" val="@Model.UserId" value="@Model.UserId" hidden="hidden">@Model.UserId</p>*@
+<a id="logOutClick" hidden="hidden" href="@Url.Action("LogOut","Home")"></a>
+<a id="friendClick" hidden="hidden" href="@Url.Action("Friends","Home")"></a>
+<a id="editClick" hidden="hidden" href="@Url.Action("Editprofile","Home")"></a>
 <input type="text" id="userIdVal" value="@Model.UserId" hidden="hidden" />
 <input type="text" id="friendIdVal" value="@Model.FriendId" hidden="hidden" />
+<input type="text" id="userNickVal" value="@Model.UserNick" hidden="hidden" />
+<input type="text" id="friendNickVal" value="@Model.FriendNick" hidden="hidden" />
 
 <script>
     window.scrollTo(0, document.body.scrollHeight);
@@ -123,13 +118,8 @@
 
 
 
-@*<main class="chat">
-    <div class="chat-header">
-        <p class="chat-header__nickname">adamchick</p>
-    </div>
 
-
-    <div class="chat-textarea">
+@*<div class="chat-textarea">
 
         <div class="msg msg-l">
             <div class="msg-content msg-content-l">
@@ -146,13 +136,7 @@
             <span class="msg-author">adamchick</span>
         </div>
 
-    </div>
-    <div class="chat-sendarea">
-        <textarea name="message" id="message" cols="30" rows="1" class="chat-sendarea__input"></textarea>
-        <button class="btn-style chat-sendarea__btn"><i class="fas fa-paper-plane"></i></button>
-    </div>
-</main>*@
-
+    </div>*@
 
 
 

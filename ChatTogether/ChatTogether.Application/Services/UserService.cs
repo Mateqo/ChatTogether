@@ -128,6 +128,11 @@ namespace ChatTogether.Application.Services
             return _userRepo.GetUser(nickName);
         }
 
+        public User GetUserById(int id)
+        {
+            return _userRepo.GetUserById(id);
+        }
+
         public void AcceptFriend(string userId, int friendId)
         {
             _userRepo.AcceptFriend(Convert.ToInt32(userId), friendId);
@@ -289,7 +294,9 @@ namespace ChatTogether.Application.Services
                 {
                     Id = item.Id,
                     SenderId = item.SenderId,
+                    SenderNick = item.Sender.Nickname,
                     ReceiverId = item.ReceiverId,
+                    ReceiverNick = item.Receiver.Nickname,
                     Content = item.Content,
                     CreationDate = item.CreationDate,
                     ReceivementDate = item.ReceivementDate
