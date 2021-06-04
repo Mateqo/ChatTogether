@@ -206,10 +206,11 @@ namespace ChatTogether.Controllers
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
 
-            var firendsVieModel = _userService.GetFriendList(HttpContext.Request.Cookies["UserId"]);
-            return View("Friends", firendsVieModel);
+            var friendsViewModel = _userService.GetFriendList(HttpContext.Request.Cookies["UserId"]);
+            return View("Friends", friendsViewModel);
         }
 
+        [HttpGet]
         public IActionResult AccountConfirmation()
         {
             _userService.AccountConfirmation(Url.ActionContext.RouteData.Values["id"].ToString());
@@ -242,6 +243,35 @@ namespace ChatTogether.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ChangeNickname(UserEditProfile userEditProfile)
+        {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
+            if (!_userService.CheckNameUniqueness(userEditProfile.NewNickname))
+            {
+                ModelState.AddModelError("NewNickname", "Użytkownik o podanej nazwie już istnieje");
+            }
+            if (!_userService.IsSucceslogin(HttpContext.Request.Cookies["NickName"], userEditProfile.CurrentPassword))
+            {
+                ModelState.AddModelError("CurrentPassword", "Hasło niepoprawne");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _userService.ChangeNickname(HttpContext.Request.Cookies["UserId"], userEditProfile.NewNickname);
+            }
+            else
+            {
+                SetMessage("Niepoprawne dane", Application.ViewModels.Base.MessageType.Error);
+            }
+            return RedirectToAction("Editprofile");
+        }
+
+
 
         [HttpGet]
         public IActionResult Chats()
