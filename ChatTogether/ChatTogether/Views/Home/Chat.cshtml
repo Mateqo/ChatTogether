@@ -55,7 +55,7 @@
                 {
                     foreach (var message in Model.MessageList)
                     {
-                        if (message.SenderId < message.ReceiverId)
+                        if (message.SenderId != Convert.ToInt32(Context.Request.Cookies["UserId"]))
                         {
                             <div class="msg msg-l">
                                 <div class="msg-content msg-content-l">

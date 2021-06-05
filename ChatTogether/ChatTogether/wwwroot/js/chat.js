@@ -5,6 +5,11 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 //Disable send button until connection is established
 document.getElementById("sendButton").disabled = true;
 
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
 
 
 connection.on("ReceiveMessage", function (userId, userNick, friendId, friendNick, message) {
@@ -12,7 +17,8 @@ connection.on("ReceiveMessage", function (userId, userNick, friendId, friendNick
     var encodedMsg = msg;
     var li = document.createElement("div");
     li.textContent = encodedMsg;
-    if (userId < friendId) {
+    var currentUser = getCookie("UserId");
+    if (userId != currentUser) {
         document.getElementById("messagesList").innerHTML += "<div class=\"msg msg-l\"><div class=\"msg-content msg-content-l\"><img src=\"/img/deafultphoto.jpg\" alt=\"profile photo\" class=\"msg-photo\" /><div class=\"msg-text msg-text-l\">" + msg + "</div></div><span class=\"msg-author\">" + userNick + "</span></div>"
     }
     else {
@@ -59,10 +65,6 @@ document.getElementById("sendButton").addEventListener("click", function (event)
 
     var message = document.getElementById("messageInput").value;
     if (message.length > 0 && message.match(/^ *$/) === null) {
-        console.log(message);
-        console.log(userId);
-        console.log(friendId);
-        console.log(room);
         connection.invoke("SendMessage", userId, userNick, friendId, friendNick, message, room).catch(function (err) {
             return console.error(err.toString());
         });

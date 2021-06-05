@@ -15,7 +15,7 @@ public class Chat : Hub
     {
         await _userService.SendMessage(Convert.ToInt32(userId), Convert.ToInt32(friendId), message);
         //await JoinRoom(room);
-        await Clients.Group(room).SendAsync("ReceiveMessage", Convert.ToInt32(userId), userNick, Convert.ToInt32(friendId), friendId, message);
+        await Clients.Group(room).SendAsync("ReceiveMessage", Convert.ToInt32(userId), userNick, Convert.ToInt32(friendId), friendNick, message);
     }
 
     public Task JoinRoom(string roomName)
