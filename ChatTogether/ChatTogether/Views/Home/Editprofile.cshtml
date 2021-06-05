@@ -1,4 +1,5 @@
-﻿<!-- NAVIGATION  -->
+﻿@model ChatTogether.Application.ViewModels.User.UserEditProfile;
+<!-- NAVIGATION  -->
 
 <button class="burger">
     <i class="fas fa-bars"></i>
@@ -90,17 +91,17 @@
                 </div>
                 <div class="modal-body editprofile__modal-nickname">
                     <p class="editprofile__modal-paragraph">Twój nickname: </p>
-                    <p class="editprofile__modal-paragraph fw-bold">(adamchick)</p>
+                    <p class="editprofile__modal-paragraph fw-bold">@Context.Request.Cookies["NickName"]</p>
                     <p class="editprofile__modal-paragraph">Wprowadź nowy nickname: </p>
                     <div class="editprofile__modal-nickname-input">
                         <input type="text" class="modal-input">
                     </div>
 
-                <div class="editprofile__modal-password-input editprofile__modal-password-actual">
-                    <label for="password" class="form-label">Potwierdź hasłem:  </label>
-                    <input type="password" id="password" class="modal-input  mb-4">
-                </div>
-                        <button class="btn-style addfriends-button btn-special-animation">zatwierdź</button>
+                    <div class="editprofile__modal-password-input editprofile__modal-password-actual">
+                        <label for="password" class="form-label">Potwierdź hasłem:  </label>
+                        <input type="password" id="password" class="modal-input  mb-4">
+                    </div>
+                    <button class="btn-style addfriends-button btn-special-animation">zatwierdź</button>
                 </div>
 
 
@@ -160,10 +161,10 @@
                         <input type="email" id="email" class="modal-input">
                     </div>
 
-                <div class="editprofile__modal-password-input editprofile__modal-password-actual">
-                    <label for="password" class="form-label">Potwierdź hasłem:  </label>
-                    <input type="password" id="password" class="modal-input mb-4">
-                </div>
+                    <div class="editprofile__modal-password-input editprofile__modal-password-actual">
+                        <label for="password" class="form-label">Potwierdź hasłem:  </label>
+                        <input type="password" id="password" class="modal-input mb-4">
+                    </div>
                     <button class="btn-style addfriends-button btn-special-animation">zatwierdź</button>
                 </div>
 

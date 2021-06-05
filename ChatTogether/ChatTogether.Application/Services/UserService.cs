@@ -307,5 +307,10 @@ namespace ChatTogether.Application.Services
             return messageListViewModel;
         }
 
+        public void ChangeNickname(string userId, string newNickname)
+        {
+            _userRepo.ChangeNicknameForUser(Convert.ToInt32(userId), newNickname);
+        }
+
     }
 }
