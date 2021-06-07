@@ -309,7 +309,14 @@ namespace ChatTogether.Application.Services
 
         public void ChangeNickname(string userId, string newNickname)
         {
-            _userRepo.ChangeNicknameForUser(Convert.ToInt32(userId), newNickname);
+            var user = _userRepo.GetUserById(Convert.ToInt32(userId));
+            _userRepo.ChangeNicknameForUser(user, newNickname);
+        }
+
+        public void ChangeEmail(string userId, string newEmail)
+        {
+            var user = _userRepo.GetUserById(Convert.ToInt32(userId));
+            _userRepo.ChangeEmailForUser(user, newEmail);
         }
 
         public void ChangePassword(string userId, string newPassword)

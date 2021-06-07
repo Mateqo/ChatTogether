@@ -36,6 +36,7 @@ namespace ChatTogether.Application.Interfaces
         IEnumerable<MessagesListItem> GetMessage(int userId, int friendId);
         User GetUserById(int id);
         void ChangeNickname(string userId, string newNickname);
+        void ChangeEmail(string userId, string newEmail);
         void ChangePassword(string userId, string newPassword);
     }
 }

@@ -29,7 +29,8 @@ namespace ChatTogether.Domain.Interface
         User GetUserByEmail(string email);
         Task SendMessage(int userId, int friendId, string message);
         IEnumerable<Message> GetMessage(int userId, int friendId);
-        void ChangeNicknameForUser(int userId, string newNickname);
-        void ChangePasswordForUser(Model.User user, string encryptedPassword);
+        void ChangeNicknameForUser(User user, string newNickname);
+        void ChangeEmailForUser(User user, string newEmail);
+        void ChangePasswordForUser(User user, string encryptedPassword);
     }
 }

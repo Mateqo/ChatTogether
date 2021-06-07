@@ -273,6 +273,33 @@ namespace ChatTogether.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        public IActionResult ChangeEmail(UserEditProfile userEditProfile)
+        {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
+
+            if (!_userService.CheckEmailUniqueness(userEditProfile.NewEmail))
+            {
+                ModelState.AddModelError("NewEmail", "Email zajęty");
+            }
+            if (!_userService.IsSucceslogin(HttpContext.Request.Cookies["NickName"], userEditProfile.CurrentPassword))
+            {
+                ModelState.AddModelError("CurrentPassword", "Hasło niepoprawne");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _userService.ChangeEmail(HttpContext.Request.Cookies["UserId"], userEditProfile.NewEmail);
+            }
+            else
+            {
+                SetMessage("Niepoprawne dane", Application.ViewModels.Base.MessageType.Error);
+            }
+            return RedirectToAction("Editprofile");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult ChangePassword(UserEditProfile userEditProfile)
         {
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
@@ -280,7 +307,7 @@ namespace ChatTogether.Controllers
 
             if (!_userService.IsSucceslogin(HttpContext.Request.Cookies["NickName"], userEditProfile.CurrentPassword))
             {
-                ModelState.AddModelError("CurrentPassword", "Hasło niepoprawne");
+                ModelState.AddModelError("CurrentPassword", "Stare hasło niepoprawne");
             }
 
             if (ModelState.IsValid)
