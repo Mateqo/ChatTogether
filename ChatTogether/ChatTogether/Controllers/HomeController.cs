@@ -271,7 +271,28 @@ namespace ChatTogether.Controllers
             return RedirectToAction("Editprofile");
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ChangePassword(UserEditProfile userEditProfile)
+        {
+            if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
+                return View("BadRequest");
 
+            if (!_userService.IsSucceslogin(HttpContext.Request.Cookies["NickName"], userEditProfile.CurrentPassword))
+            {
+                ModelState.AddModelError("CurrentPassword", "Hasło niepoprawne");
+            }
+
+            if (ModelState.IsValid)
+            {
+                _userService.ChangePassword(HttpContext.Request.Cookies["UserId"], userEditProfile.NewPassword);
+            }
+            else
+            {
+                SetMessage("Niepoprawne dane", Application.ViewModels.Base.MessageType.Error);
+            }
+            return RedirectToAction("Editprofile");
+        }
 
         [HttpGet]
         public IActionResult Chats()

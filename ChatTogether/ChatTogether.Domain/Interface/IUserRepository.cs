@@ -30,5 +30,6 @@ namespace ChatTogether.Domain.Interface
         Task SendMessage(int userId, int friendId, string message);
         IEnumerable<Message> GetMessage(int userId, int friendId);
         void ChangeNicknameForUser(int userId, string newNickname);
+        void ChangePasswordForUser(Model.User user, string encryptedPassword);
     }
 }

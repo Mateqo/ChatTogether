@@ -312,5 +312,23 @@ namespace ChatTogether.Application.Services
             _userRepo.ChangeNicknameForUser(Convert.ToInt32(userId), newNickname);
         }
 
+        public void ChangePassword(string userId, string newPassword)
+        {
+            SHA256 encryption = SHA256.Create();
+            StringBuilder EncPass = new StringBuilder();
+
+            var user = _userRepo.GetUserById(Convert.ToInt32(userId));
+
+            var encPassBytes = encryption.ComputeHash(
+                    Encoding.ASCII.GetBytes(
+                        newPassword + _userRepo.GetSalt(user.Nickname)));
+
+            for (int i = 0; i < encPassBytes.Length; i++)
+            {
+                EncPass.Append(encPassBytes[i].ToString("x2"));
+            }
+
+            _userRepo.ChangePasswordForUser(user, EncPass.ToString());
+        }
     }
 }

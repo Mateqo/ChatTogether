@@ -194,5 +194,11 @@ namespace ChatTogether.Infrastructure.Repositories
             _context.SaveChanges();
         }
 
+        public void ChangePasswordForUser(User user, string encryptedPassword)
+        {
+            user.EncryptedPassword = encryptedPassword;
+            _context.SaveChanges();
+        }
+
     }
 }
