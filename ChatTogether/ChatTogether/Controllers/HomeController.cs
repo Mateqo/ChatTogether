@@ -263,6 +263,7 @@ namespace ChatTogether.Controllers
             if (ModelState.IsValid)
             {
                 _userService.ChangeNickname(HttpContext.Request.Cookies["UserId"], userEditProfile.NewNickname);
+                SetMessage("Login został zmieniony", Application.ViewModels.Base.MessageType.Success);
             }
             else
             {
@@ -286,10 +287,15 @@ namespace ChatTogether.Controllers
             {
                 ModelState.AddModelError("CurrentPassword", "Hasło niepoprawne");
             }
+            if (userEditProfile.NewEmail != userEditProfile.NewEmailRep)
+            {
+                ModelState.AddModelError("NewEmailRep", "E-maile różnią się");
+            }
 
             if (ModelState.IsValid)
             {
                 _userService.ChangeEmail(HttpContext.Request.Cookies["UserId"], userEditProfile.NewEmail);
+                SetMessage("E-mail został zmieniony", Application.ViewModels.Base.MessageType.Success);
             }
             else
             {
@@ -310,9 +316,15 @@ namespace ChatTogether.Controllers
                 ModelState.AddModelError("CurrentPassword", "Stare hasło niepoprawne");
             }
 
+            if(userEditProfile.NewPassword != userEditProfile.NewPasswordRep)
+            {
+                ModelState.AddModelError("NewPasswordRep", "Hasła nie są takie same");
+            }
+
             if (ModelState.IsValid)
             {
                 _userService.ChangePassword(HttpContext.Request.Cookies["UserId"], userEditProfile.NewPassword);
+                SetMessage("Hasło zostało zmienione", Application.ViewModels.Base.MessageType.Success);
             }
             else
             {

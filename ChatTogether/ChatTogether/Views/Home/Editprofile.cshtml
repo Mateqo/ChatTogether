@@ -90,18 +90,20 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body editprofile__modal-nickname">
-                    <p class="editprofile__modal-paragraph">Twój nickname: </p>
-                    <p class="editprofile__modal-paragraph fw-bold">@Context.Request.Cookies["NickName"]</p>
-                    <p class="editprofile__modal-paragraph">Wprowadź nowy nickname: </p>
-                    <div class="editprofile__modal-nickname-input">
-                        <input type="text" class="modal-input">
-                    </div>
+                    <form asp-controller="Home" asp-action="ChangeNickname">
+                        <p class="editprofile__modal-paragraph">Twój nickname: </p>
+                        <p class="editprofile__modal-paragraph fw-bold">@Context.Request.Cookies["NickName"]</p>
+                        <p class="editprofile__modal-paragraph">Wprowadź nowy nickname: </p>
+                        <div class="editprofile__modal-nickname-input">
+                            <input type="text" class="modal-input" asp-for="NewNickname">
+                        </div>
 
-                    <div class="editprofile__modal-password-input editprofile__modal-password-actual">
-                        <label for="password" class="form-label">Potwierdź hasłem:  </label>
-                        <input type="password" id="password" class="modal-input  mb-4">
-                    </div>
-                    <button class="btn-style addfriends-button btn-special-animation">zatwierdź</button>
+                        <div class="editprofile__modal-password-input editprofile__modal-password-actual">
+                            <label for="password" class="form-label">Potwierdź hasłem:  </label>
+                            <input type="password" id="password" class="modal-input mb-4" asp-for="CurrentPassword">
+                        </div>
+                        <button class="btn-style addfriends-button btn-special-animation">zatwierdź</button>
+                    </form>
                 </div>
 
 
@@ -121,18 +123,24 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body editprofile__modal-password">
+                    <form asp-controller="Home" asp-action="ChangePassword">
+                        <div class="editprofile__modal-password-actual">
+                            <label for="password" class="form-label">Hasło:  </label>
+                            <input type="password" id="password" class="modal-input" asp-for="NewPassword">
+                        </div>
 
-                    <div class="editprofile__modal-password-actual">
-                        <label for="password" class="form-label">Hasło:  </label>
-                        <input type="password" id="password" class="modal-input">
-                    </div>
+                        <div class="editprofile__modal-password-next mb-4">
+                            <label for="password" class="form-label">Powtórz hasło:  </label>
+                            <input type="password" id="password" class="modal-input" asp-for="NewPasswordRep">
+                        </div>
 
-                    <div class="editprofile__modal-password-next mb-4">
-                        <label for="password" class="form-label">Powtórz hasło:  </label>
-                        <input type="password" id="password" class="modal-input">
-                    </div>
-                    <button class="btn-style addfriends-button btn-special-animation">zatwierdź</button>
+                        <div class="editprofile__modal-password-input editprofile__modal-password-actual">
+                            <label for="password" class="form-label">Aktualne hasło:  </label>
+                            <input type="password" id="password" class="modal-input mb-4" asp-for="CurrentPassword">
+                        </div>
 
+                        <button class="btn-style addfriends-button btn-special-animation">zatwierdź</button>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn-style addfriends-button btn-special-animation" data-bs-dismiss="modal">zamknij</button>
@@ -150,22 +158,23 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body editprofile__modal-mail">
+                    <form asp-controller="Home" asp-action="ChangeEmail">
+                        <div class="editprofile__modal-mail-actual">
+                            <label for="email" class="form-label">Email:   </label>
+                            <input type="email" id="email" class="modal-input" asp-for="NewEmail">
+                        </div>
 
-                    <div class="editprofile__modal-mail-actual">
-                        <label for="email" class="form-label">Email:   </label>
-                        <input type="email" id="email" class="modal-input">
-                    </div>
+                        <div class="editprofile__modal-mail-new">
+                            <label for="email" class="form-label">Powtórz email:   </label>
+                            <input type="email" id="email" class="modal-input" asp-for="NewEmailRep">
+                        </div>
 
-                    <div class="editprofile__modal-mail-new">
-                        <label for="email" class="form-label">Powtórz email:   </label>
-                        <input type="email" id="email" class="modal-input">
-                    </div>
-
-                    <div class="editprofile__modal-password-input editprofile__modal-password-actual">
-                        <label for="password" class="form-label">Potwierdź hasłem:  </label>
-                        <input type="password" id="password" class="modal-input mb-4">
-                    </div>
-                    <button class="btn-style addfriends-button btn-special-animation">zatwierdź</button>
+                        <div class="editprofile__modal-password-input editprofile__modal-password-actual">
+                            <label for="password" class="form-label">Potwierdź hasłem:  </label>
+                            <input type="password" id="password" class="modal-input mb-4" asp-for="CurrentPassword">
+                        </div>
+                        <button class="btn-style addfriends-button btn-special-animation">zatwierdź</button>
+                    </form>
                 </div>
 
 

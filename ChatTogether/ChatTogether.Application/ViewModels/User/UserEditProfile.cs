@@ -10,9 +10,11 @@ namespace ChatTogether.Application.ViewModels.User
     public class UserEditProfile
     {
         public string CurrentPassword { get; set; }
-        public string NewNickname {get;set;}
+        public string NewNickname { get; set; }
         public string NewPassword { get; set; }
+        public string NewPasswordRep { get; set; }
         public string NewEmail { get; set; }
+        public string NewEmailRep { get; set; }
 
     }
 
