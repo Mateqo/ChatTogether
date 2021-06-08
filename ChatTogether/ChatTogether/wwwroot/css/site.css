@@ -1594,7 +1594,7 @@ body {
     flex-direction: column;
 }
 
-.editprofile__modal-nickname-input {
+/*.editprofile__modal-nickname-input {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1611,7 +1611,7 @@ body {
     height: 20vh;
     -ms-flex-pack: distribute;
     justify-content: space-around;
-}
+}*/
 
 .editprofile__modal-nickname-inputbutton {
     margin-top: 0.2em;
