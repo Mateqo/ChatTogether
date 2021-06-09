@@ -11,9 +11,15 @@
     <div class="nav__profile">
         <img src="/img/deafultphoto.jpg" alt="profile photo" class="nav__profile-img">
         <div class="nav__profile-imgcover"></div>
-        <p class="nav__profile-nickname mb-0">@{if (Context.Request.Cookies["FullName"] == null) {@ViewBag.FullName} else {@Context.Request.Cookies["FullName"] } }</p>
-        <p class="nav__profile-nickname">@{if (Context.Request.Cookies["NickName"] == null){@ViewBag.NickName}else{@Context.Request.Cookies["NickName"] }}</p>
-        <button id="edit"  class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
+        <p class="nav__profile-nickname mb-0">@{if (Context.Request.Cookies["FullName"] == null)
+            {@ViewBag.FullName}
+        else
+        {@Context.Request.Cookies["FullName"] } }</p>
+        <p class="nav__profile-nickname">@{if (Context.Request.Cookies["NickName"] == null)
+            {@ViewBag.NickName}
+        else
+        {@Context.Request.Cookies["NickName"] }}</p>
+        <button id="edit" class="nav__profile-edit btn-style"><i class="fas fa-user-edit nav__menu-item-icon"></i> Edytuj Profil</button>
     </div>
 
     <div class="nav__menu">
@@ -33,11 +39,12 @@
             <i class="fas fa-cog nav__menu-item-icon"></i> Ustawienia
         </button>
     </div>
+
 </nav>
 
 <main class="main">
     <div class="main__logo wrapper">
-        <img src="/img/logo.png" alt="chattogether logo" class="main__logo-img" >
+        <img src="/img/logo.png" alt="chattogether logo" class="main__logo-img">
         @*<a href="Chats.cshtml">asdf</a>*@
     </div>
     <div class="main__buttons">
@@ -45,9 +52,103 @@
         <div class="main__buttons-btn btn-style"><i class="fas fa-user-plus" style="margin-right: 5px;"></i> Dodaj Znajomego</div>
 
     </div>
+    <div class="API-wrapper">
+        <div class="API-weather">
+            <div class="city">
+                <h3 class="city-name">Wrocław</h3>
+                <div class="API-inputs">
+                    <input type="text" placeholder="Wpisz nazwę miasta..." class="API-input modal-input"> <button class="API-btn btn-style">Wyślij</button>
+                </div>
+                <p class="warning"></p>
+            </div>
+            <img src="/img/cloud.png" alt="Obrazek przedstawiający pogodę" class="API-photo">
+            <p class="temp"></p>
+        </div>
+    </div>
 </main>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    const input = document.querySelector('.API-input');
+    const btn = document.querySelector('.API-btn');
+
+    const cityName = document.querySelector('.city-name');
+    const warning = document.querySelector('.warning');
+    const photo = document.querySelector('.API-photo');
+
+    const temperature = document.querySelector('.temp');
+
+    const apiLink = 'https://api.openweathermap.org/data/2.5/weather?q=';
+    const apiKey = '&appid=007570aa17fea7ee78998548c7af665b';
+    const units = '&units=metric';
+
+    let city;
+    let url;
+
+    const getWeather = () => {
+        city = (!input.value) ? 'Wrocław' : input.value;
+        url = apiLink + city + apiKey + units;
+
+        axios.get(url)
+            .then(res => {
+                const temp = res.data.main.temp;
+                /*const hum = res.data.main.humidity;*/
+                const status = Object.assign({}, ...res.data.weather);
+
+                cityName.textContent = res.data.name;
+                //weather.textContent = status.main;
+                temperature.textContent = Math.floor(temp) + '°C';
+                //humidity.textContent = hum + '%';
+
+                warning.textContent = '';
+                input.value = '';
+
+                if (status.id >= 200 && status.id < 300) {
+                    photo.setAttribute('src', '/img/thunderstorm.png');
+                }
+                else if (status.id >= 300 && status.id < 400) {
+                    photo.setAttribute('src', '/img/drizzle.png');
+                }
+                else if (status.id >= 500 && status.id < 600) {
+                    photo.setAttribute('src', '/img/rain.png');
+                }
+                else if (status.id >= 600 && status.id < 700) {
+                    photo.setAttribute('src', '/img/ice.png');
+                }
+                else if (status.id >= 700 && status.id < 800) {
+                    photo.setAttribute('src', '/img/fog.png');
+                }
+                else if (status.id === 800) {
+                    photo.setAttribute('src', '/img/sun.png');
+                }
+                else if (status.id > 800 && status.id < 900) {
+                    photo.setAttribute('src', '/img/cloud.png');
+                }
+                else {
+                    photo.setAttribute('src', '/img/unknown.png');
+                }
+
+
+                console.log(status);
+            })
+            .catch(() => warning.textContent = 'Wpisz Poprawną nazwę miasta!');
+    };
+
+    const enterCheck = () => {
+        if (event.keyCode === 13) {
+            getWeather();
+        }
+    };
+
+    getWeather();
+    btn.addEventListener('click', getWeather);
+    input.addEventListener('keyup', enterCheck);
+
+
+</script>
 
 <a id="logOutClick" hidden="hidden" href="@Url.Action("LogOut","Home")"></a>
 <a id="friendClick" hidden="hidden" href="@Url.Action("Friends","Home")"></a>
 <a id="editClick" hidden="hidden" href="@Url.Action("Editprofile","Home")"></a>
+
+
 
