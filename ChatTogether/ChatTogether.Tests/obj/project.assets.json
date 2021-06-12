@@ -1648,6 +1648,46 @@
         "build": {
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
+      },
+      "ChatTogether.Application/1.0.0": {
+        "type": "project",
+        "framework": "Unsupported,Version=v0.0",
+        "compile": {
+          "bin/placeholder/ChatTogether.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ChatTogether.Application.dll": {}
+        }
+      },
+      "ChatTogether.Domain/1.0.0": {
+        "type": "project",
+        "framework": "Unsupported,Version=v0.0",
+        "compile": {
+          "bin/placeholder/ChatTogether.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ChatTogether.Domain.dll": {}
+        }
+      },
+      "ChatTogether.Web/1.0.0": {
+        "type": "project",
+        "framework": "Unsupported,Version=v0.0",
+        "compile": {
+          "bin/placeholder/ChatTogether.Web.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ChatTogether.Web.dll": {}
+        }
+      },
+      "Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": "Unsupported,Version=v0.0",
+        "compile": {
+          "bin/placeholder/Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -5554,10 +5594,34 @@
         "xunit.runner.visualstudio.2.4.3.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "ChatTogether.Application/1.0.0": {
+      "type": "project",
+      "path": "../ChatTogether.Application/ChatTogether.Application.csproj",
+      "msbuildProject": "../ChatTogether.Application/ChatTogether.Application.csproj"
+    },
+    "ChatTogether.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ChatTogether.Domain/ChatTogether.Domain.csproj",
+      "msbuildProject": "../ChatTogether.Domain/ChatTogether.Domain.csproj"
+    },
+    "ChatTogether.Web/1.0.0": {
+      "type": "project",
+      "path": "../ChatTogether/ChatTogether.Web.csproj",
+      "msbuildProject": "../ChatTogether/ChatTogether.Web.csproj"
+    },
+    "Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Infrastructure/Infrastructure.csproj",
+      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "ChatTogether.Application >= 1.0.0",
+      "ChatTogether.Domain >= 1.0.0",
+      "ChatTogether.Web >= 1.0.0",
+      "Infrastructure >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.7.1",
       "coverlet.collector >= 1.3.0",
       "xunit >= 2.4.1",
@@ -5565,19 +5629,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\adamchick3010\\.nuget\\packages\\": {}
+    "C:\\Users\\flx70\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
       "projectName": "ChatTogether.Tests",
-      "projectPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
-      "packagesPath": "C:\\Users\\adamchick3010\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adamchick3010\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\obj\\",
+      "projectPath": "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\ChatTogether.Tests.csproj",
+      "packagesPath": "C:\\Users\\flx70\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Tests\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\adamchick3010\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\flx70\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5590,7 +5659,20 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Application\\ChatTogether.Application.csproj": {
+              "projectPath": "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Application\\ChatTogether.Application.csproj"
+            },
+            "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj": {
+              "projectPath": "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether.Domain\\ChatTogether.Domain.csproj"
+            },
+            "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether\\ChatTogether.Web.csproj": {
+              "projectPath": "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\ChatTogether\\ChatTogether.Web.csproj"
+            },
+            "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\flx70\\Source\\Repos\\ChatTogether\\ChatTogether\\Infrastructure\\Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -5639,8 +5721,46 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project ChatTogether.Domain is not compatible with netcoreapp3.1 (.NETCoreApp,Version=v3.1). Project ChatTogether.Domain supports: net5.0 (.NETCoreApp,Version=v5.0)",
+      "libraryId": "ChatTogether.Domain",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project ChatTogether.Web is not compatible with netcoreapp3.1 (.NETCoreApp,Version=v3.1). Project ChatTogether.Web supports: net5.0 (.NETCoreApp,Version=v5.0)",
+      "libraryId": "ChatTogether.Web",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project ChatTogether.Application is not compatible with netcoreapp3.1 (.NETCoreApp,Version=v3.1). Project ChatTogether.Application supports: net5.0 (.NETCoreApp,Version=v5.0)",
+      "libraryId": "ChatTogether.Application",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    },
+    {
+      "code": "NU1201",
+      "level": "Error",
+      "message": "Project Infrastructure is not compatible with netcoreapp3.1 (.NETCoreApp,Version=v3.1). Project Infrastructure supports: net5.0 (.NETCoreApp,Version=v5.0)",
+      "libraryId": "Infrastructure",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

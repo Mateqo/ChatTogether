@@ -19,4 +19,11 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ChatTogether.Application\ChatTogether.Application.csproj" />
+    <ProjectReference Include="..\ChatTogether.Domain\ChatTogether.Domain.csproj" />
+    <ProjectReference Include="..\ChatTogether\ChatTogether.Web.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

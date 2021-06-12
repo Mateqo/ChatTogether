@@ -8,7 +8,7 @@ namespace ChatTogether.Tests
         [Fact]
         public void Test1()
         {
-
+            
         }
     }
 }
