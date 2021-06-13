@@ -5,7 +5,7 @@ using System;
 
 namespace ChatTogether.Application.ViewModels.User
 {
-    public class UserRegister : IMapFrom<ChatTogether.Domain.Model.User>
+    public class UserRegister 
     {
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -19,10 +19,6 @@ namespace ChatTogether.Application.ViewModels.User
         public bool Policy { get; set; }
         public bool Rodo { get; set; }
 
-        public void Mapping(MappingProfile profile)
-        {
-            profile.CreateMap<ChatTogether.Domain.Model.User, UserLogin>().ReverseMap();
-        }
     }
 
     public class UserRegisterValidator : FluentValidation.AbstractValidator<UserRegister>
