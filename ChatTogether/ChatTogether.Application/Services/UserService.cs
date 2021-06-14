@@ -17,12 +17,10 @@ namespace ChatTogether.Application.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepo;
-        private readonly IMapper _mapper;
 
-        public UserService(IUserRepository userRepo, IMapper mapper)
+        public UserService(IUserRepository userRepo)
         {
             _userRepo = userRepo;
-            _mapper = mapper;
         }
 
         //Tutaj definiujemy logikę apliakcji
