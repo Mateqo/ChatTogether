@@ -1,4 +1,7 @@
 ﻿@model ChatTogether.Application.ViewModels.User.UserEditProfile;
+
+    <partial name="_AlertPanel" />
+
 <!-- NAVIGATION  -->
 
 <button class="burger">
@@ -101,13 +104,15 @@
                         <p class="editprofile__modal-paragraph">Twój nickname: </p>
                         <p class="editprofile__modal-paragraph fw-bold">@Context.Request.Cookies["NickName"]</p>
                         <div class="editprofile__modal-nickname-input w-75">
-                        <p class="editprofile__modal-paragraph">Wprowadź nowy nickname: </p>
+                            <p class="editprofile__modal-paragraph">Wprowadź nowy nickname: </p>
                             <input type="text" class="modal-input w-100" asp-for="NewNickname">
+                            <span asp-validation-for="NewNickname" class="text-danger"></span>
                         </div>
 
                         <div class="editprofile__modal-password-input editprofile__modal-password-actual w-75">
                             <label for="password" class="form-label">Potwierdź hasłem:  </label>
                             <input type="password" id="password" class="modal-input mb-4 w-100" asp-for="CurrentPassword">
+                            <span asp-validation-for="CurrentPassword" class="text-danger"></span>
                         </div>
                         <button class="btn-style addfriends-button btn-special-animation w-75 py-2">zatwierdź</button>
                     </form>
@@ -134,16 +139,19 @@
                         <div class="editprofile__modal-password-actual w-75">
                             <label for="password" class="form-label">Hasło:  </label>
                             <input type="password" id="password" class="modal-input w-100" asp-for="NewPassword">
+                            <span asp-validation-for="NewPassword" class="text-danger"></span>
                         </div>
 
                         <div class="editprofile__modal-password-next mb-4 w-75">
                             <label for="password" class="form-label">Powtórz hasło:  </label>
                             <input type="password" id="password" class="modal-input w-100" asp-for="NewPasswordRep">
+                            <span asp-validation-for="NewPasswordRep" class="text-danger"></span>
                         </div>
 
                         <div class="editprofile__modal-password-input editprofile__modal-password-actual w-75">
                             <label for="password" class="form-label">Aktualne hasło:  </label>
                             <input type="password" id="password" class="modal-input mb-4 w-100" asp-for="CurrentPassword">
+                            <span asp-validation-for="CurrentPassword" class="text-danger"></span>
                         </div>
 
                         <button class="btn-style addfriends-button btn-special-animation w-75 py-2">zatwierdź</button>
@@ -169,16 +177,19 @@
                         <div class="editprofile__modal-mail-actual w-75">
                             <label for="email" class="form-label">Email:   </label>
                             <input type="email" id="email" class="modal-input w-100" asp-for="NewEmail">
+                            <span asp-validation-for="NewEmail" class="text-danger"></span>
                         </div>
 
                         <div class="editprofile__modal-mail-new w-75">
                             <label for="email" class="form-label">Powtórz email:   </label>
                             <input type="email" id="email" class="modal-input w-100" asp-for="NewEmailRep">
+                            <span asp-validation-for="NewEmailRep" class="text-danger"></span>
                         </div>
 
                         <div class="editprofile__modal-password-input editprofile__modal-password-actual w-75">
                             <label for="password" class="form-label">Potwierdź hasłem:  </label>
                             <input type="password" id="password" class="modal-input mb-4 w-100" asp-for="CurrentPassword">
+                            <span asp-validation-for="CurrentPassword" class="text-danger"></span>
                         </div>
                         <button class="btn-style addfriends-button btn-special-animation w-75 py-2">zatwierdź</button>
                     </form>

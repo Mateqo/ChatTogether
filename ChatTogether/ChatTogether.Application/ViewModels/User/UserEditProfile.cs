@@ -22,10 +22,11 @@ namespace ChatTogether.Application.ViewModels.User
     {
         public UserEditProfileValidator()
         {
-            RuleFor(x => x.CurrentPassword).NotEmpty().WithMessage("Wymagane aktualne hasło");
-            RuleFor(x => x.NewNickname).NotEmpty().WithMessage("Wymagana nazwa użytkownika");
-            RuleFor(x => x.NewEmail).NotEmpty().WithMessage("Wymagany adres email");
-            RuleFor(x => x.NewPassword).NotEmpty().WithMessage("Wymagane nowe haslo");
+            RuleFor(x => x.NewNickname).Length(4, 15).WithMessage("Niepoprawna długosc");
+            RuleFor(x => x.NewEmail).EmailAddress().WithMessage("Niepoprawny e-mail");
+            RuleFor(x => x.NewEmailRep).EmailAddress().WithMessage("Niepoprawny e-mail");
+            RuleFor(x => x.NewPassword).Length(6, 10).WithMessage("Niepoprawna dlugosc");
+            RuleFor(x => x.NewPasswordRep).Length(6, 10).WithMessage("Niepoprawna dlugosc");
         }
 
     }

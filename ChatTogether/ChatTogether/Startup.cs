@@ -60,6 +60,7 @@ namespace ChatTogether
             //Fluent Validation
             services.AddTransient<IValidator<UserLogin>, UserLoginValidator>();
             services.AddTransient<IValidator<UserRegister>, UserRegisterValidator>();
+            services.AddTransient<IValidator<UserEditProfile>, UserEditProfileValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

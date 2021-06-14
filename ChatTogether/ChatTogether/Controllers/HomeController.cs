@@ -248,26 +248,39 @@ namespace ChatTogether.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ChangeNickname(UserEditProfile userEditProfile)
         {
+            string message = "Błąd: ";
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
 
-            if (!_userService.CheckNameUniqueness(userEditProfile.NewNickname))
-            {
-                ModelState.AddModelError("NewNickname", "Użytkownik o podanej nazwie już istnieje");
-            }
             if (!_userService.IsSucceslogin(HttpContext.Request.Cookies["NickName"], userEditProfile.CurrentPassword))
             {
                 ModelState.AddModelError("CurrentPassword", "Hasło niepoprawne");
+                message += "Hasło niepoprawne";
+            }
+            else if (string.IsNullOrWhiteSpace(userEditProfile.NewNickname))
+            {
+                ModelState.AddModelError("NewNickname", "Proszę wprowadzić dane");
+                message += "Proszę wprowadzić dane";
+            }
+            else if (!_userService.CheckNameUniqueness(userEditProfile.NewNickname))
+            {
+                ModelState.AddModelError("NewNickname", "Użytkownik o podanej nazwie już istnieje");
+                message += "Użytkownik o podanej nazwie już istnieje";
             }
 
             if (ModelState.IsValid)
             {
                 _userService.ChangeNickname(HttpContext.Request.Cookies["UserId"], userEditProfile.NewNickname);
+                HttpContext.Response.Cookies.Append("NickName", userEditProfile.NewNickname);
                 SetMessage("Login został zmieniony", Application.ViewModels.Base.MessageType.Success);
             }
             else
             {
-                SetMessage("Niepoprawne dane", Application.ViewModels.Base.MessageType.Error);
+                if (message == "Błąd: ")
+                {
+                    message += "Wprowadzony login jest nieodpowiedniej długości";
+                }
+                SetMessage(message, Application.ViewModels.Base.MessageType.Error);
             }
             return RedirectToAction("Editprofile");
         }
@@ -276,20 +289,29 @@ namespace ChatTogether.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ChangeEmail(UserEditProfile userEditProfile)
         {
+            string message = "Błąd: ";
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
 
-            if (!_userService.CheckEmailUniqueness(userEditProfile.NewEmail))
-            {
-                ModelState.AddModelError("NewEmail", "Email zajęty");
-            }
             if (!_userService.IsSucceslogin(HttpContext.Request.Cookies["NickName"], userEditProfile.CurrentPassword))
             {
                 ModelState.AddModelError("CurrentPassword", "Hasło niepoprawne");
+                message += "Hasło niepoprawne";
+            }
+            else if (string.IsNullOrWhiteSpace(userEditProfile.NewEmail) || string.IsNullOrWhiteSpace(userEditProfile.NewEmailRep))
+            {
+                ModelState.AddModelError("NewEmail", "Proszę wprowadzić dane");
+                message += "Proszę wprowadzić dane";
+            }
+            else if (!_userService.CheckEmailUniqueness(userEditProfile.NewEmail))
+            {
+                ModelState.AddModelError("NewEmail", "Email zajęty");
+                message += "Email zajęty";
             }
             if (userEditProfile.NewEmail != userEditProfile.NewEmailRep)
             {
                 ModelState.AddModelError("NewEmailRep", "E-maile różnią się");
+                message += "Podane Emaile różnią się od siebie";
             }
 
             if (ModelState.IsValid)
@@ -299,7 +321,11 @@ namespace ChatTogether.Controllers
             }
             else
             {
-                SetMessage("Niepoprawne dane", Application.ViewModels.Base.MessageType.Error);
+                if (message == "Błąd: ")
+                {
+                    message += "Wprowadzony mail jest błędny";
+                }
+                SetMessage(message, Application.ViewModels.Base.MessageType.Error);
             }
             return RedirectToAction("Editprofile");
         }
@@ -308,17 +334,24 @@ namespace ChatTogether.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ChangePassword(UserEditProfile userEditProfile)
         {
+            string message = "Błąd: ";
             if (!_userService.ValidateUser(HttpContext.Request.Cookies["NickName"], HttpContext.Request.Cookies["UserId"], HttpContext.Request.Cookies["Token"]))
                 return View("BadRequest");
 
             if (!_userService.IsSucceslogin(HttpContext.Request.Cookies["NickName"], userEditProfile.CurrentPassword))
             {
                 ModelState.AddModelError("CurrentPassword", "Stare hasło niepoprawne");
+                message += "Stare hasło niepoprawne";
             }
-
-            if(userEditProfile.NewPassword != userEditProfile.NewPasswordRep)
+            else if (string.IsNullOrWhiteSpace(userEditProfile.NewPassword) || string.IsNullOrWhiteSpace(userEditProfile.NewPasswordRep))
+            {
+                ModelState.AddModelError("NewPassword", "Proszę wprowadzić dane");
+                message += "Proszę wprowadzić dane";
+            }
+            else if(userEditProfile.NewPassword != userEditProfile.NewPasswordRep)
             {
                 ModelState.AddModelError("NewPasswordRep", "Hasła nie są takie same");
+                message += "Hasła nie są takie same";
             }
 
             if (ModelState.IsValid)
@@ -328,7 +361,11 @@ namespace ChatTogether.Controllers
             }
             else
             {
-                SetMessage("Niepoprawne dane", Application.ViewModels.Base.MessageType.Error);
+                if(message == "Błąd: ")
+                {
+                    message += "Wprowadzone hasło jest nieodpowiedniej długości";
+                }
+                SetMessage(message, Application.ViewModels.Base.MessageType.Error);
             }
             return RedirectToAction("Editprofile");
         }
